@@ -1,0 +1,6 @@
+prob rocket fac p,bar=68,ac/at=1.00,
+super=25,50, pi/pe=10,68
+reac
+  fuel = CH4  moles=0.05 t(k)= 298.15
+  oxid = N2O  moles=1.00 t(k)= 298.15
+end

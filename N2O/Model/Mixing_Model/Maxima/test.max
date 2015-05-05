@@ -1,0 +1,12 @@
+/* Gas_O2: 4.83[kg/s], Tg[K],   7.35[kg/m^3] */
+/* Gas_N2: 4.83[kg/s], Tg[K],  12.56[kg/m^3] */
+/* Liq_O2:   23[kg/s], 90[K], 1149.1[kg/m^3] */
+Liq_D:1*10^(-3)$
+Gas_N2_F:4.83/7.35$
+Gas_O2_F:4.83/12.56$
+Liq_O2_F:23/1149.1$
+Gas_F:Gas_N2_F+Gas_O2_F;
+Liq_F:Liq_O2_F;
+Liq_part_vol:4/3*3.141592*(0.5*Liq_D)^3;
+Liq_part_mas:Liq_part_vol*1149.1;
+Liq_part_num:23/Liq_part_mas;

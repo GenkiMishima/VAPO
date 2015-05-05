@@ -1,0 +1,7 @@
+prob rocket p,bar=68,t,k=3000 ,supersonic,ac/at=5,10,
+equilibrium frozen
+reac
+  fuel = CH4  moles=0.35 t(k)= 298.15
+  oxid = N2O  moles=0.25 t(k)= 298.15
+  oxid = O2   moles=0.75 t(k)= 298.15
+end

@@ -1,0 +1,30 @@
+/*Pysical_Parameter*/
+m_dot:9.5155*10^(-5)$ /*[kg/s]*/
+rho:1.9031$ /*[kg/m^3]*/
+m_vo:m_dot/rho$ /*[m^3/s]*/
+/*Hard_Parameter*/
+pi:3.14159265$  
+rt:0.7$
+radi:15.35*10^(-3)$ /*[m]*/
+Area:pi*radi^2*rt$ /*[m^2]*/
+leng:27*10^(-3)$ /*[m]*/
+/*Velocity*/
+u:m_vo/Area; /*[m/s]*/
+t:leng/u;  /*[s]*/
+
+/*Pysical_Parameter*/
+m_dot:0.315; /*[kg/s]*/
+rho:1.9031$ /*[kg/m^3]*/
+m_vo:m_dot/rho$ /*[m^3/s]*/
+/*Hard_Parameter*/
+pi:3.14159265$  
+radi:26.50*10^(-2)$ /*[m]*/
+Area:pi*radi^2*rt$ /*[m^2]*/
+leng:30*10^(-2)$ /*[m]*/
+/*Velocity*/
+u:m_vo/Area; /*[m/s]*/
+t:leng/u;  /*[s]*/
+
+aa
+leng1:t/u;  /*[s]*/
+

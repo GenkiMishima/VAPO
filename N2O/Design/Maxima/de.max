@@ -1,0 +1,30 @@
+bre_stress:440.0$
+safety:20.0$
+Pressure:10.0$ /*[MPa]*/
+radius:60.0$ /*[mm]*/
+thickness:Pressure*radius*safety/bre_stress;
+
+pi:3.14159265$
+/*[cm]*/
+R3:radius*10^-1;
+R2:R3+thickness*10^-1;
+R4:R3-1;
+R1:R2+3.5;
+L1:2.0 $
+L2:8.0 $
+L3:30.0$
+
+A1:(R1^2-R3^2)*pi*L1$
+A2:(R2^2-R3^2)*pi*L3$
+A3:(R2^2-R4^2)*pi*L2$
+A4:(R1^2-R4^2)*pi*L1$
+A5:A1+A2+A3+A4;
+/*Heavy*/
+Heavy:A5*7.93; /*[g]*/
+Heavy/10^3;
+
+n:12$
+R5:R4*Pressure;
+/*bolt radius*/
+r1:sqrt(Pressure*R5^2/(bre_stress/safety*n));
+r1*2;
