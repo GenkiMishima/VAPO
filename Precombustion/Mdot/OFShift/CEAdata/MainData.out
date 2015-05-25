@@ -1,0 +1,46 @@
+
+ *******************************************************************************
+
+         NASA-GLENN CHEMICAL EQUILIBRIUM PROGRAM CEA2, MAY 21, 2004
+                   BY  BONNIE MCBRIDE AND SANFORD GORDON
+      REFS: NASA RP-1311, PART I, 1994 AND NASA RP-1311, PART II, 1996
+
+ *******************************************************************************
+
+
+
+ prob rocket fac p,bar=1.41,ac/at=7.60998810939,
+ o/f=1.07588686136, pi/pe=1, eq
+ react
+ 	oxid=O2  wt=0.979922261266	t,k=3083.61
+ 	oxid=H2O wt=0.0120466432406	t,k=3083.61
+ 	oxid=CO2 wt=0.00803109549374	t,k=3083.61
+ 	fuel=PMMA  wt=100 t,k=293.15
+ 	h,kj/mol=-442.14  C 5 H 8 O 2
+ end
+
+ OPTIONS: TP=F  HP=F  SP=F  TV=F  UV=F  SV=F  DETN=F  SHOCK=F  REFL=F  INCD=F
+ RKT=T  FROZ=F  EQL=T  IONS=F  SIUNIT=T  DEBUGF=F  SHKDBG=F  DETDBG=T  TRNSPT=F
+
+ TRACE= 0.00E+00  S/R= 0.000000E+00  H/R= 0.000000E+00  U/R= 0.000000E+00
+
+ Pc,BAR =     1.410000
+
+ Pc/P =     1.0000
+
+ SUBSONIC AREA RATIOS =
+
+ SUPERSONIC AREA RATIOS =
+
+ NFZ=  1  Mdot/Ac= 0.000000E+00  Ac/At= 7.609988E+00
+
+    REACTANT          WT.FRAC   (ENERGY/R),K   TEMP,K  DENSITY
+        EXPLODED FORMULA
+ O: O2               0.979922   0.122036E+05  3083.61  0.0000
+          O  2.00000
+ O: H2O              0.012047  -0.131583E+05  3083.61  0.0000
+          H  2.00000  O  1.00000
+ O: CO2              0.008031  -0.283232E+05  3083.61  0.0000
+          C  1.00000  O  2.00000
+ F: PMMA             1.000000  -0.531769E+05   293.15  0.0000
+          C  5.00000  H  8.00000  O  2.00000
