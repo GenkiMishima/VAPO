@@ -1,9 +1,9 @@
-prob rocket fac p,bar=1.41,ac/at=7.60998810939,
-o/f=1.07588686136, pi/pe=1, eq
+prob rocket fac p,bar=7.8,ac/at=9.82666272257,
+o/f=0.947042325772, pi/pe=1, eq
 react
-	oxid=O2  wt=0.979922261266	t,k=3083.61
-	oxid=H2O wt=0.0120466432406	t,k=3083.61
-	oxid=CO2 wt=0.00803109549374	t,k=3083.61
+	oxid=O2  wt=0.979183814233	t,k=426.33
+	oxid=H2O wt=0.0124897114603	t,k=426.33
+	oxid=CO2 wt=0.00832647430686	t,k=426.33
 	fuel=PMMA  wt=100 t,k=293.15
 	h,kj/mol=-442.14  C 5 H 8 O 2
 end

@@ -14,7 +14,7 @@ if __name__ == "__main__":
 	ReadClass = CEAReadPack.Pack()
 	Preinfile  = 'CEAdata/PreData.out'
 	Maininfile = 'CEAdata/MainData.out'
-	Time = 0.5            #[s]
+	Time = 6.0            #[s]
 	dt = 0.1              #[s]
 	now = 0.0             #[s]
 	g0 = 9.80665          #[m/s2]
@@ -24,19 +24,19 @@ if __name__ == "__main__":
 	MdotO = 0.0394         #[kg/s]
 	#Preburner
 	PreLength = 0.01         #[m]
+	#PreLength = 0.011         #[m]
 	PrePhiInit = 30.0*10**(-3.0) #[m]
-	#Length = 1.0*10**(-3.0)  #[m] Initial 
 	PreRhoF = 1.18*10**3.0      #[kg/m3]
 	PreDia_cham = 0.03    #[m]
-	PreDia_nozl = 0.01  #[m]
+	PreDia_nozl = 0.0055  #[m]
+	#PreDia_nozl = 0.01  #[m]
 	PreDia = PreDia_cham
 	PreAdash = PreDia**2.0*math.pi/4.0  #[m2]Port Area
-	PreDia_ratio = (PreDia_cham)**2/(PreDia_nozl)**2
 	PreA_nozl = PreDia_nozl**2*np.pi/4.0
+	PreDia_ratio = PreAdash/PreA_nozl
 
 	#MainChamber
-	MainLength = 0.50         #[m]
-	#Length = 1.0*10**(-3.0)  #[m] Initial 
+	MainLength = 0.60         #[m]
 	MainRhoF = 1.18*10**3.0      #[kg/m3]
 	#MainRhoF = 9.46*10**3.0      #[kg/m3]
 	MainDia_cham = 0.04    #[m]
@@ -51,7 +51,7 @@ if __name__ == "__main__":
 
 	Pres_start  = 1.0        #[bar]
 	Pres_step   = 0.01     #[bar]
-	Pres_end    = 10.0       #[bar]
+	Pres_end    = 15.0       #[bar]
 	Pres_count  = int((Pres_end-Pres_start)/Pres_step)
 
 	wt = 100.0
@@ -103,15 +103,18 @@ if __name__ == "__main__":
 				subcmd.call('./PreGo.sh')
 				Pres,of,Temp,rho,Mole,Gamma,CStar_th = ReadClass.Read1(Preinfile)
 
-
 				PreMdot_th = float(Pres)*10**5*float(PreA_nozl)*float(Gamma)*((2.0/(float(Gamma)+1.0))**((float(Gamma)+1.0)/(float(Gamma)-1.0)))**(1.0/2.0)/(float(Gamma)*8314.3/float(Mole)*float(Temp))**(1.0/2.0)
 				PreResi = abs(PreMtot/PreMdot_th-1.0)
 				#if PreEp<PreResi:
-				if abs(PreResi/PreEp-1.0)<0.001:
+				#print abs(PreMtot/PreMdot_th-1.0),0.001
+				#if abs(PreMtot/PreMdot_th-1.0)<0.001:
+				if (PreMtot/PreMdot_th-1.0)<0.0:
+				#if abs(PreResi/PreEp-1.0)<0.001:
 					print 'Preburner',now,PreOF,PreMdotF,float(Temp),float(Pres)*0.1,P,PreMtot
 					break;
 				PreEp = PreResi
 	
+			PreTemp     = float(Temp)
 			PreAllTime  = np.append(PreAllTime,now)
 			PreAllOF    = np.append(PreAllOF,PreOF)
 			PreAllPres  = np.append(PreAllPres,float(Pres)*0.1)
@@ -120,7 +123,7 @@ if __name__ == "__main__":
 			
 			#MaPreinChamber
 			MainA = MainDia**2.0*math.pi/4.0 #[m2]
-			MainGo = MdotO/MainA             #[kg/sm2]
+			MainGo = PreMtot/MainA             #[kg/sm2]
 			Mainrdot = 0.0345*MainGo**(0.778)*10.0**-3  #[m/s] For Main
 			#Prerdot = 0.1358*PreGo**(0.4161)*10**-3  #[m/s] For 15
 			#Prerdot = 0.00765*Go**(0.9487)*10**-3    #[m/s] For 7.5
@@ -128,10 +131,12 @@ if __name__ == "__main__":
 			MaindA = MainA-MainAdash              #[m2]
 			MaindV = MaindA*MainLength           #[m3]
 			MainMdotF = MaindV*MainRhoF/dt +10**(-30)      #[kg/s]
+			#print MainMdotF
 			MainDia = MainDia+Maindr*2.0
 			MainAdash = MainA
+			MainDia_ratio = MainA/MainA_nozl
 			#MainOF =  MdotO/(PreMdotF+MainMdotF)
-			MainOF =  PreMtot/MainMdotF
+			MainOF   = PreMtot/MainMdotF
 			MainMtot = PreMtot+MainMdotF
 			if MainOF<5.0:
 				MainEp = 100000000.0
@@ -143,11 +148,11 @@ if __name__ == "__main__":
 					fl.write('o/f=%s, pi/pe=1, eq\n'%MainOF)
 					fl.write('react\n')
 					fl.write('	oxid=O2  wt=%s'%PreOxid)
-					fl.write('	t,k=%s\n'%float(Temp))
+					fl.write('	t,k=%s\n'%PreTemp)
 					fl.write('	oxid=H2O wt=%s'%(PreFuel*3.0/5.0))
-					fl.write('	t,k=%s\n'%float(Temp))
+					fl.write('	t,k=%s\n'%PreTemp)
 					fl.write('	oxid=CO2 wt=%s'%(PreFuel*2.0/5.0))
-					fl.write('	t,k=%s\n'%float(Temp))
+					fl.write('	t,k=%s\n'%PreTemp)
 					fl.write('	fuel=PMMA  wt=100 t,k=293.15\n')
 					fl.write('	h,kj/mol=-442.14  C 5 H 8 O 2\n')
 					#fl.write('	fuel=PP  wt=100 t,k=293.15\n')
@@ -161,23 +166,24 @@ if __name__ == "__main__":
 					#print Temp 
 					#print float(Temp)
 					MainMdot_th = float(Pres)*10**5*MainA_nozl*float(Gamma)*((2.0/(float(Gamma)+1.0))**((float(Gamma)+1.0)/(float(Gamma)-1.0)))**(1.0/2.0)/(float(Gamma)*8314.3/float(Mole)*float(Temp))**(1.0/2.0)
-					#if abs(PreMtot/PreMdot_th-1.0)<0.01:
+					#print (MainMtot/MainMdot_th-1.0),0.01
+					if (MainMtot/MainMdot_th-1.0)<0.0:
 					#	break;
-					MainResi = abs(MainMtot/MainMdot_th-1.0)
+					#MainResi = abs(MainMtot/MainMdot_th-1.0)
 					#if MainEp<MainResi:
-					if abs(MainResi/MainEp-1.0)<0.001:
-						Thrust = MainMdot_th*float(Isp)
-						print 'MainChamber',now,MainOF,MainMdotF,float(Temp),float(Pres)*0.1,P,MainMtot,float(Isp),Thrust
+					#if abs(MainResi/MainEp-1.0)<0.003:
+						Thrust = MainMtot*float(Isp)
+						print 'MainChamber',now,MainOF,MainMdotF,float(Temp),P,MainMdot_th,MainMtot,float(Isp),Thrust
 						break;
-					MainEp = MainResi
+					#MainEp = MainResi
 
 				MainAllTime   = np.append(MainAllTime,now)
 				MainAllOF     = np.append(MainAllOF,MainOF)
 				MainAllPres   = np.append(MainAllPres,float(Pres)*0.1)
 				MainAllTemp   = np.append(MainAllTemp,float(Temp))
-				MainAllIsp    = np.append(MainAllIsp,float(Isp))
+				MainAllIsp    = np.append(MainAllIsp,float(Isp)/g0)
 				MainAllMdotF  = np.append(MainAllMdotF,MainMdotF)
-				MainAllThrust = np.append(MainAllThrust,Thrust)
+				#MainAllThrust = np.append(MainAllThrust,Thrust)
 
 
 

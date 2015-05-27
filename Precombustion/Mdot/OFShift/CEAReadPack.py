@@ -68,10 +68,11 @@ class Pack:
 		indat.close()
 		return Pres,of,Temp,rho,Mole,Gamma,CStar_th,Isp
 
-	def MatchMdot(self,Pres,of,Temp,rho,Mole,Gamma,CStar_th):
+	def MatchMdot(self,Pres,of,Temp,rho,Mole,Gamma,CStar_th,A_nozl):
 		Mdot_th = float(Pres)*10**5*float(A_nozl)*float(Gamma)*((2.0/(float(Gamma)+1.0))**((float(Gamma)+1.0)/(float(Gamma)-1.0)))**(1.0/2.0)/(float(Gamma)*8314.3/float(Mole)*float(Temp))**(1.0/2.0)
-		Mdot_rad = (Mdot_th - Mdot_act[i])/Mdot_th
-		CStar_act = Pres_act[i]*10**6*float(A_nozl)/Mdot_act[i]
-		CStar_ratio = CStar_act/float(CStar_th)
-		return [str(Pres_act[i]),str(float(Pres)/10),of,Temp,str(Mdot_th),str(CStar_act),CStar_th,str(CStar_ratio)]
+		#Mdot_rad = (Mdot_th - Mdot_act[i])/Mdot_th
+		#CStar_act = Pres_act[i]*10**6*float(A_nozl)/Mdot_act[i]
+		#CStar_ratio = CStar_act/float(CStar_th)
+		return Mdot_th
+		#return [str(Pres_act[i]),str(float(Pres)/10),of,Temp,str(Mdot_th),str(CStar_act),CStar_th,str(CStar_ratio)]
 		#data_list = [str(Pres_act[i]),str(float(Pres)/10),of,Temp,str(Mdot_th),str(CStar_act),CStar_th,str(CStar_ratio)]
