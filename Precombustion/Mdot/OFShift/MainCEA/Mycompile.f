@@ -121,6 +121,21 @@ C     WRITE (*,99001)
       infile = prefix(1:ln)//'.inp'
       ofile = prefix(1:ln)//'.out'
       Pfile = prefix(1:ln)//'.plt'
+      open (55,file='../CEAdata/Pressure.d') 
+      write(55,*)
+      close(55)
+      open (55,file='../CEAdata/Temperature.d') 
+      write(55,*)
+      close(55)
+      open (55,file='../CEAdata/Gamma.d') 
+      write(55,*)
+      close(55)
+      open (55,file='../CEAdata/Mole.d') 
+      write(55,*)
+      close(55)
+      open (55,file='../CEAdata/isp.d') 
+      write(55,*)
+      close(55)
       INQUIRE (FILE=infile,EXIST=ex)
       IF ( .NOT.ex ) THEN
         PRINT *,infile,' DOES NOT EXIST'
@@ -3196,11 +3211,18 @@ C PRESSURE
         ENDIF
       ENDDO
       WRITE (IOOUT,Fmt) fp,(X(j),j=1,Npt)
+      open(55,file='../CEAdata/Pressure.d',access='append')
+      WRITE (55,*) fp,(X(j),j=1,Npt)
+      close(55)
+
 C TEMPERATURE
       Fmt(4) = '13'
       Fmt(5) = ' '
       Fmt(7) = '2,'
       WRITE (IOOUT,Fmt) 'T, K            ',(Ttt(j),j=1,Npt)
+      open(55,file='../CEAdata/Temperature.d',access='append')
+      WRITE (55,*) 'T, K            ',(Ttt(j),j=1,Npt)
+      close(55)
 C DENSITY
       DO i = 1,Npt
         IF ( Vlm(i).NE.0. ) X(i) = vnum/Vlm(i)
@@ -3250,6 +3272,9 @@ C ENTROPY
 C MOLECULAR WEIGHT
       Fmt(7) = '3,'
       WRITE (IOOUT,Fmt) 'M, (1/n)        ',(Wm(j),j=1,Npt)
+      open(55,file='../CEAdata/Mole.d',access='append')
+      WRITE (55,*) 'M, (1/n)        ',(Wm(j),j=1,Npt)
+      close(55)
       IF ( .NOT.Gonly ) WRITE (IOOUT,Fmt) 'MW, MOL WT      ',
      &                                (1.D0/Totn(j),j=1,Npt)
 C (DLV/DLP)T
@@ -3263,6 +3288,9 @@ C HEAT CAPACITY
 C GAMMA(S)
       Fmt(7) = '4,'
       WRITE (IOOUT,Fmt) 'GAMMAs          ',(Gammas(j),j=1,Npt)
+      open(55,file='../CEAdata/Gamma.d',access='append')
+      WRITE (55,*) 'GAMMAs          ',(Gammas(j),j=1,Npt)
+      close(55)
 C SONIC VELOCITY
       Fmt(7) = '1,'
       DO i = 1,Npt
@@ -3830,6 +3858,10 @@ C VACUUM IMPULSE
       WRITE (IOOUT,Fmt) fiv,(vaci(j),j=2,Npt)
 C SPECIFIC IMPULSE
       WRITE (IOOUT,Fmt) fi,(Spim(j),j=2,Npt)
+      open (55,file='../CEAdata/isp.d',access='append') 
+      WRITE (55,*) fi,(Spim(j),j=2,Npt)
+      close(55)
+      
       IF ( Nplt.GT.0 ) THEN
         Spim(1) = 0
         Aeat(1) = 0

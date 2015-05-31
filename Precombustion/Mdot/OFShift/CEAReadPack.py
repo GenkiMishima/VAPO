@@ -36,7 +36,7 @@ class Pack:
 			inline = indat.readline()
 		
 		indat.close()
-		return Pres,of,Temp,rho,Mole,Gamma,CStar_th
+		return of,Temp,rho,Mole,Gamma,CStar_th
 	def Read2(self,infile):
 		indat = open(infile, 'r')
 		inline = indat.readline()

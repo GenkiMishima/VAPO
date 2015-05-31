@@ -101,23 +101,23 @@ if __name__ == "__main__":
 				fl.write('end')
 				fl.close()
 				subcmd.call('./PreGo.sh')
-				Pres,of,Temp,rho,Mole,Gamma,CStar_th = ReadClass.Read1(Preinfile)
+				of,Temp,rho,Mole,Gamma,CStar_th = ReadClass.Read1(Preinfile)
 
-				PreMdot_th = float(Pres)*10**5*float(PreA_nozl)*float(Gamma)*((2.0/(float(Gamma)+1.0))**((float(Gamma)+1.0)/(float(Gamma)-1.0)))**(1.0/2.0)/(float(Gamma)*8314.3/float(Mole)*float(Temp))**(1.0/2.0)
+				PreMdot_th = P*10**5*float(PreA_nozl)*float(Gamma)*((2.0/(float(Gamma)+1.0))**((float(Gamma)+1.0)/(float(Gamma)-1.0)))**(1.0/2.0)/(float(Gamma)*8314.3/float(Mole)*float(Temp))**(1.0/2.0)
 				PreResi = abs(PreMtot/PreMdot_th-1.0)
 				#if PreEp<PreResi:
 				#print abs(PreMtot/PreMdot_th-1.0),0.001
 				#if abs(PreMtot/PreMdot_th-1.0)<0.001:
 				if (PreMtot/PreMdot_th-1.0)<0.0:
 				#if abs(PreResi/PreEp-1.0)<0.001:
-					print 'Preburner',now,PreOF,PreMdotF,float(Temp),float(Pres)*0.1,P,PreMtot
+					print 'Preburner',now,PreOF,PreMdotF,float(Temp),P,PreMtot
 					break;
 				PreEp = PreResi
 	
 			PreTemp     = float(Temp)
 			PreAllTime  = np.append(PreAllTime,now)
 			PreAllOF    = np.append(PreAllOF,PreOF)
-			PreAllPres  = np.append(PreAllPres,float(Pres)*0.1)
+			PreAllPres  = np.append(PreAllPres,P*0.1)
 			PreAllTemp  = np.append(PreAllTemp,float(Temp))
 			PreAllMdotF = np.append(PreAllMdotF,PreMdotF)
 			

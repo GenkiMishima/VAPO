@@ -18,7 +18,7 @@
  end
 
  OPTIONS: TP=F  HP=F  SP=F  TV=F  UV=F  SV=F  DETN=F  SHOCK=F  REFL=F  INCD=F
- RKT=T  FROZ=F  EQL=T  IONS=F  SIUNIT=T  DEBUGF=F  SHKDBG=F  DETDBG=T  TRNSPT=F
+ RKT=T  FROZ=F  EQL=T  IONS=F  SIUNIT=T  DEBUGF=F  SHKDBG=F  DETDBG=F  TRNSPT=F
 
  TRACE= 0.00E+00  S/R= 0.000000E+00  H/R= 0.000000E+00  U/R= 0.000000E+00
 
@@ -203,7 +203,7 @@
                                                          KJ/KG-MOL      K
  FUEL        CH4                          0.6000000    -74600.000    298.150
  OXIDANT     N2O                          0.5000000     81600.000    298.150
- OXIDANT     O2                           0.5000000        -0.000    298.150
+ OXIDANT     O2                           0.5000000         0.000    298.150
 
  O/F=    3.94846  %FUEL= 20.208310  R,EQ.RATIO= 1.600000  PHI,EQ.RATIO= 1.600000
 
@@ -312,7 +312,7 @@
                                                          KJ/KG-MOL      K
  FUEL        CH4                          0.6000000    -74600.000    298.150
  OXIDANT     N2O                          0.5000000     81600.000    298.150
- OXIDANT     O2                           0.5000000        -0.000    298.150
+ OXIDANT     O2                           0.5000000         0.000    298.150
 
  O/F=    3.94846  %FUEL= 20.208310  R,EQ.RATIO= 1.600000  PHI,EQ.RATIO= 1.600000
 
@@ -421,7 +421,7 @@
                                                          KJ/KG-MOL      K
  FUEL        CH4                          0.6000000    -74600.000    298.150
  OXIDANT     N2O                          0.5000000     81600.000    298.150
- OXIDANT     O2                           0.5000000        -0.000    298.150
+ OXIDANT     O2                           0.5000000         0.000    298.150
 
  O/F=    3.94846  %FUEL= 20.208310  R,EQ.RATIO= 1.600000  PHI,EQ.RATIO= 1.600000
 
@@ -530,7 +530,7 @@
                                                          KJ/KG-MOL      K
  FUEL        CH4                          0.6000000    -74600.000    298.150
  OXIDANT     N2O                          0.5000000     81600.000    298.150
- OXIDANT     O2                           0.5000000        -0.000    298.150
+ OXIDANT     O2                           0.5000000         0.000    298.150
 
  O/F=    3.94846  %FUEL= 20.208310  R,EQ.RATIO= 1.600000  PHI,EQ.RATIO= 1.600000
 
@@ -639,7 +639,7 @@
                                                          KJ/KG-MOL      K
  FUEL        CH4                          0.6000000    -74600.000    298.150
  OXIDANT     N2O                          0.5000000     81600.000    298.150
- OXIDANT     O2                           0.5000000        -0.000    298.150
+ OXIDANT     O2                           0.5000000         0.000    298.150
 
  O/F=    3.94846  %FUEL= 20.208310  R,EQ.RATIO= 1.600000  PHI,EQ.RATIO= 1.600000
 
@@ -748,7 +748,7 @@
                                                          KJ/KG-MOL      K
  FUEL        CH4                          0.6000000    -74600.000    298.150
  OXIDANT     N2O                          0.5000000     81600.000    298.150
- OXIDANT     O2                           0.5000000        -0.000    298.150
+ OXIDANT     O2                           0.5000000         0.000    298.150
 
  O/F=    3.94846  %FUEL= 20.208310  R,EQ.RATIO= 1.600000  PHI,EQ.RATIO= 1.600000
 
@@ -857,7 +857,7 @@
                                                          KJ/KG-MOL      K
  FUEL        CH4                          0.6000000    -74600.000    298.150
  OXIDANT     N2O                          0.5000000     81600.000    298.150
- OXIDANT     O2                           0.5000000        -0.000    298.150
+ OXIDANT     O2                           0.5000000         0.000    298.150
 
  O/F=    3.94846  %FUEL= 20.208310  R,EQ.RATIO= 1.600000  PHI,EQ.RATIO= 1.600000
 
@@ -966,7 +966,7 @@
                                                          KJ/KG-MOL      K
  FUEL        CH4                          0.6000000    -74600.000    298.150
  OXIDANT     N2O                          0.5000000     81600.000    298.150
- OXIDANT     O2                           0.5000000        -0.000    298.150
+ OXIDANT     O2                           0.5000000         0.000    298.150
 
  O/F=    3.94846  %FUEL= 20.208310  R,EQ.RATIO= 1.600000  PHI,EQ.RATIO= 1.600000
 
@@ -1075,7 +1075,7 @@
                                                          KJ/KG-MOL      K
  FUEL        CH4                          0.6000000    -74600.000    298.150
  OXIDANT     N2O                          0.5000000     81600.000    298.150
- OXIDANT     O2                           0.5000000        -0.000    298.150
+ OXIDANT     O2                           0.5000000         0.000    298.150
 
  O/F=    3.94846  %FUEL= 20.208310  R,EQ.RATIO= 1.600000  PHI,EQ.RATIO= 1.600000
 
@@ -1184,7 +1184,7 @@
                                                          KJ/KG-MOL      K
  FUEL        CH4                          0.6000000    -74600.000    298.150
  OXIDANT     N2O                          0.5000000     81600.000    298.150
- OXIDANT     O2                           0.5000000        -0.000    298.150
+ OXIDANT     O2                           0.5000000         0.000    298.150
 
  O/F=    3.94846  %FUEL= 20.208310  R,EQ.RATIO= 1.600000  PHI,EQ.RATIO= 1.600000
 
@@ -1293,7 +1293,7 @@
                                                          KJ/KG-MOL      K
  FUEL        CH4                          0.6000000    -74600.000    298.150
  OXIDANT     N2O                          0.5000000     81600.000    298.150
- OXIDANT     O2                           0.5000000        -0.000    298.150
+ OXIDANT     O2                           0.5000000         0.000    298.150
 
  O/F=    3.94846  %FUEL= 20.208310  R,EQ.RATIO= 1.600000  PHI,EQ.RATIO= 1.600000
 
@@ -1402,7 +1402,7 @@
                                                          KJ/KG-MOL      K
  FUEL        CH4                          0.6000000    -74600.000    298.150
  OXIDANT     N2O                          0.5000000     81600.000    298.150
- OXIDANT     O2                           0.5000000        -0.000    298.150
+ OXIDANT     O2                           0.5000000         0.000    298.150
 
  O/F=    3.94846  %FUEL= 20.208310  R,EQ.RATIO= 1.600000  PHI,EQ.RATIO= 1.600000
 
@@ -1511,7 +1511,7 @@
                                                          KJ/KG-MOL      K
  FUEL        CH4                          0.6000000    -74600.000    298.150
  OXIDANT     N2O                          0.5000000     81600.000    298.150
- OXIDANT     O2                           0.5000000        -0.000    298.150
+ OXIDANT     O2                           0.5000000         0.000    298.150
 
  O/F=    3.94846  %FUEL= 20.208310  R,EQ.RATIO= 1.600000  PHI,EQ.RATIO= 1.600000
 
@@ -1620,7 +1620,7 @@
                                                          KJ/KG-MOL      K
  FUEL        CH4                          0.6000000    -74600.000    298.150
  OXIDANT     N2O                          0.5000000     81600.000    298.150
- OXIDANT     O2                           0.5000000        -0.000    298.150
+ OXIDANT     O2                           0.5000000         0.000    298.150
 
  O/F=    3.94846  %FUEL= 20.208310  R,EQ.RATIO= 1.600000  PHI,EQ.RATIO= 1.600000
 
@@ -1729,7 +1729,7 @@
                                                          KJ/KG-MOL      K
  FUEL        CH4                          0.6000000    -74600.000    298.150
  OXIDANT     N2O                          0.5000000     81600.000    298.150
- OXIDANT     O2                           0.5000000        -0.000    298.150
+ OXIDANT     O2                           0.5000000         0.000    298.150
 
  O/F=    3.94846  %FUEL= 20.208310  R,EQ.RATIO= 1.600000  PHI,EQ.RATIO= 1.600000
 
@@ -1816,552 +1816,7 @@
 
 
 
-
- WARNING!!  ASSIGNED pip =   0.00000 IS NOT PERMITTED
- TO BE LESS THAN  Pinj/Pc =  2.17828. POINT OMITTED (ROCKET)
-
- AN ASSIGNED AREA RATIO IS < 1 (ROCKET)
-
-
-
-
-
-              THEORETICAL ROCKET PERFORMANCE ASSUMING EQUILIBRIUM
-
-            COMPOSITION DURING EXPANSION FROM FINITE AREA COMBUSTOR
-
- Pin =   986.3 PSIA
- Ac/At =  1.0000      Pinj/Pinf =  1.239446
- CASE =                
-
-             REACTANT                       MOLES         ENERGY      TEMP
-                                                         KJ/KG-MOL      K
- FUEL        CH4                          0.6000000    -74600.000    298.150
- OXIDANT     N2O                          0.5000000     81600.000    298.150
- OXIDANT     O2                           0.5000000        -0.000    298.150
-
- O/F=    3.94846  %FUEL= 20.208310  R,EQ.RATIO= 1.600000  PHI,EQ.RATIO= 1.600000
-
-                 INJECTOR  COMB END  THROAT
- Pinj/P            1.0000   2.1783   2.1866
- P, BAR            68.000   31.217   31.099
- T, K             3203.80  2946.41  2944.76
- RHO, KG/CU M    5.2114 0 2.6154 0 2.6070 0
- H, KJ/KG         -83.139  -786.34  -790.86
- U, KJ/KG        -1387.97 -1979.94 -1983.76
- G, KJ/KG        -38727.7 -36584.1 -36568.6
- S, KJ/(KG)(K)    12.0621  12.1496  12.1496
-
- M, (1/n)          20.415   20.524   20.525
- (dLV/dLP)t      -1.00749 -1.00464 -1.00462
- (dLV/dLT)p        1.1446   1.0963   1.0959
- Cp, KJ/(KG)(K)    3.3628   3.0089   3.0061
- GAMMAs            1.1781   1.1865   1.1866
- SON VEL,M/SEC     1239.8   1190.0   1189.7
- MACH NUMBER        0.000    0.997    1.000
-
- PERFORMANCE PARAMETERS
-
- Ae/At                      1.0000   1.0000
- CSTAR, M/SEC               1768.8   1768.8
- CF                         0.6705   0.6726
- Ivac, M/SEC                2192.4   2192.4
- Isp, M/SEC                 1185.9   1189.7
-
-
- MOLE FRACTIONS
-
- *CO              0.20848  0.20681  0.20679
- *CO2             0.04866  0.05173  0.05175
- *H               0.01454  0.01016  0.01013
- HCO              0.00001  0.00001  0.00001
- *H2              0.17790  0.18022  0.18024
- H2O              0.32362  0.32856  0.32859
- NH2              0.00001  0.00000  0.00000
- NH3              0.00001  0.00001  0.00001
- *NO              0.00128  0.00062  0.00062
- *N2              0.21364  0.21513  0.21514
- *O               0.00050  0.00020  0.00020
- *OH              0.01096  0.00640  0.00637
- *O2              0.00035  0.00015  0.00015
-
-  * THERMODYNAMIC PROPERTIES FITTED TO 20000.K
-
-    PRODUCTS WHICH WERE CONSIDERED BUT WHOSE MOLE FRACTIONS
-    WERE LESS THAN 5.000000E-06 FOR ALL ASSIGNED CONDITIONS
-
- *C              *CH             CH2             CH3             CH2OH          
- CH3O            CH4             CH3OH           CH3OOH          *CN            
- CNN             COOH            *C2             C2H             C2H2,acetylene 
- C2H2,vinylidene CH2CO,ketene    O(CH)2O         HO(CO)2OH       C2H3,vinyl     
- CH3CN           CH3CO,acetyl    C2H4            C2H4O,ethylen-o CH3CHO,ethanal 
- CH3COOH         OHCH2COOH       C2H5            C2H6            CH3N2CH3       
- C2H5OH          CH3OCH3         CH3O2CH3        CCN             CNC            
- OCCN            C2N2            C2O             *C3             C3H3,1-propynl 
- C3H3,2-propynl  C3H4,allene     C3H4,propyne    C3H4,cyclo-     C3H5,allyl     
- C3H6,propylene  C3H6,cyclo-     C3H6O,propylox  C3H6O,acetone   C3H6O,propanal 
- C3H7,n-propyl   C3H7,i-propyl   C3H8            C3H8O,1propanol C3H8O,2propanol
- CNCOCN          C3O2            *C4             C4H2,butadiyne  C4H4,1,3-cyclo-
- C4H6,butadiene  C4H6,1butyne    C4H6,2butyne    C4H6,cyclo-     C4H8,1-butene  
- C4H8,cis2-buten C4H8,tr2-butene C4H8,isobutene  C4H8,cyclo-     (CH3COOH)2     
- C4H9,n-butyl    C4H9,i-butyl    C4H9,s-butyl    C4H9,t-butyl    C4H10,n-butane 
- C4H10,isobutane C4N2            *C5             C5H6,1,3cyclo-  C5H8,cyclo-    
- C5H10,1-pentene C5H10,cyclo-    C5H11,pentyl    C5H11,t-pentyl  C5H12,n-pentane
- C5H12,i-pentane CH3C(CH3)2CH3   C6H2            C6H5,phenyl     C6H5O,phenoxy  
- C6H6            C6H5OH,phenol   C6H10,cyclo-    C6H12,1-hexene  C6H12,cyclo-   
- C6H13,n-hexyl   C6H14,n-hexane  C7H7,benzyl     C7H8            C7H8O,cresol-mx
- C7H14,1-heptene C7H15,n-heptyl  C7H16,n-heptane C7H16,2-methylh C8H8,styrene   
- C8H10,ethylbenz C8H16,1-octene  C8H17,n-octyl   C8H18,n-octane  C8H18,isooctane
- C9H19,n-nonyl   C10H8,naphthale C10H21,n-decyl  C12H9,o-bipheny C12H10,biphenyl
- HCN             HCCN            HCCO            HNC             HNCO           
- HNO             HNO2            HNO3            HO2             HCHO,formaldehy
- HCOOH           H2O2            (HCOOH)2        *N              NCO            
- *NH             NH2OH           NO2             NO3             NCN            
- N2H2            NH2NO2          N2H4            N2O             N2O3           
- N2O4            N2O5            N3              N3H             O3             
- C(gr)           H2O(cr)         H2O(L)         
-
-
-
-
-
-
- WARNING!!  ASSIGNED pip =   0.00000 IS NOT PERMITTED
- TO BE LESS THAN  Pinj/Pc =  2.17828. POINT OMITTED (ROCKET)
-
- AN ASSIGNED AREA RATIO IS < 1 (ROCKET)
-
-
-
-
-
-              THEORETICAL ROCKET PERFORMANCE ASSUMING EQUILIBRIUM
-
-            COMPOSITION DURING EXPANSION FROM FINITE AREA COMBUSTOR
-
- Pin =   986.3 PSIA
- Ac/At =  1.0000      Pinj/Pinf =  1.239446
- CASE =                
-
-             REACTANT                       MOLES         ENERGY      TEMP
-                                                         KJ/KG-MOL      K
- FUEL        CH4                          0.6000000    -74600.000    298.150
- OXIDANT     N2O                          0.5000000     81600.000    298.150
- OXIDANT     O2                           0.5000000        -0.000    298.150
-
- O/F=    3.94846  %FUEL= 20.208310  R,EQ.RATIO= 1.600000  PHI,EQ.RATIO= 1.600000
-
-                 INJECTOR  COMB END  THROAT
- Pinj/P            1.0000   2.1783   2.1866
- P, BAR            68.000   31.217   31.099
- T, K             3203.80  2946.41  2944.76
- RHO, KG/CU M    5.2114 0 2.6154 0 2.6070 0
- H, KJ/KG         -83.139  -786.34  -790.86
- U, KJ/KG        -1387.97 -1979.94 -1983.76
- G, KJ/KG        -38727.7 -36584.1 -36568.6
- S, KJ/(KG)(K)    12.0621  12.1496  12.1496
-
- M, (1/n)          20.415   20.524   20.525
- (dLV/dLP)t      -1.00749 -1.00464 -1.00462
- (dLV/dLT)p        1.1446   1.0963   1.0959
- Cp, KJ/(KG)(K)    3.3628   3.0089   3.0061
- GAMMAs            1.1781   1.1865   1.1866
- SON VEL,M/SEC     1239.8   1190.0   1189.7
- MACH NUMBER        0.000    0.997    1.000
-
- PERFORMANCE PARAMETERS
-
- Ae/At                      1.0000   1.0000
- CSTAR, M/SEC               1768.8   1768.8
- CF                         0.6705   0.6726
- Ivac, M/SEC                2192.4   2192.4
- Isp, M/SEC                 1185.9   1189.7
-
-
- MOLE FRACTIONS
-
- *CO              0.20848  0.20681  0.20679
- *CO2             0.04866  0.05173  0.05175
- *H               0.01454  0.01016  0.01013
- HCO              0.00001  0.00001  0.00001
- *H2              0.17790  0.18022  0.18024
- H2O              0.32362  0.32856  0.32859
- NH2              0.00001  0.00000  0.00000
- NH3              0.00001  0.00001  0.00001
- *NO              0.00128  0.00062  0.00062
- *N2              0.21364  0.21513  0.21514
- *O               0.00050  0.00020  0.00020
- *OH              0.01096  0.00640  0.00637
- *O2              0.00035  0.00015  0.00015
-
-  * THERMODYNAMIC PROPERTIES FITTED TO 20000.K
-
-    PRODUCTS WHICH WERE CONSIDERED BUT WHOSE MOLE FRACTIONS
-    WERE LESS THAN 5.000000E-06 FOR ALL ASSIGNED CONDITIONS
-
- *C              *CH             CH2             CH3             CH2OH          
- CH3O            CH4             CH3OH           CH3OOH          *CN            
- CNN             COOH            *C2             C2H             C2H2,acetylene 
- C2H2,vinylidene CH2CO,ketene    O(CH)2O         HO(CO)2OH       C2H3,vinyl     
- CH3CN           CH3CO,acetyl    C2H4            C2H4O,ethylen-o CH3CHO,ethanal 
- CH3COOH         OHCH2COOH       C2H5            C2H6            CH3N2CH3       
- C2H5OH          CH3OCH3         CH3O2CH3        CCN             CNC            
- OCCN            C2N2            C2O             *C3             C3H3,1-propynl 
- C3H3,2-propynl  C3H4,allene     C3H4,propyne    C3H4,cyclo-     C3H5,allyl     
- C3H6,propylene  C3H6,cyclo-     C3H6O,propylox  C3H6O,acetone   C3H6O,propanal 
- C3H7,n-propyl   C3H7,i-propyl   C3H8            C3H8O,1propanol C3H8O,2propanol
- CNCOCN          C3O2            *C4             C4H2,butadiyne  C4H4,1,3-cyclo-
- C4H6,butadiene  C4H6,1butyne    C4H6,2butyne    C4H6,cyclo-     C4H8,1-butene  
- C4H8,cis2-buten C4H8,tr2-butene C4H8,isobutene  C4H8,cyclo-     (CH3COOH)2     
- C4H9,n-butyl    C4H9,i-butyl    C4H9,s-butyl    C4H9,t-butyl    C4H10,n-butane 
- C4H10,isobutane C4N2            *C5             C5H6,1,3cyclo-  C5H8,cyclo-    
- C5H10,1-pentene C5H10,cyclo-    C5H11,pentyl    C5H11,t-pentyl  C5H12,n-pentane
- C5H12,i-pentane CH3C(CH3)2CH3   C6H2            C6H5,phenyl     C6H5O,phenoxy  
- C6H6            C6H5OH,phenol   C6H10,cyclo-    C6H12,1-hexene  C6H12,cyclo-   
- C6H13,n-hexyl   C6H14,n-hexane  C7H7,benzyl     C7H8            C7H8O,cresol-mx
- C7H14,1-heptene C7H15,n-heptyl  C7H16,n-heptane C7H16,2-methylh C8H8,styrene   
- C8H10,ethylbenz C8H16,1-octene  C8H17,n-octyl   C8H18,n-octane  C8H18,isooctane
- C9H19,n-nonyl   C10H8,naphthale C10H21,n-decyl  C12H9,o-bipheny C12H10,biphenyl
- HCN             HCCN            HCCO            HNC             HNCO           
- HNO             HNO2            HNO3            HO2             HCHO,formaldehy
- HCOOH           H2O2            (HCOOH)2        *N              NCO            
- *NH             NH2OH           NO2             NO3             NCN            
- N2H2            NH2NO2          N2H4            N2O             N2O3           
- N2O4            N2O5            N3              N3H             O3             
- C(gr)           H2O(cr)         H2O(L)         
-
-
-
-
-
-
- WARNING!!  ASSIGNED pip =   0.00000 IS NOT PERMITTED
- TO BE LESS THAN  Pinj/Pc =  2.17828. POINT OMITTED (ROCKET)
-
- AN ASSIGNED AREA RATIO IS < 1 (ROCKET)
-
-
-
-
-
-              THEORETICAL ROCKET PERFORMANCE ASSUMING EQUILIBRIUM
-
-            COMPOSITION DURING EXPANSION FROM FINITE AREA COMBUSTOR
-
- Pin =   986.3 PSIA
- Ac/At =  1.0000      Pinj/Pinf =  1.239446
- CASE =                
-
-             REACTANT                       MOLES         ENERGY      TEMP
-                                                         KJ/KG-MOL      K
- FUEL        CH4                          0.6000000    -74600.000    298.150
- OXIDANT     N2O                          0.5000000     81600.000    298.150
- OXIDANT     O2                           0.5000000        -0.000    298.150
-
- O/F=    3.94846  %FUEL= 20.208310  R,EQ.RATIO= 1.600000  PHI,EQ.RATIO= 1.600000
-
-                 INJECTOR  COMB END  THROAT
- Pinj/P            1.0000   2.1783   2.1866
- P, BAR            68.000   31.217   31.099
- T, K             3203.80  2946.41  2944.76
- RHO, KG/CU M    5.2114 0 2.6154 0 2.6070 0
- H, KJ/KG         -83.139  -786.34  -790.86
- U, KJ/KG        -1387.97 -1979.94 -1983.76
- G, KJ/KG        -38727.7 -36584.1 -36568.6
- S, KJ/(KG)(K)    12.0621  12.1496  12.1496
-
- M, (1/n)          20.415   20.524   20.525
- (dLV/dLP)t      -1.00749 -1.00464 -1.00462
- (dLV/dLT)p        1.1446   1.0963   1.0959
- Cp, KJ/(KG)(K)    3.3628   3.0089   3.0061
- GAMMAs            1.1781   1.1865   1.1866
- SON VEL,M/SEC     1239.8   1190.0   1189.7
- MACH NUMBER        0.000    0.997    1.000
-
- PERFORMANCE PARAMETERS
-
- Ae/At                      1.0000   1.0000
- CSTAR, M/SEC               1768.8   1768.8
- CF                         0.6705   0.6726
- Ivac, M/SEC                2192.4   2192.4
- Isp, M/SEC                 1185.9   1189.7
-
-
- MOLE FRACTIONS
-
- *CO              0.20848  0.20681  0.20679
- *CO2             0.04866  0.05173  0.05175
- *H               0.01454  0.01016  0.01013
- HCO              0.00001  0.00001  0.00001
- *H2              0.17790  0.18022  0.18024
- H2O              0.32362  0.32856  0.32859
- NH2              0.00001  0.00000  0.00000
- NH3              0.00001  0.00001  0.00001
- *NO              0.00128  0.00062  0.00062
- *N2              0.21364  0.21513  0.21514
- *O               0.00050  0.00020  0.00020
- *OH              0.01096  0.00640  0.00637
- *O2              0.00035  0.00015  0.00015
-
-  * THERMODYNAMIC PROPERTIES FITTED TO 20000.K
-
-    PRODUCTS WHICH WERE CONSIDERED BUT WHOSE MOLE FRACTIONS
-    WERE LESS THAN 5.000000E-06 FOR ALL ASSIGNED CONDITIONS
-
- *C              *CH             CH2             CH3             CH2OH          
- CH3O            CH4             CH3OH           CH3OOH          *CN            
- CNN             COOH            *C2             C2H             C2H2,acetylene 
- C2H2,vinylidene CH2CO,ketene    O(CH)2O         HO(CO)2OH       C2H3,vinyl     
- CH3CN           CH3CO,acetyl    C2H4            C2H4O,ethylen-o CH3CHO,ethanal 
- CH3COOH         OHCH2COOH       C2H5            C2H6            CH3N2CH3       
- C2H5OH          CH3OCH3         CH3O2CH3        CCN             CNC            
- OCCN            C2N2            C2O             *C3             C3H3,1-propynl 
- C3H3,2-propynl  C3H4,allene     C3H4,propyne    C3H4,cyclo-     C3H5,allyl     
- C3H6,propylene  C3H6,cyclo-     C3H6O,propylox  C3H6O,acetone   C3H6O,propanal 
- C3H7,n-propyl   C3H7,i-propyl   C3H8            C3H8O,1propanol C3H8O,2propanol
- CNCOCN          C3O2            *C4             C4H2,butadiyne  C4H4,1,3-cyclo-
- C4H6,butadiene  C4H6,1butyne    C4H6,2butyne    C4H6,cyclo-     C4H8,1-butene  
- C4H8,cis2-buten C4H8,tr2-butene C4H8,isobutene  C4H8,cyclo-     (CH3COOH)2     
- C4H9,n-butyl    C4H9,i-butyl    C4H9,s-butyl    C4H9,t-butyl    C4H10,n-butane 
- C4H10,isobutane C4N2            *C5             C5H6,1,3cyclo-  C5H8,cyclo-    
- C5H10,1-pentene C5H10,cyclo-    C5H11,pentyl    C5H11,t-pentyl  C5H12,n-pentane
- C5H12,i-pentane CH3C(CH3)2CH3   C6H2            C6H5,phenyl     C6H5O,phenoxy  
- C6H6            C6H5OH,phenol   C6H10,cyclo-    C6H12,1-hexene  C6H12,cyclo-   
- C6H13,n-hexyl   C6H14,n-hexane  C7H7,benzyl     C7H8            C7H8O,cresol-mx
- C7H14,1-heptene C7H15,n-heptyl  C7H16,n-heptane C7H16,2-methylh C8H8,styrene   
- C8H10,ethylbenz C8H16,1-octene  C8H17,n-octyl   C8H18,n-octane  C8H18,isooctane
- C9H19,n-nonyl   C10H8,naphthale C10H21,n-decyl  C12H9,o-bipheny C12H10,biphenyl
- HCN             HCCN            HCCO            HNC             HNCO           
- HNO             HNO2            HNO3            HO2             HCHO,formaldehy
- HCOOH           H2O2            (HCOOH)2        *N              NCO            
- *NH             NH2OH           NO2             NO3             NCN            
- N2H2            NH2NO2          N2H4            N2O             N2O3           
- N2O4            N2O5            N3              N3H             O3             
- C(gr)           H2O(cr)         H2O(L)         
-
-
-
-
-
-
- WARNING!!  ASSIGNED pip =   0.00000 IS NOT PERMITTED
- TO BE LESS THAN  Pinj/Pc =  2.17828. POINT OMITTED (ROCKET)
-
- AN ASSIGNED AREA RATIO IS < 1 (ROCKET)
-
-
-
-
-
-              THEORETICAL ROCKET PERFORMANCE ASSUMING EQUILIBRIUM
-
-            COMPOSITION DURING EXPANSION FROM FINITE AREA COMBUSTOR
-
- Pin =   986.3 PSIA
- Ac/At =  1.0000      Pinj/Pinf =  1.239446
- CASE =                
-
-             REACTANT                       MOLES         ENERGY      TEMP
-                                                         KJ/KG-MOL      K
- FUEL        CH4                          0.6000000    -74600.000    298.150
- OXIDANT     N2O                          0.5000000     81600.000    298.150
- OXIDANT     O2                           0.5000000        -0.000    298.150
-
- O/F=    3.94846  %FUEL= 20.208310  R,EQ.RATIO= 1.600000  PHI,EQ.RATIO= 1.600000
-
-                 INJECTOR  COMB END  THROAT
- Pinj/P            1.0000   2.1783   2.1866
- P, BAR            68.000   31.217   31.099
- T, K             3203.80  2946.41  2944.76
- RHO, KG/CU M    5.2114 0 2.6154 0 2.6070 0
- H, KJ/KG         -83.139  -786.34  -790.86
- U, KJ/KG        -1387.97 -1979.94 -1983.76
- G, KJ/KG        -38727.7 -36584.1 -36568.6
- S, KJ/(KG)(K)    12.0621  12.1496  12.1496
-
- M, (1/n)          20.415   20.524   20.525
- (dLV/dLP)t      -1.00749 -1.00464 -1.00462
- (dLV/dLT)p        1.1446   1.0963   1.0959
- Cp, KJ/(KG)(K)    3.3628   3.0089   3.0061
- GAMMAs            1.1781   1.1865   1.1866
- SON VEL,M/SEC     1239.8   1190.0   1189.7
- MACH NUMBER        0.000    0.997    1.000
-
- PERFORMANCE PARAMETERS
-
- Ae/At                      1.0000   1.0000
- CSTAR, M/SEC               1768.8   1768.8
- CF                         0.6705   0.6726
- Ivac, M/SEC                2192.4   2192.4
- Isp, M/SEC                 1185.9   1189.7
-
-
- MOLE FRACTIONS
-
- *CO              0.20848  0.20681  0.20679
- *CO2             0.04866  0.05173  0.05175
- *H               0.01454  0.01016  0.01013
- HCO              0.00001  0.00001  0.00001
- *H2              0.17790  0.18022  0.18024
- H2O              0.32362  0.32856  0.32859
- NH2              0.00001  0.00000  0.00000
- NH3              0.00001  0.00001  0.00001
- *NO              0.00128  0.00062  0.00062
- *N2              0.21364  0.21513  0.21514
- *O               0.00050  0.00020  0.00020
- *OH              0.01096  0.00640  0.00637
- *O2              0.00035  0.00015  0.00015
-
-  * THERMODYNAMIC PROPERTIES FITTED TO 20000.K
-
-    PRODUCTS WHICH WERE CONSIDERED BUT WHOSE MOLE FRACTIONS
-    WERE LESS THAN 5.000000E-06 FOR ALL ASSIGNED CONDITIONS
-
- *C              *CH             CH2             CH3             CH2OH          
- CH3O            CH4             CH3OH           CH3OOH          *CN            
- CNN             COOH            *C2             C2H             C2H2,acetylene 
- C2H2,vinylidene CH2CO,ketene    O(CH)2O         HO(CO)2OH       C2H3,vinyl     
- CH3CN           CH3CO,acetyl    C2H4            C2H4O,ethylen-o CH3CHO,ethanal 
- CH3COOH         OHCH2COOH       C2H5            C2H6            CH3N2CH3       
- C2H5OH          CH3OCH3         CH3O2CH3        CCN             CNC            
- OCCN            C2N2            C2O             *C3             C3H3,1-propynl 
- C3H3,2-propynl  C3H4,allene     C3H4,propyne    C3H4,cyclo-     C3H5,allyl     
- C3H6,propylene  C3H6,cyclo-     C3H6O,propylox  C3H6O,acetone   C3H6O,propanal 
- C3H7,n-propyl   C3H7,i-propyl   C3H8            C3H8O,1propanol C3H8O,2propanol
- CNCOCN          C3O2            *C4             C4H2,butadiyne  C4H4,1,3-cyclo-
- C4H6,butadiene  C4H6,1butyne    C4H6,2butyne    C4H6,cyclo-     C4H8,1-butene  
- C4H8,cis2-buten C4H8,tr2-butene C4H8,isobutene  C4H8,cyclo-     (CH3COOH)2     
- C4H9,n-butyl    C4H9,i-butyl    C4H9,s-butyl    C4H9,t-butyl    C4H10,n-butane 
- C4H10,isobutane C4N2            *C5             C5H6,1,3cyclo-  C5H8,cyclo-    
- C5H10,1-pentene C5H10,cyclo-    C5H11,pentyl    C5H11,t-pentyl  C5H12,n-pentane
- C5H12,i-pentane CH3C(CH3)2CH3   C6H2            C6H5,phenyl     C6H5O,phenoxy  
- C6H6            C6H5OH,phenol   C6H10,cyclo-    C6H12,1-hexene  C6H12,cyclo-   
- C6H13,n-hexyl   C6H14,n-hexane  C7H7,benzyl     C7H8            C7H8O,cresol-mx
- C7H14,1-heptene C7H15,n-heptyl  C7H16,n-heptane C7H16,2-methylh C8H8,styrene   
- C8H10,ethylbenz C8H16,1-octene  C8H17,n-octyl   C8H18,n-octane  C8H18,isooctane
- C9H19,n-nonyl   C10H8,naphthale C10H21,n-decyl  C12H9,o-bipheny C12H10,biphenyl
- HCN             HCCN            HCCO            HNC             HNCO           
- HNO             HNO2            HNO3            HO2             HCHO,formaldehy
- HCOOH           H2O2            (HCOOH)2        *N              NCO            
- *NH             NH2OH           NO2             NO3             NCN            
- N2H2            NH2NO2          N2H4            N2O             N2O3           
- N2O4            N2O5            N3              N3H             O3             
- C(gr)           H2O(cr)         H2O(L)         
-
-
-
-
-
-
- WARNING!!  ASSIGNED pip =   1.00000 IS NOT PERMITTED
- TO BE LESS THAN  Pinj/Pc =  2.17828. POINT OMITTED (ROCKET)
-
- AN ASSIGNED AREA RATIO IS < 1 (ROCKET)
-
-
-
-
-
-              THEORETICAL ROCKET PERFORMANCE ASSUMING EQUILIBRIUM
-
-            COMPOSITION DURING EXPANSION FROM FINITE AREA COMBUSTOR
-
- Pin =   986.3 PSIA
- Ac/At =  1.0000      Pinj/Pinf =  1.239446
- CASE =                
-
-             REACTANT                       MOLES         ENERGY      TEMP
-                                                         KJ/KG-MOL      K
- FUEL        CH4                          0.6000000    -74600.000    298.150
- OXIDANT     N2O                          0.5000000     81600.000    298.150
- OXIDANT     O2                           0.5000000        -0.000    298.150
-
- O/F=    3.94846  %FUEL= 20.208310  R,EQ.RATIO= 1.600000  PHI,EQ.RATIO= 1.600000
-
-                 INJECTOR  COMB END  THROAT
- Pinj/P            1.0000   2.1783   2.1866
- P, BAR            68.000   31.217   31.099
- T, K             3203.80  2946.41  2944.76
- RHO, KG/CU M    5.2114 0 2.6154 0 2.6070 0
- H, KJ/KG         -83.139  -786.34  -790.86
- U, KJ/KG        -1387.97 -1979.94 -1983.76
- G, KJ/KG        -38727.7 -36584.1 -36568.6
- S, KJ/(KG)(K)    12.0621  12.1496  12.1496
-
- M, (1/n)          20.415   20.524   20.525
- (dLV/dLP)t      -1.00749 -1.00464 -1.00462
- (dLV/dLT)p        1.1446   1.0963   1.0959
- Cp, KJ/(KG)(K)    3.3628   3.0089   3.0061
- GAMMAs            1.1781   1.1865   1.1866
- SON VEL,M/SEC     1239.8   1190.0   1189.7
- MACH NUMBER        0.000    0.997    1.000
-
- PERFORMANCE PARAMETERS
-
- Ae/At                      1.0000   1.0000
- CSTAR, M/SEC               1768.8   1768.8
- CF                         0.6705   0.6726
- Ivac, M/SEC                2192.4   2192.4
- Isp, M/SEC                 1185.9   1189.7
-
-
- MOLE FRACTIONS
-
- *CO              0.20848  0.20681  0.20679
- *CO2             0.04866  0.05173  0.05175
- *H               0.01454  0.01016  0.01013
- HCO              0.00001  0.00001  0.00001
- *H2              0.17790  0.18022  0.18024
- H2O              0.32362  0.32856  0.32859
- NH2              0.00001  0.00000  0.00000
- NH3              0.00001  0.00001  0.00001
- *NO              0.00128  0.00062  0.00062
- *N2              0.21364  0.21513  0.21514
- *O               0.00050  0.00020  0.00020
- *OH              0.01096  0.00640  0.00637
- *O2              0.00035  0.00015  0.00015
-
-  * THERMODYNAMIC PROPERTIES FITTED TO 20000.K
-
-    PRODUCTS WHICH WERE CONSIDERED BUT WHOSE MOLE FRACTIONS
-    WERE LESS THAN 5.000000E-06 FOR ALL ASSIGNED CONDITIONS
-
- *C              *CH             CH2             CH3             CH2OH          
- CH3O            CH4             CH3OH           CH3OOH          *CN            
- CNN             COOH            *C2             C2H             C2H2,acetylene 
- C2H2,vinylidene CH2CO,ketene    O(CH)2O         HO(CO)2OH       C2H3,vinyl     
- CH3CN           CH3CO,acetyl    C2H4            C2H4O,ethylen-o CH3CHO,ethanal 
- CH3COOH         OHCH2COOH       C2H5            C2H6            CH3N2CH3       
- C2H5OH          CH3OCH3         CH3O2CH3        CCN             CNC            
- OCCN            C2N2            C2O             *C3             C3H3,1-propynl 
- C3H3,2-propynl  C3H4,allene     C3H4,propyne    C3H4,cyclo-     C3H5,allyl     
- C3H6,propylene  C3H6,cyclo-     C3H6O,propylox  C3H6O,acetone   C3H6O,propanal 
- C3H7,n-propyl   C3H7,i-propyl   C3H8            C3H8O,1propanol C3H8O,2propanol
- CNCOCN          C3O2            *C4             C4H2,butadiyne  C4H4,1,3-cyclo-
- C4H6,butadiene  C4H6,1butyne    C4H6,2butyne    C4H6,cyclo-     C4H8,1-butene  
- C4H8,cis2-buten C4H8,tr2-butene C4H8,isobutene  C4H8,cyclo-     (CH3COOH)2     
- C4H9,n-butyl    C4H9,i-butyl    C4H9,s-butyl    C4H9,t-butyl    C4H10,n-butane 
- C4H10,isobutane C4N2            *C5             C5H6,1,3cyclo-  C5H8,cyclo-    
- C5H10,1-pentene C5H10,cyclo-    C5H11,pentyl    C5H11,t-pentyl  C5H12,n-pentane
- C5H12,i-pentane CH3C(CH3)2CH3   C6H2            C6H5,phenyl     C6H5O,phenoxy  
- C6H6            C6H5OH,phenol   C6H10,cyclo-    C6H12,1-hexene  C6H12,cyclo-   
- C6H13,n-hexyl   C6H14,n-hexane  C7H7,benzyl     C7H8            C7H8O,cresol-mx
- C7H14,1-heptene C7H15,n-heptyl  C7H16,n-heptane C7H16,2-methylh C8H8,styrene   
- C8H10,ethylbenz C8H16,1-octene  C8H17,n-octyl   C8H18,n-octane  C8H18,isooctane
- C9H19,n-nonyl   C10H8,naphthale C10H21,n-decyl  C12H9,o-bipheny C12H10,biphenyl
- HCN             HCCN            HCCO            HNC             HNCO           
- HNO             HNO2            HNO3            HO2             HCHO,formaldehy
- HCOOH           H2O2            (HCOOH)2        *N              NCO            
- *NH             NH2OH           NO2             NO3             NCN            
- N2H2            NH2NO2          N2H4            N2O             N2O3           
- N2O4            N2O5            N3              N3H             O3             
- C(gr)           H2O(cr)         H2O(L)         
-
-
-
-
-
-   4    5    1931.820     -12.588      -9.986     -13.675     -22.537
+   4    6     904.770      -5.576     -10.692     -14.519     -39.711
 
 
  AN ASSIGNED AREA RATIO IS < 1 (ROCKET)
@@ -2382,51 +1837,52 @@
                                                          KJ/KG-MOL      K
  FUEL        CH4                          0.6000000    -74600.000    298.150
  OXIDANT     N2O                          0.5000000     81600.000    298.150
- OXIDANT     O2                           0.5000000        -0.000    298.150
+ OXIDANT     O2                           0.5000000         0.000    298.150
 
  O/F=    3.94846  %FUEL= 20.208310  R,EQ.RATIO= 1.600000  PHI,EQ.RATIO= 1.600000
 
                  INJECTOR  COMB END  THROAT     EXIT
- Pinj/P            1.0000   2.1783   2.1866   25.000
- P, BAR            68.000   31.217   31.099   2.7200
- T, K             3203.80  2946.41  2944.76  1931.82
- RHO, KG/CU M    5.2114 0 2.6154 0 2.6070 0 3.5064-1
- H, KJ/KG         -83.139  -786.34  -790.86 -3170.02
- U, KJ/KG        -1387.97 -1979.94 -1983.76 -3945.75
- G, KJ/KG        -38727.7 -36584.1 -36568.6 -26640.9
+ Pinj/P            1.0000   2.1783   2.1866  1239.84
+ P, BAR            68.000   31.217   31.099  0.05485
+ T, K             3203.80  2946.41  2944.76   904.77
+ RHO, KG/CU M    5.2114 0 2.6154 0 2.6070 0 1.5099-2
+ H, KJ/KG         -83.139  -786.34  -790.86 -5289.45
+ U, KJ/KG        -1387.97 -1979.94 -1983.76 -5652.69
+ G, KJ/KG        -38727.7 -36584.1 -36568.6 -16282.0
  S, KJ/(KG)(K)    12.0621  12.1496  12.1496  12.1496
 
- M, (1/n)          20.415   20.524   20.525   20.706
- (dLV/dLP)t      -1.00749 -1.00464 -1.00462 -1.00008
- (dLV/dLT)p        1.1446   1.0963   1.0959   1.0023
- Cp, KJ/(KG)(K)    3.3628   3.0089   3.0061   2.1059
- GAMMAs            1.1781   1.1865   1.1866   1.2368
- SON VEL,M/SEC     1239.8   1190.0   1189.7    979.5
- MACH NUMBER        0.000    0.997    1.000    2.537
+ M, (1/n)          20.415   20.524   20.525   20.710
+ (dLV/dLP)t      -1.00749 -1.00464 -1.00462 -1.00009
+ (dLV/dLT)p        1.1446   1.0963   1.0959   1.0013
+ Cp, KJ/(KG)(K)    3.3628   3.0089   3.0061   2.1560
+ GAMMAs            1.1781   1.1865   1.1866   1.2294
+ SON VEL,M/SEC     1239.8   1190.0   1189.7    668.3
+ MACH NUMBER        0.000    0.997    1.000    4.829
 
  PERFORMANCE PARAMETERS
 
- Ae/At                      1.0000   1.0000   3.5601
+ Ae/At                      1.0000   1.0000   63.659
  CSTAR, M/SEC               1768.8   1768.8   1768.8
- CF                         0.6705   0.6726   1.4047
- Ivac, M/SEC                2192.4   2192.4   2796.9
- Isp, M/SEC                 1185.9   1189.7   2484.7
+ CF                         0.6705   0.6726   1.8243
+ Ivac, M/SEC                2192.4   2192.4   3339.4
+ Isp, M/SEC                 1185.9   1189.7   3226.9
 
 
  MOLE FRACTIONS
 
- *CO              0.20848  0.20681  0.20679  0.19046
- *CO2             0.04866  0.05173  0.05175  0.07037
- *H               0.01454  0.01016  0.01013  0.00027
+ CH4              0.00000  0.00000  0.00000  0.00002
+ *CO              0.20848  0.20681  0.20679  0.09596
+ *CO2             0.04866  0.05173  0.05175  0.16490
+ *H               0.01454  0.01016  0.01013  0.00000
  HCO              0.00001  0.00001  0.00001  0.00000
- *H2              0.17790  0.18022  0.18024  0.20066
- H2O              0.32362  0.32856  0.32859  0.32083
+ *H2              0.17790  0.18022  0.18024  0.29527
+ H2O              0.32362  0.32856  0.32859  0.22645
  NH2              0.00001  0.00000  0.00000  0.00000
  NH3              0.00001  0.00001  0.00001  0.00000
  *NO              0.00128  0.00062  0.00062  0.00000
- *N2              0.21364  0.21513  0.21514  0.21736
+ *N2              0.21364  0.21513  0.21514  0.21740
  *O               0.00050  0.00020  0.00020  0.00000
- *OH              0.01096  0.00640  0.00637  0.00004
+ *OH              0.01096  0.00640  0.00637  0.00000
  *O2              0.00035  0.00015  0.00015  0.00000
 
   * THERMODYNAMIC PROPERTIES FITTED TO 20000.K
@@ -2435,35 +1891,35 @@
     WERE LESS THAN 5.000000E-06 FOR ALL ASSIGNED CONDITIONS
 
  *C              *CH             CH2             CH3             CH2OH          
- CH3O            CH4             CH3OH           CH3OOH          *CN            
- CNN             COOH            *C2             C2H             C2H2,acetylene 
- C2H2,vinylidene CH2CO,ketene    O(CH)2O         HO(CO)2OH       C2H3,vinyl     
- CH3CN           CH3CO,acetyl    C2H4            C2H4O,ethylen-o CH3CHO,ethanal 
- CH3COOH         OHCH2COOH       C2H5            C2H6            CH3N2CH3       
- C2H5OH          CH3OCH3         CH3O2CH3        CCN             CNC            
- OCCN            C2N2            C2O             *C3             C3H3,1-propynl 
- C3H3,2-propynl  C3H4,allene     C3H4,propyne    C3H4,cyclo-     C3H5,allyl     
- C3H6,propylene  C3H6,cyclo-     C3H6O,propylox  C3H6O,acetone   C3H6O,propanal 
- C3H7,n-propyl   C3H7,i-propyl   C3H8            C3H8O,1propanol C3H8O,2propanol
- CNCOCN          C3O2            *C4             C4H2,butadiyne  C4H4,1,3-cyclo-
- C4H6,butadiene  C4H6,1butyne    C4H6,2butyne    C4H6,cyclo-     C4H8,1-butene  
- C4H8,cis2-buten C4H8,tr2-butene C4H8,isobutene  C4H8,cyclo-     (CH3COOH)2     
- C4H9,n-butyl    C4H9,i-butyl    C4H9,s-butyl    C4H9,t-butyl    C4H10,n-butane 
- C4H10,isobutane C4N2            *C5             C5H6,1,3cyclo-  C5H8,cyclo-    
- C5H10,1-pentene C5H10,cyclo-    C5H11,pentyl    C5H11,t-pentyl  C5H12,n-pentane
- C5H12,i-pentane CH3C(CH3)2CH3   C6H2            C6H5,phenyl     C6H5O,phenoxy  
- C6H6            C6H5OH,phenol   C6H10,cyclo-    C6H12,1-hexene  C6H12,cyclo-   
- C6H13,n-hexyl   C6H14,n-hexane  C7H7,benzyl     C7H8            C7H8O,cresol-mx
- C7H14,1-heptene C7H15,n-heptyl  C7H16,n-heptane C7H16,2-methylh C8H8,styrene   
- C8H10,ethylbenz C8H16,1-octene  C8H17,n-octyl   C8H18,n-octane  C8H18,isooctane
- C9H19,n-nonyl   C10H8,naphthale C10H21,n-decyl  C12H9,o-bipheny C12H10,biphenyl
- HCN             HCCN            HCCO            HNC             HNCO           
- HNO             HNO2            HNO3            HO2             HCHO,formaldehy
- HCOOH           H2O2            (HCOOH)2        *N              NCO            
- *NH             NH2OH           NO2             NO3             NCN            
- N2H2            NH2NO2          N2H4            N2O             N2O3           
- N2O4            N2O5            N3              N3H             O3             
- C(gr)           H2O(cr)         H2O(L)         
+ CH3O            CH3OH           CH3OOH          *CN             CNN            
+ COOH            *C2             C2H             C2H2,acetylene  C2H2,vinylidene
+ CH2CO,ketene    O(CH)2O         HO(CO)2OH       C2H3,vinyl      CH3CN          
+ CH3CO,acetyl    C2H4            C2H4O,ethylen-o CH3CHO,ethanal  CH3COOH        
+ OHCH2COOH       C2H5            C2H6            CH3N2CH3        C2H5OH         
+ CH3OCH3         CH3O2CH3        CCN             CNC             OCCN           
+ C2N2            C2O             *C3             C3H3,1-propynl  C3H3,2-propynl 
+ C3H4,allene     C3H4,propyne    C3H4,cyclo-     C3H5,allyl      C3H6,propylene 
+ C3H6,cyclo-     C3H6O,propylox  C3H6O,acetone   C3H6O,propanal  C3H7,n-propyl  
+ C3H7,i-propyl   C3H8            C3H8O,1propanol C3H8O,2propanol CNCOCN         
+ C3O2            *C4             C4H2,butadiyne  C4H4,1,3-cyclo- C4H6,butadiene 
+ C4H6,1butyne    C4H6,2butyne    C4H6,cyclo-     C4H8,1-butene   C4H8,cis2-buten
+ C4H8,tr2-butene C4H8,isobutene  C4H8,cyclo-     (CH3COOH)2      C4H9,n-butyl   
+ C4H9,i-butyl    C4H9,s-butyl    C4H9,t-butyl    C4H10,n-butane  C4H10,isobutane
+ C4N2            *C5             C5H6,1,3cyclo-  C5H8,cyclo-     C5H10,1-pentene
+ C5H10,cyclo-    C5H11,pentyl    C5H11,t-pentyl  C5H12,n-pentane C5H12,i-pentane
+ CH3C(CH3)2CH3   C6H2            C6H5,phenyl     C6H5O,phenoxy   C6H6           
+ C6H5OH,phenol   C6H10,cyclo-    C6H12,1-hexene  C6H12,cyclo-    C6H13,n-hexyl  
+ C6H14,n-hexane  C7H7,benzyl     C7H8            C7H8O,cresol-mx C7H14,1-heptene
+ C7H15,n-heptyl  C7H16,n-heptane C7H16,2-methylh C8H8,styrene    C8H10,ethylbenz
+ C8H16,1-octene  C8H17,n-octyl   C8H18,n-octane  C8H18,isooctane C9H19,n-nonyl  
+ C10H8,naphthale C10H21,n-decyl  C12H9,o-bipheny C12H10,biphenyl HCN            
+ HCCN            HCCO            HNC             HNCO            HNO            
+ HNO2            HNO3            HO2             HCHO,formaldehy HCOOH          
+ H2O2            (HCOOH)2        *N              NCO             *NH            
+ NH2OH           NO2             NO3             NCN             N2H2           
+ NH2NO2          N2H4            N2O             N2O3            N2O4           
+ N2O5            N3              N3H             O3              C(gr)          
+ H2O(cr)         H2O(L)         
 
 
 

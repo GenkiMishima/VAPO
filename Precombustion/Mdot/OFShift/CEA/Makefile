@@ -1,10 +1,11 @@
 OUTPUT  :=Mycompile
 FAST    :=-parallel -O3
 DEBUG   :=-check -traceback
-COMP    :=ifort
+COMP    :=gfortran
 
+COMP :=$(COMP)
 #COMP :=$(COMP) $(DEBUG)
-COMP :=$(COMP) $(FAST)
+#COMP :=$(COMP) $(FAST)
 HEAD = 
 SUB  = 
 
@@ -12,6 +13,9 @@ all:$(OUTPUT)
 
 $(OUTPUT): $(OUTPUT).f $(HEAD) $(SUB)
 	$(COMP) $^ -o $@
+clean:remove
+	rm -rf $(OUTPUT)
+remove:
 
 
 
