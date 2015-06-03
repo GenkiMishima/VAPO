@@ -9,6 +9,7 @@
 
 
 
+<<<<<<< HEAD
  prob rocket fac p,bar=4.62,ac/at=7.64244556672,
  o/f=0.744799834863, pi/pe=1, eq
  react
@@ -2159,3 +2160,13 @@
 
 
 
+=======
+ prob rocket fac p,bar=2.04,ac/at=7.6489568487,
+ o/f=0.882529230099, pi/pe=1, eq
+ react
+ 	oxid=O2  wt=0.979922261266	t,k=426.33
+ 	oxid=H2O wt=0.0120466432406	t,k=426.33
+ 	oxid=CO2 wt=0.00803109549374	t,k=426.33
+ 	fuel=PMMA  wt=100 t,k=293.15
+ 	h,kj/mol=-442.14  C 5 H 8 O 2
+>>>>>>> fd8aee580c3bf4aa8c70bab476a5ca97f679c53f

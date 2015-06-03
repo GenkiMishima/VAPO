@@ -116,7 +116,7 @@ C LOCAL VARIABLES
      &  xi,xln
 C
       WRITE (*,99001)
-      prefix = 'file'
+      prefix = 'rk'
       ln = INDEX(prefix,' ') - 1
       infile = prefix(1:ln)//'.inp'
       ofile = prefix(1:ln)//'.out'
@@ -224,6 +224,9 @@ C INITIAL ESTIMATES
       CLOSE (IOTHM)
       CLOSE (IOTRN)
       CLOSE (IOPLT)
+      OPEN (55,FILE='MY.d',FORM='unformatted')
+      write(55,*) T
+      CLOSE(55)
  400  STOP
 99001 FORMAT (//' ENTER INPUT FILE NAME WITHOUT .inp EXTENSION.'/ 
      &        '   THE OUTPUT FILES FOR LISTING AND PLOTTING WILL HAVE',/
