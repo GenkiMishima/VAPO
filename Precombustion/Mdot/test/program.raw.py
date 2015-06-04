@@ -12,8 +12,8 @@ from string import *
 if __name__ == "__main__":
 	import CEAReadPack
 	ReadClass = CEAReadPack.Pack()
-	Preinfile  = 'CEAdata/PreData.out'
-	Maininfile = 'CEAdata/MainData.out'
+	Preinfile  = 'CEAdata/Pre/'
+	Maininfile = 'CEAdata/Main/'
 	Time = 6.0            #[s]
 	dt = 0.1              #[s]
 	now = 0.0             #[s]
@@ -101,7 +101,9 @@ if __name__ == "__main__":
 				fl.write('end')
 				fl.close()
 				subcmd.call('./PreGo.sh')
-				Pres,of,Temp,rho,Mole,Gamma,CStar_th = ReadClass.Read1(Preinfile)
+				#Pres,Temp,Mole,Gamma,isp = ReadClass.Read3(Preinfile)
+				Pres = ReadClass.Read3(Preinfile)
+				print 'end'
 
 				PreMdot_th = float(Pres)*10**5*float(PreA_nozl)*float(Gamma)*((2.0/(float(Gamma)+1.0))**((float(Gamma)+1.0)/(float(Gamma)-1.0)))**(1.0/2.0)/(float(Gamma)*8314.3/float(Mole)*float(Temp))**(1.0/2.0)
 				PreResi = abs(PreMtot/PreMdot_th-1.0)

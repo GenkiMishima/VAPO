@@ -1,4 +1,4 @@
-prob rocket fac p,bar=3.14,ac/at=29.7520661157,
+prob rocket fac p,bar=1.01,ac/at=29.7520661157,
 o/f=51.112993252, pi/pe=1, eq
 react
 	oxid=O2(L) wt=100

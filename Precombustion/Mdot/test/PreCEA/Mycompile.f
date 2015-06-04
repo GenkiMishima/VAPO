@@ -3212,7 +3212,7 @@ C PRESSURE
       ENDDO
       WRITE (IOOUT,Fmt) fp,(X(j),j=1,Npt)
       open (55,file='../CEAdata/Pre/Pressure.d',access='append')
-      write (55,*)  fp,(X(j),j=1,Npt)
+      write (55,'(1X ,A15, F9.4, F9.4, F9.4, F9.4 )')  fp,(X(j),j=1,Npt)
       close(55)
 C TEMPERATURE
       Fmt(4) = '13'
@@ -3220,7 +3220,9 @@ C TEMPERATURE
       Fmt(7) = '2,'
       WRITE (IOOUT,Fmt) 'T, K            ',(Ttt(j),j=1,Npt)
       open (55,file='../CEAdata/Pre/Temprature.d',access='append')
-      WRITE (55,*) 'T, K            ',(Ttt(j),j=1,Npt)
+      !WRITE (55,'(1X ,F9.4 , F9.4 , F9.4 , F9.2 )') (Ttt(j),j=1,Npt)
+      WRITE (55,'(F14.6,3(1x,F14.6))') (Ttt(j),j=1,Npt)
+
       close(55)
 C DENSITY
       DO i = 1,Npt
@@ -3272,7 +3274,7 @@ C MOLECULAR WEIGHT
       Fmt(7) = '3,'
       WRITE (IOOUT,Fmt) 'M, (1/n)        ',(Wm(j),j=1,Npt)
       open (55,file='../CEAdata/Pre/Mole.d',access='append')
-      WRITE (55,*) 'M, (1/n)        ',(Wm(j),j=1,Npt)
+      WRITE (55,'(F14.6,3(1x,F14.6))') (Wm(j),j=1,Npt)
       close(55)
       IF ( .NOT.Gonly ) WRITE (IOOUT,Fmt) 'MW, MOL WT      ',
      &                                (1.D0/Totn(j),j=1,Npt)
@@ -3288,7 +3290,7 @@ C GAMMA(S)
       Fmt(7) = '4,'
       WRITE (IOOUT,Fmt) 'GAMMAs          ',(Gammas(j),j=1,Npt)
       open (55,file='../CEAdata/Pre/Gamma.d',access='append')
-      WRITE (55,*) 'GAMMAs          ',(Gammas(j),j=1,Npt)
+      WRITE (55,'(F14.6,3(1x,F14.6))') ,(Gammas(j),j=1,Npt)
       close(55)
 C SONIC VELOCITY
       Fmt(7) = '1,'
@@ -3858,7 +3860,7 @@ C VACUUM IMPULSE
 C SPECIFIC IMPULSE
       WRITE (IOOUT,Fmt) fi,(Spim(j),j=2,Npt)
       open (55,file='../CEAdata/Pre/Isp.d',access='append')
-      WRITE (55,*) fi,(Spim(j),j=2,Npt)
+      WRITE (55,'(1X ,A15, F9.3 , F9.3 , F9.3 )') fi,(Spim(j),j=2,Npt)
       close(55)
       IF ( Nplt.GT.0 ) THEN
         Spim(1) = 0
