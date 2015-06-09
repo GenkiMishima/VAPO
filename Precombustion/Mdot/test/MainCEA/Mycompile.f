@@ -146,6 +146,9 @@ C     WRITE (*,99001)
       open (55,file='../CEAdata/Main/Isp.d')
       write(55,*)
       close(55)
+      open (55,file='../CEAdata/Main/Frac.d')
+      write(55,*)
+      close(55)
       WRITE (IOOUT,99006)
       WRITE (IOOUT,99007)
       WRITE (IOOUT,99006)
@@ -3349,6 +3352,9 @@ C MASS OR MOLE FRACTIONS
           IF ( kin.EQ.1 ) THEN
             IF ( Trace.EQ.0. ) THEN
               WRITE (IOOUT,99011) Prod(k),(X(i),i=1,Npt)
+              open (55,file='../CEAdata/Main/Frac.d',access='append')
+              WRITE (55,99011) Prod(k),(X(i),i=1,Npt)
+              close(55)
             ELSE
               CALL EFMT(Fmt(4),Prod(k),X)
             ENDIF
