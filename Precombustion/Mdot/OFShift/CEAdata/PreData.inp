@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-prob rocket fac p,bar=4.6,ac/at=29.7520661157,
-o/f=51.0806307021, pi/pe=1, eq
-=======
-prob rocket fac p,bar=1.01,ac/at=29.7520661157,
-o/f=48.8448002867, pi/pe=1, eq
->>>>>>> fd8aee580c3bf4aa8c70bab476a5ca97f679c53f
+prob rocket fac p,bar=3.5,ac/at=29.7520661157,
+o/f=51.112993252, pi/pe=1, eq
 react
 	oxid=O2(L) wt=100
 	fuel=PMMA  wt=100 t,k=293.15
