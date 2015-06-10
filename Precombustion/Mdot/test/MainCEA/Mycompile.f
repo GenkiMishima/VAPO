@@ -131,24 +131,24 @@ C     WRITE (*,99001)
       OPEN (IOSCH,STATUS='scratch',FORM='unformatted')
       OPEN (IOTHM,FILE='thermo.lib',FORM='unformatted')
       OPEN (IOTRN,FILE='trans.lib',FORM='unformatted')
-      open (55,file='../CEAdata/Main/Pressure.d')
-      write(55,*)
-      close(55)
-      open (55,file='../CEAdata/Main/Temprature.d')
-      write(55,*)
-      close(55)
-      open (55,file='../CEAdata/Main/Mole.d')
-      write(55,*)
-      close(55)
-      open (55,file='../CEAdata/Main/Gamma.d')
-      write(55,*)
-      close(55)
-      open (55,file='../CEAdata/Main/Isp.d')
-      write(55,*)
-      close(55)
-      open (55,file='../CEAdata/Main/Frac.d')
-      write(55,*)
-      close(55)
+      !open (55,file='../CEAdata/Main/Pressure.d')
+      !write(55,*)
+      !close(55)
+      !open (55,file='../CEAdata/Main/Temprature.d')
+      !write(55,*)
+      !close(55)
+      !open (55,file='../CEAdata/Main/Mole.d')
+      !write(55,*)
+      !close(55)
+      !open (55,file='../CEAdata/Main/Gamma.d')
+      !write(55,*)
+      !close(55)
+      !open (55,file='../CEAdata/Main/Isp.d')
+      !write(55,*)
+      !close(55)
+      !open (55,file='../CEAdata/Main/Frac.d')
+      !write(55,*)
+      !close(55)
       WRITE (IOOUT,99006)
       WRITE (IOOUT,99007)
       WRITE (IOOUT,99006)
@@ -3042,6 +3042,7 @@ C LOCAL VARIABLES
      &  mamo,mcond,mcondf,mcp,mdvp,mdvt,meq,mfa,mg,mgam,mh,mie,mm,mmw,
      &  mof,mp,mpf,mph,mpn,mpnf,mrho,ms,mson,mt,mvis,mxx,n,notuse,
      &  pfactor,pfuel,phi,rho,tem,tra,vnum
+      integer NgCount
 C
       EQUIVALENCE (mxx(1),mp)
       EQUIVALENCE (mxx(2),mt)
@@ -3214,7 +3215,8 @@ C PRESSURE
         ENDIF
       ENDDO
       WRITE (IOOUT,Fmt) fp,(X(j),j=1,Npt)
-      open (55,file='../CEAdata/Main/Pressure.d',access='append')
+      !open (55,file='../CEAdata/Main/Pressure.d',access='append')
+      open (55,file='../CEAdata/Main/Pressure.d')
       write (55,'(1X ,A15, F9.4, F9.4, F9.4, F9.4 )')  fp,(X(j),j=1,Npt)
       close(55)
 C TEMPERATURE
@@ -3222,7 +3224,8 @@ C TEMPERATURE
       Fmt(5) = ' '
       Fmt(7) = '2,'
       WRITE (IOOUT,Fmt) 'T, K            ',(Ttt(j),j=1,Npt)
-      open (55,file='../CEAdata/Main/Temprature.d',access='append')
+      !open (55,file='../CEAdata/Main/Temprature.d',access='append')
+      open (55,file='../CEAdata/Main/Temprature.d')
       !WRITE (55,'(1X ,F9.4 , F9.4 , F9.4 , F9.2 )') (Ttt(j),j=1,Npt)
       WRITE (55,'(F14.6,3(1x,F14.6))') (Ttt(j),j=1,Npt)
 
@@ -3276,7 +3279,8 @@ C ENTROPY
 C MOLECULAR WEIGHT
       Fmt(7) = '3,'
       WRITE (IOOUT,Fmt) 'M, (1/n)        ',(Wm(j),j=1,Npt)
-      open (55,file='../CEAdata/Main/Mole.d',access='append')
+      !open (55,file='../CEAdata/Main/Mole.d',access='append')
+      open (55,file='../CEAdata/Main/Mole.d')
       WRITE (55,'(F14.6,3(1x,F14.6))') (Wm(j),j=1,Npt)
       close(55)
       IF ( .NOT.Gonly ) WRITE (IOOUT,Fmt) 'MW, MOL WT      ',
@@ -3292,7 +3296,8 @@ C HEAT CAPACITY
 C GAMMA(S)
       Fmt(7) = '4,'
       WRITE (IOOUT,Fmt) 'GAMMAs          ',(Gammas(j),j=1,Npt)
-      open (55,file='../CEAdata/Main/Gamma.d',access='append')
+      !open (55,file='../CEAdata/Main/Gamma.d',access='append')
+      open (55,file='../CEAdata/Main/Gamma.d')
       WRITE (55,'(F14.6,3(1x,F14.6))') ,(Gammas(j),j=1,Npt)
       close(55)
 C SONIC VELOCITY
@@ -3317,6 +3322,9 @@ C MASS OR MOLE FRACTIONS
       IF ( Eql ) THEN
         WRITE (IOOUT,99010) mamo
         notuse = 0
+        open (55,file='../CEAdata/Main/Frac.d')
+        open (56,file='../CEAdata/Main/FracCount.d')
+        NgCount = 0
         DO k = 1,Ngc
           kok = .TRUE.
           IF ( k.GT.Ng.AND.k.LT.Ngc.AND.Prod(k).EQ.Prod(k+1) ) THEN
@@ -3352,9 +3360,9 @@ C MASS OR MOLE FRACTIONS
           IF ( kin.EQ.1 ) THEN
             IF ( Trace.EQ.0. ) THEN
               WRITE (IOOUT,99011) Prod(k),(X(i),i=1,Npt)
-              open (55,file='../CEAdata/Main/Frac.d',access='append')
+              NgCount = NgCount +1
+              !open (55,file='../CEAdata/Main/Frac.d',access='append')
               WRITE (55,99011) Prod(k),(X(i),i=1,Npt)
-              close(55)
             ELSE
               CALL EFMT(Fmt(4),Prod(k),X)
             ENDIF
@@ -3364,6 +3372,9 @@ C MASS OR MOLE FRACTIONS
             Omit(notuse) = Prod(k)
           ENDIF
         ENDDO
+        write(56,*) NgCount
+        close(55)
+        close(56)
       ENDIF
       WRITE (IOOUT,99012) Tg(4)
       IF ( .NOT.Short ) THEN
@@ -3865,7 +3876,8 @@ C VACUUM IMPULSE
       WRITE (IOOUT,Fmt) fiv,(vaci(j),j=2,Npt)
 C SPECIFIC IMPULSE
       WRITE (IOOUT,Fmt) fi,(Spim(j),j=2,Npt)
-      open (55,file='../CEAdata/Main/Isp.d',access='append')
+      !open (55,file='../CEAdata/Main/Isp.d',access='append')
+      open (55,file='../CEAdata/Main/Isp.d')
       WRITE (55,'(1X ,A15, F9.3 , F9.3 , F9.3 )') fi,(Spim(j),j=2,Npt)
       close(55)
       IF ( Nplt.GT.0 ) THEN

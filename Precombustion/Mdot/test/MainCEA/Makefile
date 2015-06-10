@@ -1,7 +1,8 @@
 OUTPUT  :=Mycompile
 FAST    :=-parallel -fast
 DEBUG   :=-check -traceback
-COMP    :=gfortran
+#COMP    :=gfortran
+COMP    :=ifort
 
 #COMP :=$(COMP) $(DEBUG)
 #COMP :=$(COMP) $(FAST)
