@@ -131,6 +131,21 @@ C     WRITE (*,99001)
       OPEN (IOSCH,STATUS='scratch',FORM='unformatted')
       OPEN (IOTHM,FILE='thermo.lib',FORM='unformatted')
       OPEN (IOTRN,FILE='trans.lib',FORM='unformatted')
+      open (55,file='../CEAdata/Pre/Pressure.d')
+      write(55,*)
+      close(55)
+      open (55,file='../CEAdata/Pre/Temprature.d')
+      write(55,*)
+      close(55)
+      open (55,file='../CEAdata/Pre/Mole.d')
+      write(55,*)
+      close(55)
+      open (55,file='../CEAdata/Pre/Gamma.d')
+      write(55,*)
+      close(55)
+      open (55,file='../CEAdata/Pre/Isp.d')
+      write(55,*)
+      close(55)
       WRITE (IOOUT,99006)
       WRITE (IOOUT,99007)
       WRITE (IOOUT,99006)
@@ -3196,11 +3211,19 @@ C PRESSURE
         ENDIF
       ENDDO
       WRITE (IOOUT,Fmt) fp,(X(j),j=1,Npt)
+      open (55,file='../CEAdata/Pre/Pressure.d',access='append')
+      write (55,'(1X ,A15, F9.4, F9.4, F9.4, F9.4 )')  fp,(X(j),j=1,Npt)
+      close(55)
 C TEMPERATURE
       Fmt(4) = '13'
       Fmt(5) = ' '
       Fmt(7) = '2,'
       WRITE (IOOUT,Fmt) 'T, K            ',(Ttt(j),j=1,Npt)
+      open (55,file='../CEAdata/Pre/Temprature.d',access='append')
+      !WRITE (55,'(1X ,F9.4 , F9.4 , F9.4 , F9.2 )') (Ttt(j),j=1,Npt)
+      WRITE (55,'(F14.6,3(1x,F14.6))') (Ttt(j),j=1,Npt)
+
+      close(55)
 C DENSITY
       DO i = 1,Npt
         IF ( Vlm(i).NE.0. ) X(i) = vnum/Vlm(i)
@@ -3250,6 +3273,9 @@ C ENTROPY
 C MOLECULAR WEIGHT
       Fmt(7) = '3,'
       WRITE (IOOUT,Fmt) 'M, (1/n)        ',(Wm(j),j=1,Npt)
+      open (55,file='../CEAdata/Pre/Mole.d',access='append')
+      WRITE (55,'(F14.6,3(1x,F14.6))') (Wm(j),j=1,Npt)
+      close(55)
       IF ( .NOT.Gonly ) WRITE (IOOUT,Fmt) 'MW, MOL WT      ',
      &                                (1.D0/Totn(j),j=1,Npt)
 C (DLV/DLP)T
@@ -3263,6 +3289,9 @@ C HEAT CAPACITY
 C GAMMA(S)
       Fmt(7) = '4,'
       WRITE (IOOUT,Fmt) 'GAMMAs          ',(Gammas(j),j=1,Npt)
+      open (55,file='../CEAdata/Pre/Gamma.d',access='append')
+      WRITE (55,'(F14.6,3(1x,F14.6))') ,(Gammas(j),j=1,Npt)
+      close(55)
 C SONIC VELOCITY
       Fmt(7) = '1,'
       DO i = 1,Npt
@@ -3830,6 +3859,9 @@ C VACUUM IMPULSE
       WRITE (IOOUT,Fmt) fiv,(vaci(j),j=2,Npt)
 C SPECIFIC IMPULSE
       WRITE (IOOUT,Fmt) fi,(Spim(j),j=2,Npt)
+      open (55,file='../CEAdata/Pre/Isp.d',access='append')
+      WRITE (55,'(1X ,A15, F9.3 , F9.3 , F9.3 )') fi,(Spim(j),j=2,Npt)
+      close(55)
       IF ( Nplt.GT.0 ) THEN
         Spim(1) = 0
         Aeat(1) = 0

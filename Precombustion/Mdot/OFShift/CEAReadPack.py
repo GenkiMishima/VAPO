@@ -36,7 +36,7 @@ class Pack:
 			inline = indat.readline()
 		
 		indat.close()
-		return of,Temp,rho,Mole,Gamma,CStar_th
+		return Pres,of,Temp,rho,Mole,Gamma,CStar_th
 	def Read2(self,infile):
 		indat = open(infile, 'r')
 		inline = indat.readline()
@@ -67,6 +67,13 @@ class Pack:
 		
 		indat.close()
 		return Pres,of,Temp,rho,Mole,Gamma,CStar_th,Isp
+	def Read3(self,infile):
+		filename = infile+'Pressure.d'
+		print filename
+		Pres = sp.genfromtxt(infile+'Pressure.d')
+		print Pres
+		#indat = open(infile+'Pressure.d', 'r')
+		#inline = indat.readline()
 
 	def MatchMdot(self,Pres,of,Temp,rho,Mole,Gamma,CStar_th,A_nozl):
 		Mdot_th = float(Pres)*10**5*float(A_nozl)*float(Gamma)*((2.0/(float(Gamma)+1.0))**((float(Gamma)+1.0)/(float(Gamma)-1.0)))**(1.0/2.0)/(float(Gamma)*8314.3/float(Mole)*float(Temp))**(1.0/2.0)

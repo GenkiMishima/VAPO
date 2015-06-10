@@ -12,7 +12,12 @@ from string import *
 if __name__ == "__main__":
 	import CEAReadPack
 	ReadClass = CEAReadPack.Pack()
+	infile = 'CEAdata/Pre'
 
+	filename = infile+'Pressure.d'
+	print filename
+	Pres = sp.genfromtxt(filename,delimiter = ' ')
+	print Pres
 	#Time = 0.5            #[s]
 	#dt = 0.1              #[s]
 	#now = 0.0             #[s]
