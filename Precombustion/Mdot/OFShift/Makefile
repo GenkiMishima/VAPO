@@ -1,4 +1,4 @@
 
 clean:remove
-	rm -rf *.d *.png
+	rm -rf OUT/*.d OUT/*.png
 remove:
