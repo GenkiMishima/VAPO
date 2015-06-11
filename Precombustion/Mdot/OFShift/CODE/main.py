@@ -306,77 +306,77 @@ if __name__ == "__main__":
 	#PreOUT{{{
 	direct = '../OUT/DATA/Pre'
 	f = open(direct+'MdotF.d','w')
-	out = np.array([MainAllTime,MainAllMdotF]).T
+	out = np.array([PreAllTime,PreAllMdotF]).T
 	writer = csv.writer(f, lineterminator='\n')
 	writer.writerows(out)
 	f.close()
 	f = open(direct+'OF.d','w')
-	out = np.array([MainAllTime,MainAllOF]).T
+	out = np.array([PreAllTime,PreAllOF]).T
 	writer = csv.writer(f, lineterminator='\n')
 	writer.writerows(out)
 	f.close()
 	f = open(direct+'Pres.d','w')
-	out = np.array([MainAllTime,MainAllPres]).T
+	out = np.array([PreAllTime,PreAllPres]).T
 	writer = csv.writer(f, lineterminator='\n')
 	writer.writerows(out)
 	f.close()
 	f = open(direct+'Temp.d','w')
-	out = np.array([MainAllTime,MainAllTemp]).T
+	out = np.array([PreAllTime,PreAllTemp]).T
 	writer = csv.writer(f, lineterminator='\n')
 	writer.writerows(out)
 	f.close()
 	f = open(direct+'Isp.d','w')
-	out = np.array([MainAllTime,MainAllIsp]).T
+	out = np.array([PreAllTime,PreAllIsp]).T
 	writer = csv.writer(f, lineterminator='\n')
 	writer.writerows(out)
 	f.close()
 	f = open(direct+'Thrust.d','w')
-	out = np.array([MainAllTime,MainAllThrust]).T
+	out = np.array([PreAllTime,PreAllThrust]).T
 	writer = csv.writer(f, lineterminator='\n')
 	writer.writerows(out)
 	f.close()
 	f = open(direct+'CH4.d','w')
-	out = np.array([MainAllTime,MainAllCH4]).T
+	out = np.array([PreAllTime,PreAllCH4]).T
 	writer = csv.writer(f, lineterminator='\n')
 	writer.writerows(out)
 	f.close()
 	f = open(direct+'CO2.d','w')
-	out = np.array([MainAllTime,MainAllCO2]).T
+	out = np.array([PreAllTime,PreAllCO2]).T
 	writer = csv.writer(f, lineterminator='\n')
 	writer.writerows(out)
 	f.close()
 	f = open(direct+'CO.d','w')
-	out = np.array([MainAllTime,MainAllCO]).T
+	out = np.array([PreAllTime,PreAllCO]).T
 	writer = csv.writer(f, lineterminator='\n')
 	writer.writerows(out)
 	f.close()
 	f = open(direct+'H.d','w')
-	out = np.array([MainAllTime,MainAllH]).T
+	out = np.array([PreAllTime,PreAllH]).T
 	writer = csv.writer(f, lineterminator='\n')
 	writer.writerows(out)
 	f.close()
 	f = open(direct+'H2.d','w')
-	out = np.array([MainAllTime,MainAllH2]).T
+	out = np.array([PreAllTime,PreAllH2]).T
 	writer = csv.writer(f, lineterminator='\n')
 	writer.writerows(out)
 	f.close()
 	f = open(direct+'H2O.d','w')
-	out = np.array([MainAllTime,MainAllH2O]).T
+	out = np.array([PreAllTime,PreAllH2O]).T
 	writer = csv.writer(f, lineterminator='\n')
 	writer.writerows(out)
 	f.close()
 	f = open(direct+'O.d','w')
-	out = np.array([MainAllTime,MainAllO]).T
+	out = np.array([PreAllTime,PreAllO]).T
 	writer = csv.writer(f, lineterminator='\n')
 	writer.writerows(out)
 	f.close()
 	f = open(direct+'O2.d','w')
-	out = np.array([MainAllTime,MainAllO2]).T
+	out = np.array([PreAllTime,PreAllO2]).T
 	writer = csv.writer(f, lineterminator='\n')
 	writer.writerows(out)
 	f.close()
 	f = open(direct+'OH.d','w')
-	out = np.array([MainAllTime,MainAllOH]).T
+	out = np.array([PreAllTime,PreAllOH]).T
 	writer = csv.writer(f, lineterminator='\n')
 	writer.writerows(out)
 	f.close()
