@@ -1,12 +1,7 @@
+include ../../Makefile.inc
 OUTPUT  :=MainRead
-FAST    :=-parallel -fast
-DEBUG   :=-check -traceback
-COMP    :=ifort
-
-#COMP :=$(COMP) $(DEBUG)
-COMP :=$(COMP) $(FAST)
-HEAD = 
-SUB  = 
+HEAD    := 
+SUB     := 
 
 all:$(OUTPUT)
 

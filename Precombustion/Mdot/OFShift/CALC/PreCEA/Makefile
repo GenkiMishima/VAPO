@@ -1,10 +1,5 @@
+include ../Makefile.inc
 OUTPUT  :=Mycompile
-FAST    :=-parallel -fast
-DEBUG   :=-check -traceback
-COMP    :=ifort
-
-#COMP :=$(COMP) $(DEBUG)
-COMP :=$(COMP) $(FAST)
 HEAD = 
 SUB  = 
 

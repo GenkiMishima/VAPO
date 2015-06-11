@@ -1,5 +1,10 @@
-include ../Makefile.inc
 OUTPUT  :=Mycompile
+FAST    :=-parallel -O3
+DEBUG   :=-check -traceback
+COMP    :=ifort
+
+#COMP :=$(COMP) $(DEBUG)
+COMP :=$(COMP) $(FAST)
 HEAD = 
 SUB  = 
 
@@ -7,9 +12,6 @@ all:$(OUTPUT)
 
 $(OUTPUT): $(OUTPUT).f $(HEAD) $(SUB)
 	$(COMP) $^ -o $@
-clean:remove
-	rm -rf $(OUTPUT)
-remove:
 
 
 
