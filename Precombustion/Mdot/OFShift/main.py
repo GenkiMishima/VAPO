@@ -5,6 +5,7 @@ import scipy as sp
 import numpy as np
 import matplotlib.pyplot as plt
 import math
+import csv
 from string import *
 
 if __name__ == "__main__":
@@ -12,7 +13,7 @@ if __name__ == "__main__":
 	ReadClass = CEAReadPack.Pack()
 	Preinfile  = 'CEAdata/Pre/'
 	Maininfile = 'CEAdata/Main/'
-	Time = 0.5            #[s]
+	Time = 0.3            #[s]
 	dt = 0.1              #[s]
 	now = 0.0             #[s]
 	g0 = 9.80665          #[m/s2]
@@ -65,6 +66,16 @@ if __name__ == "__main__":
 	MainAllIsp    = np.array([])
 	MainAllMdotF  = np.array([])
 	MainAllThrust = np.array([])
+
+	MainAllCH4    = np.array([])
+	MainAllCO2    = np.array([])
+	MainAllCO     = np.array([])
+	MainAllH      = np.array([])
+	MainAllH2     = np.array([])
+	MainAllH2O    = np.array([])
+	MainAllO      = np.array([])
+	MainAllO2     = np.array([])
+	MainAllOH     = np.array([])
 	while now <= Time:
 	 		now = now+dt
 			#MainChamber
@@ -138,6 +149,7 @@ if __name__ == "__main__":
 						break;
 					#MainEp = MainResi
 
+				
 				MainAllTime   = np.append(MainAllTime,now)
 				MainAllOF     = np.append(MainAllOF,MainOF)
 				MainAllPres   = np.append(MainAllPres,Pres*0.1)
@@ -145,65 +157,127 @@ if __name__ == "__main__":
 				MainAllIsp    = np.append(MainAllIsp,Isp/g0)
 				MainAllMdotF  = np.append(MainAllMdotF,MainMdotF)
 				MainAllThrust = np.append(MainAllThrust,Thrust)
-	plt.plot(MainAllTime,MainAllMdotF)
-	plt.grid()
-	##plt.title('MdotO:%s[kg/s]'%MdotO)
-	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
-	plt.xlabel('Time[s]')
-	plt.ylabel('MainMdotF[kg/s]')
-	plt.ylim([0,0.05])
-	plt.savefig("MainMdotF_%s.png"%int(PreLength*1000.0))
-	plt.close()
 
-	plt.plot(MainAllTime,MainAllOF)
-	plt.grid()
-	##plt.title('MdotO:%s[kg/s]'%MdotO)
-	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
-	plt.xlabel('Time[s]')
-	plt.ylabel('MainOF')
-	plt.ylim([0,1.0])
-	plt.savefig("MainOF_%s.png"%int(PreLength*1000.0))
-	plt.close()
+				CH4 = sp.genfromtxt('CEAdata/Main/CH4.d',delimiter=' ')
+				CO2 = sp.genfromtxt('CEAdata/Main/CO2.d',delimiter=' ')
+				CO  = sp.genfromtxt('CEAdata/Main/CO.d',delimiter=' ')
+				H   = sp.genfromtxt('CEAdata/Main/H.d',delimiter=' ')
+				H2  = sp.genfromtxt('CEAdata/Main/H2.d',delimiter=' ')
+				H2O = sp.genfromtxt('CEAdata/Main/H2O.d',delimiter=' ')
+				O   = sp.genfromtxt('CEAdata/Main/O.d',delimiter=' ')
+				O2  = sp.genfromtxt('CEAdata/Main/O2.d',delimiter=' ')
+				OH  = sp.genfromtxt('CEAdata/Main/OH.d',delimiter=' ')
 
-	plt.plot(MainAllTime,MainAllTemp)
-	plt.grid()
-	##plt.title('MdotO:%s[kg/s]'%MdotO)
-	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
-	plt.xlabel('Time[s]')
-	plt.ylabel('MainTemp[K]')
-	plt.ylim([1500,3000])
-	plt.savefig("MainTemp_%s.png"%int(PreLength*1000.0))
-	plt.close()
+				print CH4
+				#MainAllCH4  = np.append(MainAllCH4,CH4) 
+				#MainAllCO2  = np.append(MainAllCO2,CO2) 
+				#MainAllCO   = np.append(MainAllCO ,CO ) 
+				#MainAllH    = np.append(MainAllH  ,H  ) 
+				#MainAllH2   = np.append(MainAllH2 ,H2 ) 
+				#MainAllH2O  = np.append(MainAllH2O,H2O) 
+				#MainAllO    = np.append(MainAllO  ,O  ) 
+				#MainAllO2   = np.append(MainAllO2 ,O2 ) 
+				#MainAllOH   = np.append(MainAllOH ,OH ) 
 
-	plt.plot(MainAllTime,MainAllPres)
-	plt.grid()
-	##plt.title('MdotO:%s[kg/s]'%MdotO)
-	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
-	plt.xlabel('Time[s]')
-	plt.ylabel('Pres[MPa]')
-	plt.ylim([0.2,0.5])
-	plt.savefig("MainPres_%s.png"%int(PreLength*1000.0))
-	plt.close()
 
-	plt.plot(MainAllTime,MainAllIsp)
-	plt.grid()
-	##plt.title('MdotO:%s[kg/s]'%MdotO)
-	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
-	plt.xlabel('Time[s]')
-	plt.ylabel('Isp[s]')
-	plt.ylim([80,100])
-	plt.savefig("MainIsp_%s.png"%int(PreLength*1000.0))
-	plt.close()
 
-	plt.plot(MainAllTime,MainAllThrust)
-	plt.grid()
-	##plt.title('MdotO:%s[kg/s]'%MdotO)
-	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
-	plt.xlabel('Time[s]')
-	plt.ylabel('F[N]')
-	plt.ylim([50,100])
-	plt.savefig("MainThrust_%s.png"%int(PreLength*1000.0))
-	plt.close()
+
+	
+	#out[:,1] = MainAllTime
+	#out[:,2] = MainAllOF
+	#out = np.array([MainAllTime,MainAllMdotF]).T
+	#print out
+	#out = np.array([MainAllTime,MainAllOF]).T
+	#print out
+	f = open('MdotF.d','w')
+	out = np.array([MainAllTime,MainAllMdotF]).T
+	writer = csv.writer(f, lineterminator='\n')
+	writer.writerows(out)
+	f.close()
+	f = open('OF.d','w')
+	out = np.array([MainAllTime,MainAllOF]).T
+	writer = csv.writer(f, lineterminator='\n')
+	writer.writerows(out)
+	f.close()
+	f = open('Pres.d','w')
+	out = np.array([MainAllTime,MainAllPres]).T
+	writer = csv.writer(f, lineterminator='\n')
+	writer.writerows(out)
+	f.close()
+	f = open('Temp.d','w')
+	out = np.array([MainAllTime,MainAllTemp]).T
+	writer = csv.writer(f, lineterminator='\n')
+	writer.writerows(out)
+	f.close()
+	f = open('Isp.d','w')
+	out = np.array([MainAllTime,MainAllIsp]).T
+	writer = csv.writer(f, lineterminator='\n')
+	writer.writerows(out)
+	f.close()
+	f = open('Thrust.d','w')
+	out = np.array([MainAllTime,MainAllThrust]).T
+	writer = csv.writer(f, lineterminator='\n')
+	writer.writerows(out)
+	f.close()
+	#plt.plot(MainAllTime,MainAllMdotF)
+	#plt.grid()
+	###plt.title('MdotO:%s[kg/s]'%MdotO)
+	#plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
+	#plt.xlabel('Time[s]')
+	#plt.ylabel('MainMdotF[kg/s]')
+	#plt.ylim([0,0.05])
+	#plt.savefig("MainMdotF_%s.png"%int(PreLength*1000.0))
+	#plt.close()
+
+	#plt.plot(MainAllTime,MainAllOF)
+	#plt.grid()
+	###plt.title('MdotO:%s[kg/s]'%MdotO)
+	#plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
+	#plt.xlabel('Time[s]')
+	#plt.ylabel('MainOF')
+	#plt.ylim([0,1.0])
+	#plt.savefig("MainOF_%s.png"%int(PreLength*1000.0))
+	#plt.close()
+
+	#plt.plot(MainAllTime,MainAllTemp)
+	#plt.grid()
+	###plt.title('MdotO:%s[kg/s]'%MdotO)
+	#plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
+	#plt.xlabel('Time[s]')
+	#plt.ylabel('MainTemp[K]')
+	#plt.ylim([1500,3000])
+	#plt.savefig("MainTemp_%s.png"%int(PreLength*1000.0))
+	#plt.close()
+
+	#plt.plot(MainAllTime,MainAllPres)
+	#plt.grid()
+	###plt.title('MdotO:%s[kg/s]'%MdotO)
+	#plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
+	#plt.xlabel('Time[s]')
+	#plt.ylabel('Pres[MPa]')
+	#plt.ylim([0.2,0.5])
+	#plt.savefig("MainPres_%s.png"%int(PreLength*1000.0))
+	#plt.close()
+
+	#plt.plot(MainAllTime,MainAllIsp)
+	#plt.grid()
+	###plt.title('MdotO:%s[kg/s]'%MdotO)
+	#plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
+	#plt.xlabel('Time[s]')
+	#plt.ylabel('Isp[s]')
+	#plt.ylim([80,100])
+	#plt.savefig("MainIsp_%s.png"%int(PreLength*1000.0))
+	#plt.close()
+
+	#plt.plot(MainAllTime,MainAllThrust)
+	#plt.grid()
+	###plt.title('MdotO:%s[kg/s]'%MdotO)
+	#plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
+	#plt.xlabel('Time[s]')
+	#plt.ylabel('F[N]')
+	#plt.ylim([50,100])
+	#plt.savefig("MainThrust_%s.png"%int(PreLength*1000.0))
+	#plt.close()
 
 	#plt.show()
 
