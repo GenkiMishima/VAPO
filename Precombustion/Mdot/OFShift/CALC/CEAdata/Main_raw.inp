@@ -1,0 +1,10 @@
+prob rocket fac p,bar=20,ac/at=3.0,
+o/f=3.6, pi/pe=1, fr eq
+react
+	oxid=O2        wt=95 
+	oxid=H2O       wt=3 t,k=293.15
+	oxid=CO2       wt=2 t,k=293.15
+	fuel=PP  wt=100 t,k=293.15
+	h,kj/mol=-1428  C 3 H 6 
+
+end
