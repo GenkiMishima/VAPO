@@ -13,7 +13,7 @@ if __name__ == "__main__":
 	ReadClass = CEAReadPack.Pack()
 	Preinfile  = 'CEAdata/Pre/'
 	Maininfile = 'CEAdata/Main/'
-	Time = 0.5            #[s]
+	Time = 6.0            #[s]
 	dt = 0.1              #[s]
 	now = 0.0             #[s]
 	g0 = 9.80665          #[m/s2]
@@ -27,7 +27,7 @@ if __name__ == "__main__":
 	PrePhiInit = 30.0*10**(-3.0) #[m]
 	PreRhoF = 1.18*10**3.0      #[kg/m3]
 	PreDia_cham = 0.03    #[m]
-	PreDia_nozl = 0.0055  #[m]
+	PreDia_nozl = 0.0045  #[m]
 	#PreDia_nozl = 0.01  #[m]
 	PreDia = PreDia_cham
 	PreAdash = PreDia**2.0*math.pi/4.0  #[m2]Port Area
@@ -119,14 +119,8 @@ if __name__ == "__main__":
 				fl.write('ac/at=%s,\n'%PreDia_ratio)
 				fl.write('o/f=%s, pi/pe=1, eq\n'%PreOF)
 				fl.write('react\n')
-				fl.write('	oxid=O2  wt=100')
-				fl.write('	t,k=293.15\n')
-				#fl.write('	oxid=O2  wt=%s'%PreOxid)
-				#fl.write('	t,k=%s\n'%PreTemp)
-				#fl.write('	oxid=H2O wt=%s'%(PreFuel*3.0/5.0))
-				#fl.write('	t,k=%s\n'%PreTemp)
-				#fl.write('	oxid=CO2 wt=%s'%(PreFuel*2.0/5.0))
-				#fl.write('	t,k=%s\n'%PreTemp)
+				fl.write('	oxid=O2(L)  wt=100\n')
+				#fl.write('	oxid=O2  wt=100 t,k=293.15\n')
 				fl.write('	fuel=PMMA  wt=100 t,k=293.15\n')
 				fl.write('	h,kj/mol=-442.14  C 5 H 8 O 2\n')
 				#fl.write('	fuel=PP  wt=100 t,k=293.15\n')
@@ -160,7 +154,8 @@ if __name__ == "__main__":
 		#		#print float(Temp)
 				PreMdot_th = PrePres*10**5*PreA_nozl*PreGamma*((2.0/(PreGamma+1.0))**((PreGamma+1.0)/(PreGamma-1.0)))**(1.0/2.0)/(PreGamma*8314.3/PreMole*PreTemp)**(1.0/2.0)
 				#print (PreMtot/PreMdot_th-1.0),0.01
-				if (PreMtot/PreMdot_th-1.0)<0.0:
+				#if (PreMtot/PreMdot_th-1.0)<0.0:
+				if PreMtot<PreMdot_th:
 				#	break;
 				#PreResi = abs(PreMtot/PreMdot_th-1.0)
 				#if PreEp<PreResi:
@@ -309,7 +304,7 @@ if __name__ == "__main__":
 	#print out
 
 	#PreOUT{{{
-	direct = '../OUT/Pre'
+	direct = '../OUT/DATA/Pre'
 	f = open(direct+'MdotF.d','w')
 	out = np.array([MainAllTime,MainAllMdotF]).T
 	writer = csv.writer(f, lineterminator='\n')
@@ -394,7 +389,7 @@ if __name__ == "__main__":
 	#}}}
 	#}}}
 	#MainOUT{{{
-	direct = '../OUT/Main'
+	direct = '../OUT/DATA/Main'
 	f = open(direct+'MdotF.d','w')
 	out = np.array([MainAllTime,MainAllMdotF]).T
 	writer = csv.writer(f, lineterminator='\n')
