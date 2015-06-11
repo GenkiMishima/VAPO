@@ -1,3 +1,5 @@
 #!/bin/sh
-cd PreCEA
+cd ../CALC/PreCEA
 ./Mycompile
+cd ../CEAdata/Pre
+./PreRead
