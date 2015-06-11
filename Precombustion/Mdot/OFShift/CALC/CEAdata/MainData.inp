@@ -1,5 +1,5 @@
-prob rocket fac p,bar=7.69,ac/at=10.1531765538,
-o/f=0.958642522745, pi/pe=1, eq
+prob rocket fac p,bar=10.31,ac/at=7.65341688119,
+o/f=0.944550860384, pi/pe=1, eq
 react
 	oxid=CH4  wt=0.0	t,k=286.6
 	oxid=CO2 wt=0.0234	t,k=286.6

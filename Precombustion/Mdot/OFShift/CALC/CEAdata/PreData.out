@@ -9,8 +9,8 @@
 
 
 
- prob rocket fac p,bar=10.21,ac/at=70.7584058458,
- o/f=67.1993436252, pi/pe=1, eq
+ prob rocket fac p,bar=1.86,ac/at=45.304411379,
+ o/f=69.7234366473, pi/pe=1, eq
  react
  	oxid=O2(L)  wt=100
  	fuel=PMMA  wt=100 t,k=293.15
@@ -18,11 +18,11 @@
  end
 
  OPTIONS: TP=F  HP=F  SP=F  TV=F  UV=F  SV=F  DETN=F  SHOCK=F  REFL=F  INCD=F
- RKT=T  FROZ=F  EQL=T  IONS=F  SIUNIT=T  DEBUGF=F  SHKDBG=F  DETDBG=T  TRNSPT=F
+ RKT=T  FROZ=F  EQL=T  IONS=F  SIUNIT=T  DEBUGF=F  SHKDBG=F  DETDBG=F  TRNSPT=F
 
  TRACE= 0.00E+00  S/R= 0.000000E+00  H/R= 0.000000E+00  U/R= 0.000000E+00
 
- Pc,BAR =    10.210000
+ Pc,BAR =     1.860000
 
  Pc/P =     1.0000
 
@@ -30,7 +30,7 @@
 
  SUPERSONIC AREA RATIOS =
 
- NFZ=  1  Mdot/Ac= 0.000000E+00  Ac/At= 7.075841E+01
+ NFZ=  1  Mdot/Ac= 0.000000E+00  Ac/At= 4.530441E+01
 
     REACTANT          WT.FRAC   (ENERGY/R),K   TEMP,K  DENSITY
         EXPLODED FORMULA
@@ -87,55 +87,43 @@
   n 4/83  C(gr)            g11/99  H2O(cr)          g 8/01  H2O(L)         
   g 8/01  H2O(L)         
 
- O/F =  67.199344
+ O/F =  69.723437
 
                        EFFECTIVE FUEL     EFFECTIVE OXIDANT        MIXTURE
  ENTHALPY                  h(2)/R              h(1)/R               h0/R
- (KG-MOL)(K)/KG       -0.53115398E+03     -0.48783267E+02     -0.55856219E+02
+ (KG-MOL)(K)/KG       -0.53115398E+03     -0.48783267E+02     -0.55603788E+02
 
  KG-FORM.WT./KG             bi(2)               bi(1)               b0i
-  *O                   0.19976863E-01      0.62502344E-01      0.61878797E-01
-  *C                   0.49942157E-01      0.00000000E+00      0.73229674E-03
-  *H                   0.79907451E-01      0.00000000E+00      0.11716748E-02
+  *O                   0.19976863E-01      0.62502344E-01      0.61901051E-01
+  *C                   0.49942157E-01      0.00000000E+00      0.70616134E-03
+  *H                   0.79907451E-01      0.00000000E+00      0.11298581E-02
 
  POINT ITN      T            O           C           H 
-   1   32     260.671     -11.213    -186.319     -62.382
+   1   32     246.252     -12.082    -196.997     -66.105
  ADD  H2O(cr)        
-   1    4     289.452     -11.189    -168.259     -57.919
- ADD  H2O(L)         
-   1    4     273.122     -11.195    -178.038     -61.561
- REMOVE  H2O(cr)        
-   1    2     286.691     -11.189    -169.834     -58.570
-   2    2     286.638     -11.203    -169.864     -58.574
- Pinf/Pt = 1.850031
-   3    4     244.842     -11.545    -198.067     -68.732
- ADD  H2O(cr)        
-   3    4     273.122     -11.516    -178.038     -61.400
- REMOVE  H2O(L)         
-   3    3     247.436     -11.541    -196.038     -68.112
- Pinf/Pt = 1.886423
-   3    2     246.123     -11.553    -197.059     -68.488
- Pinf/Pt = 1.886787
-   3    1     246.110     -11.553    -197.070     -68.492
-   4    1     286.637     -11.203    -169.864     -58.575
-   4    1     286.636     -11.203    -169.865     -58.575
-   2    2     286.691     -11.189    -169.834     -58.570
- Pinf/Pt = 1.850508
-   3    4     244.828     -11.532    -198.078     -68.743
- ADD  H2O(cr)        
-   3    4     273.122     -11.503    -178.038     -61.407
- REMOVE  H2O(L)         
-   3    3     247.421     -11.528    -196.050     -68.123
- Pinf/Pt = 1.886514
-   3    2     246.122     -11.539    -197.061     -68.495
- Pinf/Pt = 1.886864
-   3    1     246.109     -11.539    -197.070     -68.499
-   4    1     286.690     -11.189    -169.834     -58.570
-   4    1     286.689     -11.189    -169.835     -58.570
+   1    4     272.357     -12.047    -178.563     -61.316
+   2    2     272.256     -12.061    -178.628     -61.333
+ Pinf/Pt = 1.818438
+   3    4     235.184     -12.405    -206.050     -71.414
+ Pinf/Pt = 1.881857
+   3    2     233.005     -12.426    -207.935     -72.109
+ Pinf/Pt = 1.882732
+   3    2     232.975     -12.427    -207.960     -72.118
+   4    1     272.254     -12.061    -178.628     -61.333
+   4    1     272.253     -12.061    -178.630     -61.334
+   2    2     272.357     -12.047    -178.563     -61.316
+ Pinf/Pt = 1.819253
+   3    4     235.158     -12.391    -206.073     -71.429
+ Pinf/Pt = 1.881971
+   3    2     233.002     -12.413    -207.937     -72.116
+ Pinf/Pt = 1.882807
+   3    2     232.973     -12.413    -207.962     -72.126
+   4    1     272.356     -12.047    -178.563     -61.316
+   4    1     272.354     -12.047    -178.565     -61.317
  END OF CHAMBER ITERATIONS
 
  WARNING!!  ASSIGNED pip =   1.00000 IS NOT PERMITTED
- TO BE LESS THAN  Pinj/Pc =  1.00005. POINT OMITTED (ROCKET)
+ TO BE LESS THAN  Pinj/Pc =  1.00011. POINT OMITTED (ROCKET)
 
 
 
@@ -145,8 +133,8 @@
 
             COMPOSITION DURING EXPANSION FROM FINITE AREA COMBUSTOR
 
- Pin =   148.1 PSIA
- Ac/At = 70.7584      Pinj/Pinf =  1.000024
+ Pin =    27.0 PSIA
+ Ac/At = 45.3044      Pinj/Pinf =  1.000056
  CASE =                
 
              REACTANT                    WT FRACTION      ENERGY      TEMP
@@ -154,43 +142,42 @@
  OXIDANT     O2(L)                        1.0000000    -12979.000     90.170
  FUEL        PMMA                         1.0000000   -442140.000    293.150
 
- O/F=   67.19934  %FUEL=  1.466290  R,EQ.RATIO= 0.033136  PHI,EQ.RATIO= 0.028538
+ O/F=   69.72344  %FUEL=  1.413958  R,EQ.RATIO= 0.031942  PHI,EQ.RATIO= 0.027504
 
                  INJECTOR  COMB END  THROAT
- Pinj/P            1.0000   1.0000   1.8869
- P, BAR            10.210   10.210   5.4110
- T, K              286.69   286.69   246.11
- RHO, KG/CU M    1.3955 1 1.3955 1 8.6276 0
- H, KJ/KG         -464.42  -464.42  -507.61
- U, KJ/KG         -537.58  -537.58  -570.33
- G, KJ/KG        -2110.47 -2110.47 -1920.67
- S, KJ/(KG)(K)     5.7416   5.7416   5.7416
+ Pinj/P            1.0000   1.0001   1.8829
+ P, BAR            1.8600   1.8598  0.98783
+ T, K              272.36   272.35   232.97
+ RHO, KG/CU M    2.6700 0 2.6697 0 1.6626 0
+ H, KJ/KG         -462.32  -462.32  -503.19
+ U, KJ/KG         -531.98  -531.98  -562.61
+ G, KJ/KG        -2131.15 -2131.14 -1930.71
+ S, KJ/(KG)(K)     6.1274   6.1274   6.1274
 
- M, (1/n)          32.581   32.581   32.627
- MW, MOL WT        32.018   32.018   32.018
- (dLV/dLP)t      -1.00152 -1.00152 -1.00010
- (dLV/dLT)p        1.0284   1.0284   1.0024
- Cp, KJ/(KG)(K)    1.0815   1.0815   0.9342
- GAMMAs            1.3298   1.3298   1.3774
- SON VEL,M/SEC      311.9    311.9    293.9
- MACH NUMBER        0.000    0.006    1.000
+ M, (1/n)          32.507   32.507   32.603
+ MW, MOL WT        32.017   32.017   32.017
+ (dLV/dLP)t      -1.00309 -1.00309 -1.00013
+ (dLV/dLT)p        1.0697   1.0697   1.0034
+ Cp, KJ/(KG)(K)    1.3254   1.3254   0.9393
+ GAMMAs            1.2783   1.2783   1.3759
+ SON VEL,M/SEC      298.4    298.4    285.9
+ MACH NUMBER        0.000    0.009    1.000
 
  PERFORMANCE PARAMETERS
 
- Ae/At                      96.005   1.0000
- CSTAR, M/SEC                402.6    402.6
- CF                         0.0047   0.7300
- Ivac, M/SEC               38654.9    507.3
- Isp, M/SEC                    1.9    293.9
+ Ae/At                      63.879   1.0000
+ CSTAR, M/SEC                391.3    391.3
+ CF                         0.0071   0.7308
+ Ivac, M/SEC               24994.1    493.7
+ Isp, M/SEC                    2.8    285.9
 
 
  MOLE FRACTIONS
 
- *CO2             0.02345  0.02345  0.02345
- H2O              0.00149  0.00149  0.00009
- *O2              0.95780  0.95780  0.95780
- H2O(cr)          0.00000  0.00000  0.01866
- H2O(L)           0.01726  0.01726  0.00000
+ *CO2             0.02261  0.02261  0.02261
+ H2O              0.00303  0.00303  0.00013
+ *O2              0.95930  0.95930  0.95930
+ H2O(cr)          0.01505  0.01505  0.01796
 
   * THERMODYNAMIC PROPERTIES FITTED TO 20000.K
 
@@ -220,7 +207,7 @@
  C8H18,isooctane C9H19,n-nonyl   C10H8,naphthale C10H21,n-decyl  C12H9,o-bipheny
  C12H10,biphenyl *H              HCO             HCCO            HO2            
  *H2             HCHO,formaldehy HCOOH           H2O2            (HCOOH)2       
- *O              *OH             O3              C(gr)          
+ *O              *OH             O3              C(gr)           H2O(L)         
 
  NOTE. WEIGHT FRACTION OF FUEL IN TOTAL FUELS AND OF OXIDANT IN TOTAL OXIDANTS
 
@@ -230,7 +217,7 @@
 
 
  WARNING!!  ASSIGNED pip =   0.00000 IS NOT PERMITTED
- TO BE LESS THAN  Pinj/Pc =  1.00005. POINT OMITTED (ROCKET)
+ TO BE LESS THAN  Pinj/Pc =  1.00011. POINT OMITTED (ROCKET)
 
 
 
@@ -240,8 +227,8 @@
 
             COMPOSITION DURING EXPANSION FROM FINITE AREA COMBUSTOR
 
- Pin =   148.1 PSIA
- Ac/At = 70.7584      Pinj/Pinf =  1.000024
+ Pin =    27.0 PSIA
+ Ac/At = 45.3044      Pinj/Pinf =  1.000056
  CASE =                
 
              REACTANT                    WT FRACTION      ENERGY      TEMP
@@ -249,43 +236,42 @@
  OXIDANT     O2(L)                        1.0000000    -12979.000     90.170
  FUEL        PMMA                         1.0000000   -442140.000    293.150
 
- O/F=   67.19934  %FUEL=  1.466290  R,EQ.RATIO= 0.033136  PHI,EQ.RATIO= 0.028538
+ O/F=   69.72344  %FUEL=  1.413958  R,EQ.RATIO= 0.031942  PHI,EQ.RATIO= 0.027504
 
                  INJECTOR  COMB END  THROAT
- Pinj/P            1.0000   1.0000   1.8869
- P, BAR            10.210   10.210   5.4110
- T, K              286.69   286.69   246.11
- RHO, KG/CU M    1.3955 1 1.3955 1 8.6276 0
- H, KJ/KG         -464.42  -464.42  -507.61
- U, KJ/KG         -537.58  -537.58  -570.33
- G, KJ/KG        -2110.47 -2110.47 -1920.67
- S, KJ/(KG)(K)     5.7416   5.7416   5.7416
+ Pinj/P            1.0000   1.0001   1.8829
+ P, BAR            1.8600   1.8598  0.98783
+ T, K              272.36   272.35   232.97
+ RHO, KG/CU M    2.6700 0 2.6697 0 1.6626 0
+ H, KJ/KG         -462.32  -462.32  -503.19
+ U, KJ/KG         -531.98  -531.98  -562.61
+ G, KJ/KG        -2131.15 -2131.14 -1930.71
+ S, KJ/(KG)(K)     6.1274   6.1274   6.1274
 
- M, (1/n)          32.581   32.581   32.627
- MW, MOL WT        32.018   32.018   32.018
- (dLV/dLP)t      -1.00152 -1.00152 -1.00010
- (dLV/dLT)p        1.0284   1.0284   1.0024
- Cp, KJ/(KG)(K)    1.0815   1.0815   0.9342
- GAMMAs            1.3298   1.3298   1.3774
- SON VEL,M/SEC      311.9    311.9    293.9
- MACH NUMBER        0.000    0.006    1.000
+ M, (1/n)          32.507   32.507   32.603
+ MW, MOL WT        32.017   32.017   32.017
+ (dLV/dLP)t      -1.00309 -1.00309 -1.00013
+ (dLV/dLT)p        1.0697   1.0697   1.0034
+ Cp, KJ/(KG)(K)    1.3254   1.3254   0.9393
+ GAMMAs            1.2783   1.2783   1.3759
+ SON VEL,M/SEC      298.4    298.4    285.9
+ MACH NUMBER        0.000    0.009    1.000
 
  PERFORMANCE PARAMETERS
 
- Ae/At                      96.005   1.0000
- CSTAR, M/SEC                402.6    402.6
- CF                         0.0047   0.7300
- Ivac, M/SEC               38654.9    507.3
- Isp, M/SEC                    1.9    293.9
+ Ae/At                      63.879   1.0000
+ CSTAR, M/SEC                391.3    391.3
+ CF                         0.0071   0.7308
+ Ivac, M/SEC               24994.1    493.7
+ Isp, M/SEC                    2.8    285.9
 
 
  MOLE FRACTIONS
 
- *CO2             0.02345  0.02345  0.02345
- H2O              0.00149  0.00149  0.00009
- *O2              0.95780  0.95780  0.95780
- H2O(cr)          0.00000  0.00000  0.01866
- H2O(L)           0.01726  0.01726  0.00000
+ *CO2             0.02261  0.02261  0.02261
+ H2O              0.00303  0.00303  0.00013
+ *O2              0.95930  0.95930  0.95930
+ H2O(cr)          0.01505  0.01505  0.01796
 
   * THERMODYNAMIC PROPERTIES FITTED TO 20000.K
 
@@ -315,7 +301,7 @@
  C8H18,isooctane C9H19,n-nonyl   C10H8,naphthale C10H21,n-decyl  C12H9,o-bipheny
  C12H10,biphenyl *H              HCO             HCCO            HO2            
  *H2             HCHO,formaldehy HCOOH           H2O2            (HCOOH)2       
- *O              *OH             O3              C(gr)          
+ *O              *OH             O3              C(gr)           H2O(L)         
 
  NOTE. WEIGHT FRACTION OF FUEL IN TOTAL FUELS AND OF OXIDANT IN TOTAL OXIDANTS
 
@@ -325,7 +311,7 @@
 
 
  WARNING!!  ASSIGNED pip =   0.00000 IS NOT PERMITTED
- TO BE LESS THAN  Pinj/Pc =  1.00005. POINT OMITTED (ROCKET)
+ TO BE LESS THAN  Pinj/Pc =  1.00011. POINT OMITTED (ROCKET)
 
 
 
@@ -335,8 +321,8 @@
 
             COMPOSITION DURING EXPANSION FROM FINITE AREA COMBUSTOR
 
- Pin =   148.1 PSIA
- Ac/At = 70.7584      Pinj/Pinf =  1.000024
+ Pin =    27.0 PSIA
+ Ac/At = 45.3044      Pinj/Pinf =  1.000056
  CASE =                
 
              REACTANT                    WT FRACTION      ENERGY      TEMP
@@ -344,43 +330,42 @@
  OXIDANT     O2(L)                        1.0000000    -12979.000     90.170
  FUEL        PMMA                         1.0000000   -442140.000    293.150
 
- O/F=   67.19934  %FUEL=  1.466290  R,EQ.RATIO= 0.033136  PHI,EQ.RATIO= 0.028538
+ O/F=   69.72344  %FUEL=  1.413958  R,EQ.RATIO= 0.031942  PHI,EQ.RATIO= 0.027504
 
                  INJECTOR  COMB END  THROAT
- Pinj/P            1.0000   1.0000   1.8869
- P, BAR            10.210   10.210   5.4110
- T, K              286.69   286.69   246.11
- RHO, KG/CU M    1.3955 1 1.3955 1 8.6276 0
- H, KJ/KG         -464.42  -464.42  -507.61
- U, KJ/KG         -537.58  -537.58  -570.33
- G, KJ/KG        -2110.47 -2110.47 -1920.67
- S, KJ/(KG)(K)     5.7416   5.7416   5.7416
+ Pinj/P            1.0000   1.0001   1.8829
+ P, BAR            1.8600   1.8598  0.98783
+ T, K              272.36   272.35   232.97
+ RHO, KG/CU M    2.6700 0 2.6697 0 1.6626 0
+ H, KJ/KG         -462.32  -462.32  -503.19
+ U, KJ/KG         -531.98  -531.98  -562.61
+ G, KJ/KG        -2131.15 -2131.14 -1930.71
+ S, KJ/(KG)(K)     6.1274   6.1274   6.1274
 
- M, (1/n)          32.581   32.581   32.627
- MW, MOL WT        32.018   32.018   32.018
- (dLV/dLP)t      -1.00152 -1.00152 -1.00010
- (dLV/dLT)p        1.0284   1.0284   1.0024
- Cp, KJ/(KG)(K)    1.0815   1.0815   0.9342
- GAMMAs            1.3298   1.3298   1.3774
- SON VEL,M/SEC      311.9    311.9    293.9
- MACH NUMBER        0.000    0.006    1.000
+ M, (1/n)          32.507   32.507   32.603
+ MW, MOL WT        32.017   32.017   32.017
+ (dLV/dLP)t      -1.00309 -1.00309 -1.00013
+ (dLV/dLT)p        1.0697   1.0697   1.0034
+ Cp, KJ/(KG)(K)    1.3254   1.3254   0.9393
+ GAMMAs            1.2783   1.2783   1.3759
+ SON VEL,M/SEC      298.4    298.4    285.9
+ MACH NUMBER        0.000    0.009    1.000
 
  PERFORMANCE PARAMETERS
 
- Ae/At                      96.005   1.0000
- CSTAR, M/SEC                402.6    402.6
- CF                         0.0047   0.7300
- Ivac, M/SEC               38654.9    507.3
- Isp, M/SEC                    1.9    293.9
+ Ae/At                      63.879   1.0000
+ CSTAR, M/SEC                391.3    391.3
+ CF                         0.0071   0.7308
+ Ivac, M/SEC               24994.1    493.7
+ Isp, M/SEC                    2.8    285.9
 
 
  MOLE FRACTIONS
 
- *CO2             0.02345  0.02345  0.02345
- H2O              0.00149  0.00149  0.00009
- *O2              0.95780  0.95780  0.95780
- H2O(cr)          0.00000  0.00000  0.01866
- H2O(L)           0.01726  0.01726  0.00000
+ *CO2             0.02261  0.02261  0.02261
+ H2O              0.00303  0.00303  0.00013
+ *O2              0.95930  0.95930  0.95930
+ H2O(cr)          0.01505  0.01505  0.01796
 
   * THERMODYNAMIC PROPERTIES FITTED TO 20000.K
 
@@ -410,7 +395,7 @@
  C8H18,isooctane C9H19,n-nonyl   C10H8,naphthale C10H21,n-decyl  C12H9,o-bipheny
  C12H10,biphenyl *H              HCO             HCCO            HO2            
  *H2             HCHO,formaldehy HCOOH           H2O2            (HCOOH)2       
- *O              *OH             O3              C(gr)          
+ *O              *OH             O3              C(gr)           H2O(L)         
 
  NOTE. WEIGHT FRACTION OF FUEL IN TOTAL FUELS AND OF OXIDANT IN TOTAL OXIDANTS
 
@@ -420,7 +405,7 @@
 
 
  WARNING!!  ASSIGNED pip =   0.00000 IS NOT PERMITTED
- TO BE LESS THAN  Pinj/Pc =  1.00005. POINT OMITTED (ROCKET)
+ TO BE LESS THAN  Pinj/Pc =  1.00011. POINT OMITTED (ROCKET)
 
 
 
@@ -430,8 +415,8 @@
 
             COMPOSITION DURING EXPANSION FROM FINITE AREA COMBUSTOR
 
- Pin =   148.1 PSIA
- Ac/At = 70.7584      Pinj/Pinf =  1.000024
+ Pin =    27.0 PSIA
+ Ac/At = 45.3044      Pinj/Pinf =  1.000056
  CASE =                
 
              REACTANT                    WT FRACTION      ENERGY      TEMP
@@ -439,43 +424,42 @@
  OXIDANT     O2(L)                        1.0000000    -12979.000     90.170
  FUEL        PMMA                         1.0000000   -442140.000    293.150
 
- O/F=   67.19934  %FUEL=  1.466290  R,EQ.RATIO= 0.033136  PHI,EQ.RATIO= 0.028538
+ O/F=   69.72344  %FUEL=  1.413958  R,EQ.RATIO= 0.031942  PHI,EQ.RATIO= 0.027504
 
                  INJECTOR  COMB END  THROAT
- Pinj/P            1.0000   1.0000   1.8869
- P, BAR            10.210   10.210   5.4110
- T, K              286.69   286.69   246.11
- RHO, KG/CU M    1.3955 1 1.3955 1 8.6276 0
- H, KJ/KG         -464.42  -464.42  -507.61
- U, KJ/KG         -537.58  -537.58  -570.33
- G, KJ/KG        -2110.47 -2110.47 -1920.67
- S, KJ/(KG)(K)     5.7416   5.7416   5.7416
+ Pinj/P            1.0000   1.0001   1.8829
+ P, BAR            1.8600   1.8598  0.98783
+ T, K              272.36   272.35   232.97
+ RHO, KG/CU M    2.6700 0 2.6697 0 1.6626 0
+ H, KJ/KG         -462.32  -462.32  -503.19
+ U, KJ/KG         -531.98  -531.98  -562.61
+ G, KJ/KG        -2131.15 -2131.14 -1930.71
+ S, KJ/(KG)(K)     6.1274   6.1274   6.1274
 
- M, (1/n)          32.581   32.581   32.627
- MW, MOL WT        32.018   32.018   32.018
- (dLV/dLP)t      -1.00152 -1.00152 -1.00010
- (dLV/dLT)p        1.0284   1.0284   1.0024
- Cp, KJ/(KG)(K)    1.0815   1.0815   0.9342
- GAMMAs            1.3298   1.3298   1.3774
- SON VEL,M/SEC      311.9    311.9    293.9
- MACH NUMBER        0.000    0.006    1.000
+ M, (1/n)          32.507   32.507   32.603
+ MW, MOL WT        32.017   32.017   32.017
+ (dLV/dLP)t      -1.00309 -1.00309 -1.00013
+ (dLV/dLT)p        1.0697   1.0697   1.0034
+ Cp, KJ/(KG)(K)    1.3254   1.3254   0.9393
+ GAMMAs            1.2783   1.2783   1.3759
+ SON VEL,M/SEC      298.4    298.4    285.9
+ MACH NUMBER        0.000    0.009    1.000
 
  PERFORMANCE PARAMETERS
 
- Ae/At                      96.005   1.0000
- CSTAR, M/SEC                402.6    402.6
- CF                         0.0047   0.7300
- Ivac, M/SEC               38654.9    507.3
- Isp, M/SEC                    1.9    293.9
+ Ae/At                      63.879   1.0000
+ CSTAR, M/SEC                391.3    391.3
+ CF                         0.0071   0.7308
+ Ivac, M/SEC               24994.1    493.7
+ Isp, M/SEC                    2.8    285.9
 
 
  MOLE FRACTIONS
 
- *CO2             0.02345  0.02345  0.02345
- H2O              0.00149  0.00149  0.00009
- *O2              0.95780  0.95780  0.95780
- H2O(cr)          0.00000  0.00000  0.01866
- H2O(L)           0.01726  0.01726  0.00000
+ *CO2             0.02261  0.02261  0.02261
+ H2O              0.00303  0.00303  0.00013
+ *O2              0.95930  0.95930  0.95930
+ H2O(cr)          0.01505  0.01505  0.01796
 
   * THERMODYNAMIC PROPERTIES FITTED TO 20000.K
 
@@ -505,7 +489,7 @@
  C8H18,isooctane C9H19,n-nonyl   C10H8,naphthale C10H21,n-decyl  C12H9,o-bipheny
  C12H10,biphenyl *H              HCO             HCCO            HO2            
  *H2             HCHO,formaldehy HCOOH           H2O2            (HCOOH)2       
- *O              *OH             O3              C(gr)          
+ *O              *OH             O3              C(gr)           H2O(L)         
 
  NOTE. WEIGHT FRACTION OF FUEL IN TOTAL FUELS AND OF OXIDANT IN TOTAL OXIDANTS
 
@@ -515,7 +499,7 @@
 
 
  WARNING!!  ASSIGNED pip =   0.00000 IS NOT PERMITTED
- TO BE LESS THAN  Pinj/Pc =  1.00005. POINT OMITTED (ROCKET)
+ TO BE LESS THAN  Pinj/Pc =  1.00011. POINT OMITTED (ROCKET)
 
 
 
@@ -525,8 +509,8 @@
 
             COMPOSITION DURING EXPANSION FROM FINITE AREA COMBUSTOR
 
- Pin =   148.1 PSIA
- Ac/At = 70.7584      Pinj/Pinf =  1.000024
+ Pin =    27.0 PSIA
+ Ac/At = 45.3044      Pinj/Pinf =  1.000056
  CASE =                
 
              REACTANT                    WT FRACTION      ENERGY      TEMP
@@ -534,43 +518,42 @@
  OXIDANT     O2(L)                        1.0000000    -12979.000     90.170
  FUEL        PMMA                         1.0000000   -442140.000    293.150
 
- O/F=   67.19934  %FUEL=  1.466290  R,EQ.RATIO= 0.033136  PHI,EQ.RATIO= 0.028538
+ O/F=   69.72344  %FUEL=  1.413958  R,EQ.RATIO= 0.031942  PHI,EQ.RATIO= 0.027504
 
                  INJECTOR  COMB END  THROAT
- Pinj/P            1.0000   1.0000   1.8869
- P, BAR            10.210   10.210   5.4110
- T, K              286.69   286.69   246.11
- RHO, KG/CU M    1.3955 1 1.3955 1 8.6276 0
- H, KJ/KG         -464.42  -464.42  -507.61
- U, KJ/KG         -537.58  -537.58  -570.33
- G, KJ/KG        -2110.47 -2110.47 -1920.67
- S, KJ/(KG)(K)     5.7416   5.7416   5.7416
+ Pinj/P            1.0000   1.0001   1.8829
+ P, BAR            1.8600   1.8598  0.98783
+ T, K              272.36   272.35   232.97
+ RHO, KG/CU M    2.6700 0 2.6697 0 1.6626 0
+ H, KJ/KG         -462.32  -462.32  -503.19
+ U, KJ/KG         -531.98  -531.98  -562.61
+ G, KJ/KG        -2131.15 -2131.14 -1930.71
+ S, KJ/(KG)(K)     6.1274   6.1274   6.1274
 
- M, (1/n)          32.581   32.581   32.627
- MW, MOL WT        32.018   32.018   32.018
- (dLV/dLP)t      -1.00152 -1.00152 -1.00010
- (dLV/dLT)p        1.0284   1.0284   1.0024
- Cp, KJ/(KG)(K)    1.0815   1.0815   0.9342
- GAMMAs            1.3298   1.3298   1.3774
- SON VEL,M/SEC      311.9    311.9    293.9
- MACH NUMBER        0.000    0.006    1.000
+ M, (1/n)          32.507   32.507   32.603
+ MW, MOL WT        32.017   32.017   32.017
+ (dLV/dLP)t      -1.00309 -1.00309 -1.00013
+ (dLV/dLT)p        1.0697   1.0697   1.0034
+ Cp, KJ/(KG)(K)    1.3254   1.3254   0.9393
+ GAMMAs            1.2783   1.2783   1.3759
+ SON VEL,M/SEC      298.4    298.4    285.9
+ MACH NUMBER        0.000    0.009    1.000
 
  PERFORMANCE PARAMETERS
 
- Ae/At                      96.005   1.0000
- CSTAR, M/SEC                402.6    402.6
- CF                         0.0047   0.7300
- Ivac, M/SEC               38654.9    507.3
- Isp, M/SEC                    1.9    293.9
+ Ae/At                      63.879   1.0000
+ CSTAR, M/SEC                391.3    391.3
+ CF                         0.0071   0.7308
+ Ivac, M/SEC               24994.1    493.7
+ Isp, M/SEC                    2.8    285.9
 
 
  MOLE FRACTIONS
 
- *CO2             0.02345  0.02345  0.02345
- H2O              0.00149  0.00149  0.00009
- *O2              0.95780  0.95780  0.95780
- H2O(cr)          0.00000  0.00000  0.01866
- H2O(L)           0.01726  0.01726  0.00000
+ *CO2             0.02261  0.02261  0.02261
+ H2O              0.00303  0.00303  0.00013
+ *O2              0.95930  0.95930  0.95930
+ H2O(cr)          0.01505  0.01505  0.01796
 
   * THERMODYNAMIC PROPERTIES FITTED TO 20000.K
 
@@ -600,7 +583,7 @@
  C8H18,isooctane C9H19,n-nonyl   C10H8,naphthale C10H21,n-decyl  C12H9,o-bipheny
  C12H10,biphenyl *H              HCO             HCCO            HO2            
  *H2             HCHO,formaldehy HCOOH           H2O2            (HCOOH)2       
- *O              *OH             O3              C(gr)          
+ *O              *OH             O3              C(gr)           H2O(L)         
 
  NOTE. WEIGHT FRACTION OF FUEL IN TOTAL FUELS AND OF OXIDANT IN TOTAL OXIDANTS
 
@@ -610,7 +593,7 @@
 
 
  WARNING!!  ASSIGNED pip =   0.00000 IS NOT PERMITTED
- TO BE LESS THAN  Pinj/Pc =  1.00005. POINT OMITTED (ROCKET)
+ TO BE LESS THAN  Pinj/Pc =  1.00011. POINT OMITTED (ROCKET)
 
 
 
@@ -620,8 +603,8 @@
 
             COMPOSITION DURING EXPANSION FROM FINITE AREA COMBUSTOR
 
- Pin =   148.1 PSIA
- Ac/At = 70.7584      Pinj/Pinf =  1.000024
+ Pin =    27.0 PSIA
+ Ac/At = 45.3044      Pinj/Pinf =  1.000056
  CASE =                
 
              REACTANT                    WT FRACTION      ENERGY      TEMP
@@ -629,43 +612,42 @@
  OXIDANT     O2(L)                        1.0000000    -12979.000     90.170
  FUEL        PMMA                         1.0000000   -442140.000    293.150
 
- O/F=   67.19934  %FUEL=  1.466290  R,EQ.RATIO= 0.033136  PHI,EQ.RATIO= 0.028538
+ O/F=   69.72344  %FUEL=  1.413958  R,EQ.RATIO= 0.031942  PHI,EQ.RATIO= 0.027504
 
                  INJECTOR  COMB END  THROAT
- Pinj/P            1.0000   1.0000   1.8869
- P, BAR            10.210   10.210   5.4110
- T, K              286.69   286.69   246.11
- RHO, KG/CU M    1.3955 1 1.3955 1 8.6276 0
- H, KJ/KG         -464.42  -464.42  -507.61
- U, KJ/KG         -537.58  -537.58  -570.33
- G, KJ/KG        -2110.47 -2110.47 -1920.67
- S, KJ/(KG)(K)     5.7416   5.7416   5.7416
+ Pinj/P            1.0000   1.0001   1.8829
+ P, BAR            1.8600   1.8598  0.98783
+ T, K              272.36   272.35   232.97
+ RHO, KG/CU M    2.6700 0 2.6697 0 1.6626 0
+ H, KJ/KG         -462.32  -462.32  -503.19
+ U, KJ/KG         -531.98  -531.98  -562.61
+ G, KJ/KG        -2131.15 -2131.14 -1930.71
+ S, KJ/(KG)(K)     6.1274   6.1274   6.1274
 
- M, (1/n)          32.581   32.581   32.627
- MW, MOL WT        32.018   32.018   32.018
- (dLV/dLP)t      -1.00152 -1.00152 -1.00010
- (dLV/dLT)p        1.0284   1.0284   1.0024
- Cp, KJ/(KG)(K)    1.0815   1.0815   0.9342
- GAMMAs            1.3298   1.3298   1.3774
- SON VEL,M/SEC      311.9    311.9    293.9
- MACH NUMBER        0.000    0.006    1.000
+ M, (1/n)          32.507   32.507   32.603
+ MW, MOL WT        32.017   32.017   32.017
+ (dLV/dLP)t      -1.00309 -1.00309 -1.00013
+ (dLV/dLT)p        1.0697   1.0697   1.0034
+ Cp, KJ/(KG)(K)    1.3254   1.3254   0.9393
+ GAMMAs            1.2783   1.2783   1.3759
+ SON VEL,M/SEC      298.4    298.4    285.9
+ MACH NUMBER        0.000    0.009    1.000
 
  PERFORMANCE PARAMETERS
 
- Ae/At                      96.005   1.0000
- CSTAR, M/SEC                402.6    402.6
- CF                         0.0047   0.7300
- Ivac, M/SEC               38654.9    507.3
- Isp, M/SEC                    1.9    293.9
+ Ae/At                      63.879   1.0000
+ CSTAR, M/SEC                391.3    391.3
+ CF                         0.0071   0.7308
+ Ivac, M/SEC               24994.1    493.7
+ Isp, M/SEC                    2.8    285.9
 
 
  MOLE FRACTIONS
 
- *CO2             0.02345  0.02345  0.02345
- H2O              0.00149  0.00149  0.00009
- *O2              0.95780  0.95780  0.95780
- H2O(cr)          0.00000  0.00000  0.01866
- H2O(L)           0.01726  0.01726  0.00000
+ *CO2             0.02261  0.02261  0.02261
+ H2O              0.00303  0.00303  0.00013
+ *O2              0.95930  0.95930  0.95930
+ H2O(cr)          0.01505  0.01505  0.01796
 
   * THERMODYNAMIC PROPERTIES FITTED TO 20000.K
 
@@ -695,7 +677,7 @@
  C8H18,isooctane C9H19,n-nonyl   C10H8,naphthale C10H21,n-decyl  C12H9,o-bipheny
  C12H10,biphenyl *H              HCO             HCCO            HO2            
  *H2             HCHO,formaldehy HCOOH           H2O2            (HCOOH)2       
- *O              *OH             O3              C(gr)          
+ *O              *OH             O3              C(gr)           H2O(L)         
 
  NOTE. WEIGHT FRACTION OF FUEL IN TOTAL FUELS AND OF OXIDANT IN TOTAL OXIDANTS
 
@@ -705,7 +687,7 @@
 
 
  WARNING!!  ASSIGNED pip =   0.00000 IS NOT PERMITTED
- TO BE LESS THAN  Pinj/Pc =  1.00005. POINT OMITTED (ROCKET)
+ TO BE LESS THAN  Pinj/Pc =  1.00011. POINT OMITTED (ROCKET)
 
 
 
@@ -715,8 +697,8 @@
 
             COMPOSITION DURING EXPANSION FROM FINITE AREA COMBUSTOR
 
- Pin =   148.1 PSIA
- Ac/At = 70.7584      Pinj/Pinf =  1.000024
+ Pin =    27.0 PSIA
+ Ac/At = 45.3044      Pinj/Pinf =  1.000056
  CASE =                
 
              REACTANT                    WT FRACTION      ENERGY      TEMP
@@ -724,43 +706,42 @@
  OXIDANT     O2(L)                        1.0000000    -12979.000     90.170
  FUEL        PMMA                         1.0000000   -442140.000    293.150
 
- O/F=   67.19934  %FUEL=  1.466290  R,EQ.RATIO= 0.033136  PHI,EQ.RATIO= 0.028538
+ O/F=   69.72344  %FUEL=  1.413958  R,EQ.RATIO= 0.031942  PHI,EQ.RATIO= 0.027504
 
                  INJECTOR  COMB END  THROAT
- Pinj/P            1.0000   1.0000   1.8869
- P, BAR            10.210   10.210   5.4110
- T, K              286.69   286.69   246.11
- RHO, KG/CU M    1.3955 1 1.3955 1 8.6276 0
- H, KJ/KG         -464.42  -464.42  -507.61
- U, KJ/KG         -537.58  -537.58  -570.33
- G, KJ/KG        -2110.47 -2110.47 -1920.67
- S, KJ/(KG)(K)     5.7416   5.7416   5.7416
+ Pinj/P            1.0000   1.0001   1.8829
+ P, BAR            1.8600   1.8598  0.98783
+ T, K              272.36   272.35   232.97
+ RHO, KG/CU M    2.6700 0 2.6697 0 1.6626 0
+ H, KJ/KG         -462.32  -462.32  -503.19
+ U, KJ/KG         -531.98  -531.98  -562.61
+ G, KJ/KG        -2131.15 -2131.14 -1930.71
+ S, KJ/(KG)(K)     6.1274   6.1274   6.1274
 
- M, (1/n)          32.581   32.581   32.627
- MW, MOL WT        32.018   32.018   32.018
- (dLV/dLP)t      -1.00152 -1.00152 -1.00010
- (dLV/dLT)p        1.0284   1.0284   1.0024
- Cp, KJ/(KG)(K)    1.0815   1.0815   0.9342
- GAMMAs            1.3298   1.3298   1.3774
- SON VEL,M/SEC      311.9    311.9    293.9
- MACH NUMBER        0.000    0.006    1.000
+ M, (1/n)          32.507   32.507   32.603
+ MW, MOL WT        32.017   32.017   32.017
+ (dLV/dLP)t      -1.00309 -1.00309 -1.00013
+ (dLV/dLT)p        1.0697   1.0697   1.0034
+ Cp, KJ/(KG)(K)    1.3254   1.3254   0.9393
+ GAMMAs            1.2783   1.2783   1.3759
+ SON VEL,M/SEC      298.4    298.4    285.9
+ MACH NUMBER        0.000    0.009    1.000
 
  PERFORMANCE PARAMETERS
 
- Ae/At                      96.005   1.0000
- CSTAR, M/SEC                402.6    402.6
- CF                         0.0047   0.7300
- Ivac, M/SEC               38654.9    507.3
- Isp, M/SEC                    1.9    293.9
+ Ae/At                      63.879   1.0000
+ CSTAR, M/SEC                391.3    391.3
+ CF                         0.0071   0.7308
+ Ivac, M/SEC               24994.1    493.7
+ Isp, M/SEC                    2.8    285.9
 
 
  MOLE FRACTIONS
 
- *CO2             0.02345  0.02345  0.02345
- H2O              0.00149  0.00149  0.00009
- *O2              0.95780  0.95780  0.95780
- H2O(cr)          0.00000  0.00000  0.01866
- H2O(L)           0.01726  0.01726  0.00000
+ *CO2             0.02261  0.02261  0.02261
+ H2O              0.00303  0.00303  0.00013
+ *O2              0.95930  0.95930  0.95930
+ H2O(cr)          0.01505  0.01505  0.01796
 
   * THERMODYNAMIC PROPERTIES FITTED TO 20000.K
 
@@ -790,7 +771,7 @@
  C8H18,isooctane C9H19,n-nonyl   C10H8,naphthale C10H21,n-decyl  C12H9,o-bipheny
  C12H10,biphenyl *H              HCO             HCCO            HO2            
  *H2             HCHO,formaldehy HCOOH           H2O2            (HCOOH)2       
- *O              *OH             O3              C(gr)          
+ *O              *OH             O3              C(gr)           H2O(L)         
 
  NOTE. WEIGHT FRACTION OF FUEL IN TOTAL FUELS AND OF OXIDANT IN TOTAL OXIDANTS
 
@@ -800,7 +781,7 @@
 
 
  WARNING!!  ASSIGNED pip =   0.00000 IS NOT PERMITTED
- TO BE LESS THAN  Pinj/Pc =  1.00005. POINT OMITTED (ROCKET)
+ TO BE LESS THAN  Pinj/Pc =  1.00011. POINT OMITTED (ROCKET)
 
 
 
@@ -810,8 +791,8 @@
 
             COMPOSITION DURING EXPANSION FROM FINITE AREA COMBUSTOR
 
- Pin =   148.1 PSIA
- Ac/At = 70.7584      Pinj/Pinf =  1.000024
+ Pin =    27.0 PSIA
+ Ac/At = 45.3044      Pinj/Pinf =  1.000056
  CASE =                
 
              REACTANT                    WT FRACTION      ENERGY      TEMP
@@ -819,43 +800,42 @@
  OXIDANT     O2(L)                        1.0000000    -12979.000     90.170
  FUEL        PMMA                         1.0000000   -442140.000    293.150
 
- O/F=   67.19934  %FUEL=  1.466290  R,EQ.RATIO= 0.033136  PHI,EQ.RATIO= 0.028538
+ O/F=   69.72344  %FUEL=  1.413958  R,EQ.RATIO= 0.031942  PHI,EQ.RATIO= 0.027504
 
                  INJECTOR  COMB END  THROAT
- Pinj/P            1.0000   1.0000   1.8869
- P, BAR            10.210   10.210   5.4110
- T, K              286.69   286.69   246.11
- RHO, KG/CU M    1.3955 1 1.3955 1 8.6276 0
- H, KJ/KG         -464.42  -464.42  -507.61
- U, KJ/KG         -537.58  -537.58  -570.33
- G, KJ/KG        -2110.47 -2110.47 -1920.67
- S, KJ/(KG)(K)     5.7416   5.7416   5.7416
+ Pinj/P            1.0000   1.0001   1.8829
+ P, BAR            1.8600   1.8598  0.98783
+ T, K              272.36   272.35   232.97
+ RHO, KG/CU M    2.6700 0 2.6697 0 1.6626 0
+ H, KJ/KG         -462.32  -462.32  -503.19
+ U, KJ/KG         -531.98  -531.98  -562.61
+ G, KJ/KG        -2131.15 -2131.14 -1930.71
+ S, KJ/(KG)(K)     6.1274   6.1274   6.1274
 
- M, (1/n)          32.581   32.581   32.627
- MW, MOL WT        32.018   32.018   32.018
- (dLV/dLP)t      -1.00152 -1.00152 -1.00010
- (dLV/dLT)p        1.0284   1.0284   1.0024
- Cp, KJ/(KG)(K)    1.0815   1.0815   0.9342
- GAMMAs            1.3298   1.3298   1.3774
- SON VEL,M/SEC      311.9    311.9    293.9
- MACH NUMBER        0.000    0.006    1.000
+ M, (1/n)          32.507   32.507   32.603
+ MW, MOL WT        32.017   32.017   32.017
+ (dLV/dLP)t      -1.00309 -1.00309 -1.00013
+ (dLV/dLT)p        1.0697   1.0697   1.0034
+ Cp, KJ/(KG)(K)    1.3254   1.3254   0.9393
+ GAMMAs            1.2783   1.2783   1.3759
+ SON VEL,M/SEC      298.4    298.4    285.9
+ MACH NUMBER        0.000    0.009    1.000
 
  PERFORMANCE PARAMETERS
 
- Ae/At                      96.005   1.0000
- CSTAR, M/SEC                402.6    402.6
- CF                         0.0047   0.7300
- Ivac, M/SEC               38654.9    507.3
- Isp, M/SEC                    1.9    293.9
+ Ae/At                      63.879   1.0000
+ CSTAR, M/SEC                391.3    391.3
+ CF                         0.0071   0.7308
+ Ivac, M/SEC               24994.1    493.7
+ Isp, M/SEC                    2.8    285.9
 
 
  MOLE FRACTIONS
 
- *CO2             0.02345  0.02345  0.02345
- H2O              0.00149  0.00149  0.00009
- *O2              0.95780  0.95780  0.95780
- H2O(cr)          0.00000  0.00000  0.01866
- H2O(L)           0.01726  0.01726  0.00000
+ *CO2             0.02261  0.02261  0.02261
+ H2O              0.00303  0.00303  0.00013
+ *O2              0.95930  0.95930  0.95930
+ H2O(cr)          0.01505  0.01505  0.01796
 
   * THERMODYNAMIC PROPERTIES FITTED TO 20000.K
 
@@ -885,7 +865,7 @@
  C8H18,isooctane C9H19,n-nonyl   C10H8,naphthale C10H21,n-decyl  C12H9,o-bipheny
  C12H10,biphenyl *H              HCO             HCCO            HO2            
  *H2             HCHO,formaldehy HCOOH           H2O2            (HCOOH)2       
- *O              *OH             O3              C(gr)          
+ *O              *OH             O3              C(gr)           H2O(L)         
 
  NOTE. WEIGHT FRACTION OF FUEL IN TOTAL FUELS AND OF OXIDANT IN TOTAL OXIDANTS
 
@@ -895,7 +875,7 @@
 
 
  WARNING!!  ASSIGNED pip =   0.00000 IS NOT PERMITTED
- TO BE LESS THAN  Pinj/Pc =  1.00005. POINT OMITTED (ROCKET)
+ TO BE LESS THAN  Pinj/Pc =  1.00011. POINT OMITTED (ROCKET)
 
 
 
@@ -905,8 +885,8 @@
 
             COMPOSITION DURING EXPANSION FROM FINITE AREA COMBUSTOR
 
- Pin =   148.1 PSIA
- Ac/At = 70.7584      Pinj/Pinf =  1.000024
+ Pin =    27.0 PSIA
+ Ac/At = 45.3044      Pinj/Pinf =  1.000056
  CASE =                
 
              REACTANT                    WT FRACTION      ENERGY      TEMP
@@ -914,43 +894,42 @@
  OXIDANT     O2(L)                        1.0000000    -12979.000     90.170
  FUEL        PMMA                         1.0000000   -442140.000    293.150
 
- O/F=   67.19934  %FUEL=  1.466290  R,EQ.RATIO= 0.033136  PHI,EQ.RATIO= 0.028538
+ O/F=   69.72344  %FUEL=  1.413958  R,EQ.RATIO= 0.031942  PHI,EQ.RATIO= 0.027504
 
                  INJECTOR  COMB END  THROAT
- Pinj/P            1.0000   1.0000   1.8869
- P, BAR            10.210   10.210   5.4110
- T, K              286.69   286.69   246.11
- RHO, KG/CU M    1.3955 1 1.3955 1 8.6276 0
- H, KJ/KG         -464.42  -464.42  -507.61
- U, KJ/KG         -537.58  -537.58  -570.33
- G, KJ/KG        -2110.47 -2110.47 -1920.67
- S, KJ/(KG)(K)     5.7416   5.7416   5.7416
+ Pinj/P            1.0000   1.0001   1.8829
+ P, BAR            1.8600   1.8598  0.98783
+ T, K              272.36   272.35   232.97
+ RHO, KG/CU M    2.6700 0 2.6697 0 1.6626 0
+ H, KJ/KG         -462.32  -462.32  -503.19
+ U, KJ/KG         -531.98  -531.98  -562.61
+ G, KJ/KG        -2131.15 -2131.14 -1930.71
+ S, KJ/(KG)(K)     6.1274   6.1274   6.1274
 
- M, (1/n)          32.581   32.581   32.627
- MW, MOL WT        32.018   32.018   32.018
- (dLV/dLP)t      -1.00152 -1.00152 -1.00010
- (dLV/dLT)p        1.0284   1.0284   1.0024
- Cp, KJ/(KG)(K)    1.0815   1.0815   0.9342
- GAMMAs            1.3298   1.3298   1.3774
- SON VEL,M/SEC      311.9    311.9    293.9
- MACH NUMBER        0.000    0.006    1.000
+ M, (1/n)          32.507   32.507   32.603
+ MW, MOL WT        32.017   32.017   32.017
+ (dLV/dLP)t      -1.00309 -1.00309 -1.00013
+ (dLV/dLT)p        1.0697   1.0697   1.0034
+ Cp, KJ/(KG)(K)    1.3254   1.3254   0.9393
+ GAMMAs            1.2783   1.2783   1.3759
+ SON VEL,M/SEC      298.4    298.4    285.9
+ MACH NUMBER        0.000    0.009    1.000
 
  PERFORMANCE PARAMETERS
 
- Ae/At                      96.005   1.0000
- CSTAR, M/SEC                402.6    402.6
- CF                         0.0047   0.7300
- Ivac, M/SEC               38654.9    507.3
- Isp, M/SEC                    1.9    293.9
+ Ae/At                      63.879   1.0000
+ CSTAR, M/SEC                391.3    391.3
+ CF                         0.0071   0.7308
+ Ivac, M/SEC               24994.1    493.7
+ Isp, M/SEC                    2.8    285.9
 
 
  MOLE FRACTIONS
 
- *CO2             0.02345  0.02345  0.02345
- H2O              0.00149  0.00149  0.00009
- *O2              0.95780  0.95780  0.95780
- H2O(cr)          0.00000  0.00000  0.01866
- H2O(L)           0.01726  0.01726  0.00000
+ *CO2             0.02261  0.02261  0.02261
+ H2O              0.00303  0.00303  0.00013
+ *O2              0.95930  0.95930  0.95930
+ H2O(cr)          0.01505  0.01505  0.01796
 
   * THERMODYNAMIC PROPERTIES FITTED TO 20000.K
 
@@ -980,7 +959,7 @@
  C8H18,isooctane C9H19,n-nonyl   C10H8,naphthale C10H21,n-decyl  C12H9,o-bipheny
  C12H10,biphenyl *H              HCO             HCCO            HO2            
  *H2             HCHO,formaldehy HCOOH           H2O2            (HCOOH)2       
- *O              *OH             O3              C(gr)          
+ *O              *OH             O3              C(gr)           H2O(L)         
 
  NOTE. WEIGHT FRACTION OF FUEL IN TOTAL FUELS AND OF OXIDANT IN TOTAL OXIDANTS
 
@@ -990,7 +969,7 @@
 
 
  WARNING!!  ASSIGNED pip =   0.00000 IS NOT PERMITTED
- TO BE LESS THAN  Pinj/Pc =  1.00005. POINT OMITTED (ROCKET)
+ TO BE LESS THAN  Pinj/Pc =  1.00011. POINT OMITTED (ROCKET)
 
 
 
@@ -1000,8 +979,8 @@
 
             COMPOSITION DURING EXPANSION FROM FINITE AREA COMBUSTOR
 
- Pin =   148.1 PSIA
- Ac/At = 70.7584      Pinj/Pinf =  1.000024
+ Pin =    27.0 PSIA
+ Ac/At = 45.3044      Pinj/Pinf =  1.000056
  CASE =                
 
              REACTANT                    WT FRACTION      ENERGY      TEMP
@@ -1009,43 +988,42 @@
  OXIDANT     O2(L)                        1.0000000    -12979.000     90.170
  FUEL        PMMA                         1.0000000   -442140.000    293.150
 
- O/F=   67.19934  %FUEL=  1.466290  R,EQ.RATIO= 0.033136  PHI,EQ.RATIO= 0.028538
+ O/F=   69.72344  %FUEL=  1.413958  R,EQ.RATIO= 0.031942  PHI,EQ.RATIO= 0.027504
 
                  INJECTOR  COMB END  THROAT
- Pinj/P            1.0000   1.0000   1.8869
- P, BAR            10.210   10.210   5.4110
- T, K              286.69   286.69   246.11
- RHO, KG/CU M    1.3955 1 1.3955 1 8.6276 0
- H, KJ/KG         -464.42  -464.42  -507.61
- U, KJ/KG         -537.58  -537.58  -570.33
- G, KJ/KG        -2110.47 -2110.47 -1920.67
- S, KJ/(KG)(K)     5.7416   5.7416   5.7416
+ Pinj/P            1.0000   1.0001   1.8829
+ P, BAR            1.8600   1.8598  0.98783
+ T, K              272.36   272.35   232.97
+ RHO, KG/CU M    2.6700 0 2.6697 0 1.6626 0
+ H, KJ/KG         -462.32  -462.32  -503.19
+ U, KJ/KG         -531.98  -531.98  -562.61
+ G, KJ/KG        -2131.15 -2131.14 -1930.71
+ S, KJ/(KG)(K)     6.1274   6.1274   6.1274
 
- M, (1/n)          32.581   32.581   32.627
- MW, MOL WT        32.018   32.018   32.018
- (dLV/dLP)t      -1.00152 -1.00152 -1.00010
- (dLV/dLT)p        1.0284   1.0284   1.0024
- Cp, KJ/(KG)(K)    1.0815   1.0815   0.9342
- GAMMAs            1.3298   1.3298   1.3774
- SON VEL,M/SEC      311.9    311.9    293.9
- MACH NUMBER        0.000    0.006    1.000
+ M, (1/n)          32.507   32.507   32.603
+ MW, MOL WT        32.017   32.017   32.017
+ (dLV/dLP)t      -1.00309 -1.00309 -1.00013
+ (dLV/dLT)p        1.0697   1.0697   1.0034
+ Cp, KJ/(KG)(K)    1.3254   1.3254   0.9393
+ GAMMAs            1.2783   1.2783   1.3759
+ SON VEL,M/SEC      298.4    298.4    285.9
+ MACH NUMBER        0.000    0.009    1.000
 
  PERFORMANCE PARAMETERS
 
- Ae/At                      96.005   1.0000
- CSTAR, M/SEC                402.6    402.6
- CF                         0.0047   0.7300
- Ivac, M/SEC               38654.9    507.3
- Isp, M/SEC                    1.9    293.9
+ Ae/At                      63.879   1.0000
+ CSTAR, M/SEC                391.3    391.3
+ CF                         0.0071   0.7308
+ Ivac, M/SEC               24994.1    493.7
+ Isp, M/SEC                    2.8    285.9
 
 
  MOLE FRACTIONS
 
- *CO2             0.02345  0.02345  0.02345
- H2O              0.00149  0.00149  0.00009
- *O2              0.95780  0.95780  0.95780
- H2O(cr)          0.00000  0.00000  0.01866
- H2O(L)           0.01726  0.01726  0.00000
+ *CO2             0.02261  0.02261  0.02261
+ H2O              0.00303  0.00303  0.00013
+ *O2              0.95930  0.95930  0.95930
+ H2O(cr)          0.01505  0.01505  0.01796
 
   * THERMODYNAMIC PROPERTIES FITTED TO 20000.K
 
@@ -1075,7 +1053,7 @@
  C8H18,isooctane C9H19,n-nonyl   C10H8,naphthale C10H21,n-decyl  C12H9,o-bipheny
  C12H10,biphenyl *H              HCO             HCCO            HO2            
  *H2             HCHO,formaldehy HCOOH           H2O2            (HCOOH)2       
- *O              *OH             O3              C(gr)          
+ *O              *OH             O3              C(gr)           H2O(L)         
 
  NOTE. WEIGHT FRACTION OF FUEL IN TOTAL FUELS AND OF OXIDANT IN TOTAL OXIDANTS
 
@@ -1085,7 +1063,7 @@
 
 
  WARNING!!  ASSIGNED pip =   0.00000 IS NOT PERMITTED
- TO BE LESS THAN  Pinj/Pc =  1.00005. POINT OMITTED (ROCKET)
+ TO BE LESS THAN  Pinj/Pc =  1.00011. POINT OMITTED (ROCKET)
 
 
 
@@ -1095,8 +1073,8 @@
 
             COMPOSITION DURING EXPANSION FROM FINITE AREA COMBUSTOR
 
- Pin =   148.1 PSIA
- Ac/At = 70.7584      Pinj/Pinf =  1.000024
+ Pin =    27.0 PSIA
+ Ac/At = 45.3044      Pinj/Pinf =  1.000056
  CASE =                
 
              REACTANT                    WT FRACTION      ENERGY      TEMP
@@ -1104,43 +1082,42 @@
  OXIDANT     O2(L)                        1.0000000    -12979.000     90.170
  FUEL        PMMA                         1.0000000   -442140.000    293.150
 
- O/F=   67.19934  %FUEL=  1.466290  R,EQ.RATIO= 0.033136  PHI,EQ.RATIO= 0.028538
+ O/F=   69.72344  %FUEL=  1.413958  R,EQ.RATIO= 0.031942  PHI,EQ.RATIO= 0.027504
 
                  INJECTOR  COMB END  THROAT
- Pinj/P            1.0000   1.0000   1.8869
- P, BAR            10.210   10.210   5.4110
- T, K              286.69   286.69   246.11
- RHO, KG/CU M    1.3955 1 1.3955 1 8.6276 0
- H, KJ/KG         -464.42  -464.42  -507.61
- U, KJ/KG         -537.58  -537.58  -570.33
- G, KJ/KG        -2110.47 -2110.47 -1920.67
- S, KJ/(KG)(K)     5.7416   5.7416   5.7416
+ Pinj/P            1.0000   1.0001   1.8829
+ P, BAR            1.8600   1.8598  0.98783
+ T, K              272.36   272.35   232.97
+ RHO, KG/CU M    2.6700 0 2.6697 0 1.6626 0
+ H, KJ/KG         -462.32  -462.32  -503.19
+ U, KJ/KG         -531.98  -531.98  -562.61
+ G, KJ/KG        -2131.15 -2131.14 -1930.71
+ S, KJ/(KG)(K)     6.1274   6.1274   6.1274
 
- M, (1/n)          32.581   32.581   32.627
- MW, MOL WT        32.018   32.018   32.018
- (dLV/dLP)t      -1.00152 -1.00152 -1.00010
- (dLV/dLT)p        1.0284   1.0284   1.0024
- Cp, KJ/(KG)(K)    1.0815   1.0815   0.9342
- GAMMAs            1.3298   1.3298   1.3774
- SON VEL,M/SEC      311.9    311.9    293.9
- MACH NUMBER        0.000    0.006    1.000
+ M, (1/n)          32.507   32.507   32.603
+ MW, MOL WT        32.017   32.017   32.017
+ (dLV/dLP)t      -1.00309 -1.00309 -1.00013
+ (dLV/dLT)p        1.0697   1.0697   1.0034
+ Cp, KJ/(KG)(K)    1.3254   1.3254   0.9393
+ GAMMAs            1.2783   1.2783   1.3759
+ SON VEL,M/SEC      298.4    298.4    285.9
+ MACH NUMBER        0.000    0.009    1.000
 
  PERFORMANCE PARAMETERS
 
- Ae/At                      96.005   1.0000
- CSTAR, M/SEC                402.6    402.6
- CF                         0.0047   0.7300
- Ivac, M/SEC               38654.9    507.3
- Isp, M/SEC                    1.9    293.9
+ Ae/At                      63.879   1.0000
+ CSTAR, M/SEC                391.3    391.3
+ CF                         0.0071   0.7308
+ Ivac, M/SEC               24994.1    493.7
+ Isp, M/SEC                    2.8    285.9
 
 
  MOLE FRACTIONS
 
- *CO2             0.02345  0.02345  0.02345
- H2O              0.00149  0.00149  0.00009
- *O2              0.95780  0.95780  0.95780
- H2O(cr)          0.00000  0.00000  0.01866
- H2O(L)           0.01726  0.01726  0.00000
+ *CO2             0.02261  0.02261  0.02261
+ H2O              0.00303  0.00303  0.00013
+ *O2              0.95930  0.95930  0.95930
+ H2O(cr)          0.01505  0.01505  0.01796
 
   * THERMODYNAMIC PROPERTIES FITTED TO 20000.K
 
@@ -1170,7 +1147,7 @@
  C8H18,isooctane C9H19,n-nonyl   C10H8,naphthale C10H21,n-decyl  C12H9,o-bipheny
  C12H10,biphenyl *H              HCO             HCCO            HO2            
  *H2             HCHO,formaldehy HCOOH           H2O2            (HCOOH)2       
- *O              *OH             O3              C(gr)          
+ *O              *OH             O3              C(gr)           H2O(L)         
 
  NOTE. WEIGHT FRACTION OF FUEL IN TOTAL FUELS AND OF OXIDANT IN TOTAL OXIDANTS
 
@@ -1180,7 +1157,7 @@
 
 
  WARNING!!  ASSIGNED pip =   0.00000 IS NOT PERMITTED
- TO BE LESS THAN  Pinj/Pc =  1.00005. POINT OMITTED (ROCKET)
+ TO BE LESS THAN  Pinj/Pc =  1.00011. POINT OMITTED (ROCKET)
 
 
 
@@ -1190,8 +1167,8 @@
 
             COMPOSITION DURING EXPANSION FROM FINITE AREA COMBUSTOR
 
- Pin =   148.1 PSIA
- Ac/At = 70.7584      Pinj/Pinf =  1.000024
+ Pin =    27.0 PSIA
+ Ac/At = 45.3044      Pinj/Pinf =  1.000056
  CASE =                
 
              REACTANT                    WT FRACTION      ENERGY      TEMP
@@ -1199,43 +1176,42 @@
  OXIDANT     O2(L)                        1.0000000    -12979.000     90.170
  FUEL        PMMA                         1.0000000   -442140.000    293.150
 
- O/F=   67.19934  %FUEL=  1.466290  R,EQ.RATIO= 0.033136  PHI,EQ.RATIO= 0.028538
+ O/F=   69.72344  %FUEL=  1.413958  R,EQ.RATIO= 0.031942  PHI,EQ.RATIO= 0.027504
 
                  INJECTOR  COMB END  THROAT
- Pinj/P            1.0000   1.0000   1.8869
- P, BAR            10.210   10.210   5.4110
- T, K              286.69   286.69   246.11
- RHO, KG/CU M    1.3955 1 1.3955 1 8.6276 0
- H, KJ/KG         -464.42  -464.42  -507.61
- U, KJ/KG         -537.58  -537.58  -570.33
- G, KJ/KG        -2110.47 -2110.47 -1920.67
- S, KJ/(KG)(K)     5.7416   5.7416   5.7416
+ Pinj/P            1.0000   1.0001   1.8829
+ P, BAR            1.8600   1.8598  0.98783
+ T, K              272.36   272.35   232.97
+ RHO, KG/CU M    2.6700 0 2.6697 0 1.6626 0
+ H, KJ/KG         -462.32  -462.32  -503.19
+ U, KJ/KG         -531.98  -531.98  -562.61
+ G, KJ/KG        -2131.15 -2131.14 -1930.71
+ S, KJ/(KG)(K)     6.1274   6.1274   6.1274
 
- M, (1/n)          32.581   32.581   32.627
- MW, MOL WT        32.018   32.018   32.018
- (dLV/dLP)t      -1.00152 -1.00152 -1.00010
- (dLV/dLT)p        1.0284   1.0284   1.0024
- Cp, KJ/(KG)(K)    1.0815   1.0815   0.9342
- GAMMAs            1.3298   1.3298   1.3774
- SON VEL,M/SEC      311.9    311.9    293.9
- MACH NUMBER        0.000    0.006    1.000
+ M, (1/n)          32.507   32.507   32.603
+ MW, MOL WT        32.017   32.017   32.017
+ (dLV/dLP)t      -1.00309 -1.00309 -1.00013
+ (dLV/dLT)p        1.0697   1.0697   1.0034
+ Cp, KJ/(KG)(K)    1.3254   1.3254   0.9393
+ GAMMAs            1.2783   1.2783   1.3759
+ SON VEL,M/SEC      298.4    298.4    285.9
+ MACH NUMBER        0.000    0.009    1.000
 
  PERFORMANCE PARAMETERS
 
- Ae/At                      96.005   1.0000
- CSTAR, M/SEC                402.6    402.6
- CF                         0.0047   0.7300
- Ivac, M/SEC               38654.9    507.3
- Isp, M/SEC                    1.9    293.9
+ Ae/At                      63.879   1.0000
+ CSTAR, M/SEC                391.3    391.3
+ CF                         0.0071   0.7308
+ Ivac, M/SEC               24994.1    493.7
+ Isp, M/SEC                    2.8    285.9
 
 
  MOLE FRACTIONS
 
- *CO2             0.02345  0.02345  0.02345
- H2O              0.00149  0.00149  0.00009
- *O2              0.95780  0.95780  0.95780
- H2O(cr)          0.00000  0.00000  0.01866
- H2O(L)           0.01726  0.01726  0.00000
+ *CO2             0.02261  0.02261  0.02261
+ H2O              0.00303  0.00303  0.00013
+ *O2              0.95930  0.95930  0.95930
+ H2O(cr)          0.01505  0.01505  0.01796
 
   * THERMODYNAMIC PROPERTIES FITTED TO 20000.K
 
@@ -1265,7 +1241,7 @@
  C8H18,isooctane C9H19,n-nonyl   C10H8,naphthale C10H21,n-decyl  C12H9,o-bipheny
  C12H10,biphenyl *H              HCO             HCCO            HO2            
  *H2             HCHO,formaldehy HCOOH           H2O2            (HCOOH)2       
- *O              *OH             O3              C(gr)          
+ *O              *OH             O3              C(gr)           H2O(L)         
 
  NOTE. WEIGHT FRACTION OF FUEL IN TOTAL FUELS AND OF OXIDANT IN TOTAL OXIDANTS
 
@@ -1275,7 +1251,7 @@
 
 
  WARNING!!  ASSIGNED pip =   0.00000 IS NOT PERMITTED
- TO BE LESS THAN  Pinj/Pc =  1.00005. POINT OMITTED (ROCKET)
+ TO BE LESS THAN  Pinj/Pc =  1.00011. POINT OMITTED (ROCKET)
 
 
 
@@ -1285,8 +1261,8 @@
 
             COMPOSITION DURING EXPANSION FROM FINITE AREA COMBUSTOR
 
- Pin =   148.1 PSIA
- Ac/At = 70.7584      Pinj/Pinf =  1.000024
+ Pin =    27.0 PSIA
+ Ac/At = 45.3044      Pinj/Pinf =  1.000056
  CASE =                
 
              REACTANT                    WT FRACTION      ENERGY      TEMP
@@ -1294,43 +1270,42 @@
  OXIDANT     O2(L)                        1.0000000    -12979.000     90.170
  FUEL        PMMA                         1.0000000   -442140.000    293.150
 
- O/F=   67.19934  %FUEL=  1.466290  R,EQ.RATIO= 0.033136  PHI,EQ.RATIO= 0.028538
+ O/F=   69.72344  %FUEL=  1.413958  R,EQ.RATIO= 0.031942  PHI,EQ.RATIO= 0.027504
 
                  INJECTOR  COMB END  THROAT
- Pinj/P            1.0000   1.0000   1.8869
- P, BAR            10.210   10.210   5.4110
- T, K              286.69   286.69   246.11
- RHO, KG/CU M    1.3955 1 1.3955 1 8.6276 0
- H, KJ/KG         -464.42  -464.42  -507.61
- U, KJ/KG         -537.58  -537.58  -570.33
- G, KJ/KG        -2110.47 -2110.47 -1920.67
- S, KJ/(KG)(K)     5.7416   5.7416   5.7416
+ Pinj/P            1.0000   1.0001   1.8829
+ P, BAR            1.8600   1.8598  0.98783
+ T, K              272.36   272.35   232.97
+ RHO, KG/CU M    2.6700 0 2.6697 0 1.6626 0
+ H, KJ/KG         -462.32  -462.32  -503.19
+ U, KJ/KG         -531.98  -531.98  -562.61
+ G, KJ/KG        -2131.15 -2131.14 -1930.71
+ S, KJ/(KG)(K)     6.1274   6.1274   6.1274
 
- M, (1/n)          32.581   32.581   32.627
- MW, MOL WT        32.018   32.018   32.018
- (dLV/dLP)t      -1.00152 -1.00152 -1.00010
- (dLV/dLT)p        1.0284   1.0284   1.0024
- Cp, KJ/(KG)(K)    1.0815   1.0815   0.9342
- GAMMAs            1.3298   1.3298   1.3774
- SON VEL,M/SEC      311.9    311.9    293.9
- MACH NUMBER        0.000    0.006    1.000
+ M, (1/n)          32.507   32.507   32.603
+ MW, MOL WT        32.017   32.017   32.017
+ (dLV/dLP)t      -1.00309 -1.00309 -1.00013
+ (dLV/dLT)p        1.0697   1.0697   1.0034
+ Cp, KJ/(KG)(K)    1.3254   1.3254   0.9393
+ GAMMAs            1.2783   1.2783   1.3759
+ SON VEL,M/SEC      298.4    298.4    285.9
+ MACH NUMBER        0.000    0.009    1.000
 
  PERFORMANCE PARAMETERS
 
- Ae/At                      96.005   1.0000
- CSTAR, M/SEC                402.6    402.6
- CF                         0.0047   0.7300
- Ivac, M/SEC               38654.9    507.3
- Isp, M/SEC                    1.9    293.9
+ Ae/At                      63.879   1.0000
+ CSTAR, M/SEC                391.3    391.3
+ CF                         0.0071   0.7308
+ Ivac, M/SEC               24994.1    493.7
+ Isp, M/SEC                    2.8    285.9
 
 
  MOLE FRACTIONS
 
- *CO2             0.02345  0.02345  0.02345
- H2O              0.00149  0.00149  0.00009
- *O2              0.95780  0.95780  0.95780
- H2O(cr)          0.00000  0.00000  0.01866
- H2O(L)           0.01726  0.01726  0.00000
+ *CO2             0.02261  0.02261  0.02261
+ H2O              0.00303  0.00303  0.00013
+ *O2              0.95930  0.95930  0.95930
+ H2O(cr)          0.01505  0.01505  0.01796
 
   * THERMODYNAMIC PROPERTIES FITTED TO 20000.K
 
@@ -1360,7 +1335,7 @@
  C8H18,isooctane C9H19,n-nonyl   C10H8,naphthale C10H21,n-decyl  C12H9,o-bipheny
  C12H10,biphenyl *H              HCO             HCCO            HO2            
  *H2             HCHO,formaldehy HCOOH           H2O2            (HCOOH)2       
- *O              *OH             O3              C(gr)          
+ *O              *OH             O3              C(gr)           H2O(L)         
 
  NOTE. WEIGHT FRACTION OF FUEL IN TOTAL FUELS AND OF OXIDANT IN TOTAL OXIDANTS
 
@@ -1370,7 +1345,7 @@
 
 
  WARNING!!  ASSIGNED pip =   0.00000 IS NOT PERMITTED
- TO BE LESS THAN  Pinj/Pc =  1.00005. POINT OMITTED (ROCKET)
+ TO BE LESS THAN  Pinj/Pc =  1.00011. POINT OMITTED (ROCKET)
 
 
 
@@ -1380,8 +1355,8 @@
 
             COMPOSITION DURING EXPANSION FROM FINITE AREA COMBUSTOR
 
- Pin =   148.1 PSIA
- Ac/At = 70.7584      Pinj/Pinf =  1.000024
+ Pin =    27.0 PSIA
+ Ac/At = 45.3044      Pinj/Pinf =  1.000056
  CASE =                
 
              REACTANT                    WT FRACTION      ENERGY      TEMP
@@ -1389,43 +1364,42 @@
  OXIDANT     O2(L)                        1.0000000    -12979.000     90.170
  FUEL        PMMA                         1.0000000   -442140.000    293.150
 
- O/F=   67.19934  %FUEL=  1.466290  R,EQ.RATIO= 0.033136  PHI,EQ.RATIO= 0.028538
+ O/F=   69.72344  %FUEL=  1.413958  R,EQ.RATIO= 0.031942  PHI,EQ.RATIO= 0.027504
 
                  INJECTOR  COMB END  THROAT
- Pinj/P            1.0000   1.0000   1.8869
- P, BAR            10.210   10.210   5.4110
- T, K              286.69   286.69   246.11
- RHO, KG/CU M    1.3955 1 1.3955 1 8.6276 0
- H, KJ/KG         -464.42  -464.42  -507.61
- U, KJ/KG         -537.58  -537.58  -570.33
- G, KJ/KG        -2110.47 -2110.47 -1920.67
- S, KJ/(KG)(K)     5.7416   5.7416   5.7416
+ Pinj/P            1.0000   1.0001   1.8829
+ P, BAR            1.8600   1.8598  0.98783
+ T, K              272.36   272.35   232.97
+ RHO, KG/CU M    2.6700 0 2.6697 0 1.6626 0
+ H, KJ/KG         -462.32  -462.32  -503.19
+ U, KJ/KG         -531.98  -531.98  -562.61
+ G, KJ/KG        -2131.15 -2131.14 -1930.71
+ S, KJ/(KG)(K)     6.1274   6.1274   6.1274
 
- M, (1/n)          32.581   32.581   32.627
- MW, MOL WT        32.018   32.018   32.018
- (dLV/dLP)t      -1.00152 -1.00152 -1.00010
- (dLV/dLT)p        1.0284   1.0284   1.0024
- Cp, KJ/(KG)(K)    1.0815   1.0815   0.9342
- GAMMAs            1.3298   1.3298   1.3774
- SON VEL,M/SEC      311.9    311.9    293.9
- MACH NUMBER        0.000    0.006    1.000
+ M, (1/n)          32.507   32.507   32.603
+ MW, MOL WT        32.017   32.017   32.017
+ (dLV/dLP)t      -1.00309 -1.00309 -1.00013
+ (dLV/dLT)p        1.0697   1.0697   1.0034
+ Cp, KJ/(KG)(K)    1.3254   1.3254   0.9393
+ GAMMAs            1.2783   1.2783   1.3759
+ SON VEL,M/SEC      298.4    298.4    285.9
+ MACH NUMBER        0.000    0.009    1.000
 
  PERFORMANCE PARAMETERS
 
- Ae/At                      96.005   1.0000
- CSTAR, M/SEC                402.6    402.6
- CF                         0.0047   0.7300
- Ivac, M/SEC               38654.9    507.3
- Isp, M/SEC                    1.9    293.9
+ Ae/At                      63.879   1.0000
+ CSTAR, M/SEC                391.3    391.3
+ CF                         0.0071   0.7308
+ Ivac, M/SEC               24994.1    493.7
+ Isp, M/SEC                    2.8    285.9
 
 
  MOLE FRACTIONS
 
- *CO2             0.02345  0.02345  0.02345
- H2O              0.00149  0.00149  0.00009
- *O2              0.95780  0.95780  0.95780
- H2O(cr)          0.00000  0.00000  0.01866
- H2O(L)           0.01726  0.01726  0.00000
+ *CO2             0.02261  0.02261  0.02261
+ H2O              0.00303  0.00303  0.00013
+ *O2              0.95930  0.95930  0.95930
+ H2O(cr)          0.01505  0.01505  0.01796
 
   * THERMODYNAMIC PROPERTIES FITTED TO 20000.K
 
@@ -1455,7 +1429,7 @@
  C8H18,isooctane C9H19,n-nonyl   C10H8,naphthale C10H21,n-decyl  C12H9,o-bipheny
  C12H10,biphenyl *H              HCO             HCCO            HO2            
  *H2             HCHO,formaldehy HCOOH           H2O2            (HCOOH)2       
- *O              *OH             O3              C(gr)          
+ *O              *OH             O3              C(gr)           H2O(L)         
 
  NOTE. WEIGHT FRACTION OF FUEL IN TOTAL FUELS AND OF OXIDANT IN TOTAL OXIDANTS
 
@@ -1465,7 +1439,7 @@
 
 
  WARNING!!  ASSIGNED pip =   0.00000 IS NOT PERMITTED
- TO BE LESS THAN  Pinj/Pc =  1.00005. POINT OMITTED (ROCKET)
+ TO BE LESS THAN  Pinj/Pc =  1.00011. POINT OMITTED (ROCKET)
 
 
 
@@ -1475,8 +1449,8 @@
 
             COMPOSITION DURING EXPANSION FROM FINITE AREA COMBUSTOR
 
- Pin =   148.1 PSIA
- Ac/At = 70.7584      Pinj/Pinf =  1.000024
+ Pin =    27.0 PSIA
+ Ac/At = 45.3044      Pinj/Pinf =  1.000056
  CASE =                
 
              REACTANT                    WT FRACTION      ENERGY      TEMP
@@ -1484,43 +1458,42 @@
  OXIDANT     O2(L)                        1.0000000    -12979.000     90.170
  FUEL        PMMA                         1.0000000   -442140.000    293.150
 
- O/F=   67.19934  %FUEL=  1.466290  R,EQ.RATIO= 0.033136  PHI,EQ.RATIO= 0.028538
+ O/F=   69.72344  %FUEL=  1.413958  R,EQ.RATIO= 0.031942  PHI,EQ.RATIO= 0.027504
 
                  INJECTOR  COMB END  THROAT
- Pinj/P            1.0000   1.0000   1.8869
- P, BAR            10.210   10.210   5.4110
- T, K              286.69   286.69   246.11
- RHO, KG/CU M    1.3955 1 1.3955 1 8.6276 0
- H, KJ/KG         -464.42  -464.42  -507.61
- U, KJ/KG         -537.58  -537.58  -570.33
- G, KJ/KG        -2110.47 -2110.47 -1920.67
- S, KJ/(KG)(K)     5.7416   5.7416   5.7416
+ Pinj/P            1.0000   1.0001   1.8829
+ P, BAR            1.8600   1.8598  0.98783
+ T, K              272.36   272.35   232.97
+ RHO, KG/CU M    2.6700 0 2.6697 0 1.6626 0
+ H, KJ/KG         -462.32  -462.32  -503.19
+ U, KJ/KG         -531.98  -531.98  -562.61
+ G, KJ/KG        -2131.15 -2131.14 -1930.71
+ S, KJ/(KG)(K)     6.1274   6.1274   6.1274
 
- M, (1/n)          32.581   32.581   32.627
- MW, MOL WT        32.018   32.018   32.018
- (dLV/dLP)t      -1.00152 -1.00152 -1.00010
- (dLV/dLT)p        1.0284   1.0284   1.0024
- Cp, KJ/(KG)(K)    1.0815   1.0815   0.9342
- GAMMAs            1.3298   1.3298   1.3774
- SON VEL,M/SEC      311.9    311.9    293.9
- MACH NUMBER        0.000    0.006    1.000
+ M, (1/n)          32.507   32.507   32.603
+ MW, MOL WT        32.017   32.017   32.017
+ (dLV/dLP)t      -1.00309 -1.00309 -1.00013
+ (dLV/dLT)p        1.0697   1.0697   1.0034
+ Cp, KJ/(KG)(K)    1.3254   1.3254   0.9393
+ GAMMAs            1.2783   1.2783   1.3759
+ SON VEL,M/SEC      298.4    298.4    285.9
+ MACH NUMBER        0.000    0.009    1.000
 
  PERFORMANCE PARAMETERS
 
- Ae/At                      96.005   1.0000
- CSTAR, M/SEC                402.6    402.6
- CF                         0.0047   0.7300
- Ivac, M/SEC               38654.9    507.3
- Isp, M/SEC                    1.9    293.9
+ Ae/At                      63.879   1.0000
+ CSTAR, M/SEC                391.3    391.3
+ CF                         0.0071   0.7308
+ Ivac, M/SEC               24994.1    493.7
+ Isp, M/SEC                    2.8    285.9
 
 
  MOLE FRACTIONS
 
- *CO2             0.02345  0.02345  0.02345
- H2O              0.00149  0.00149  0.00009
- *O2              0.95780  0.95780  0.95780
- H2O(cr)          0.00000  0.00000  0.01866
- H2O(L)           0.01726  0.01726  0.00000
+ *CO2             0.02261  0.02261  0.02261
+ H2O              0.00303  0.00303  0.00013
+ *O2              0.95930  0.95930  0.95930
+ H2O(cr)          0.01505  0.01505  0.01796
 
   * THERMODYNAMIC PROPERTIES FITTED TO 20000.K
 
@@ -1550,7 +1523,7 @@
  C8H18,isooctane C9H19,n-nonyl   C10H8,naphthale C10H21,n-decyl  C12H9,o-bipheny
  C12H10,biphenyl *H              HCO             HCCO            HO2            
  *H2             HCHO,formaldehy HCOOH           H2O2            (HCOOH)2       
- *O              *OH             O3              C(gr)          
+ *O              *OH             O3              C(gr)           H2O(L)         
 
  NOTE. WEIGHT FRACTION OF FUEL IN TOTAL FUELS AND OF OXIDANT IN TOTAL OXIDANTS
 
@@ -1560,7 +1533,7 @@
 
 
  WARNING!!  ASSIGNED pip =   0.00000 IS NOT PERMITTED
- TO BE LESS THAN  Pinj/Pc =  1.00005. POINT OMITTED (ROCKET)
+ TO BE LESS THAN  Pinj/Pc =  1.00011. POINT OMITTED (ROCKET)
 
 
 
@@ -1570,8 +1543,8 @@
 
             COMPOSITION DURING EXPANSION FROM FINITE AREA COMBUSTOR
 
- Pin =   148.1 PSIA
- Ac/At = 70.7584      Pinj/Pinf =  1.000024
+ Pin =    27.0 PSIA
+ Ac/At = 45.3044      Pinj/Pinf =  1.000056
  CASE =                
 
              REACTANT                    WT FRACTION      ENERGY      TEMP
@@ -1579,43 +1552,42 @@
  OXIDANT     O2(L)                        1.0000000    -12979.000     90.170
  FUEL        PMMA                         1.0000000   -442140.000    293.150
 
- O/F=   67.19934  %FUEL=  1.466290  R,EQ.RATIO= 0.033136  PHI,EQ.RATIO= 0.028538
+ O/F=   69.72344  %FUEL=  1.413958  R,EQ.RATIO= 0.031942  PHI,EQ.RATIO= 0.027504
 
                  INJECTOR  COMB END  THROAT
- Pinj/P            1.0000   1.0000   1.8869
- P, BAR            10.210   10.210   5.4110
- T, K              286.69   286.69   246.11
- RHO, KG/CU M    1.3955 1 1.3955 1 8.6276 0
- H, KJ/KG         -464.42  -464.42  -507.61
- U, KJ/KG         -537.58  -537.58  -570.33
- G, KJ/KG        -2110.47 -2110.47 -1920.67
- S, KJ/(KG)(K)     5.7416   5.7416   5.7416
+ Pinj/P            1.0000   1.0001   1.8829
+ P, BAR            1.8600   1.8598  0.98783
+ T, K              272.36   272.35   232.97
+ RHO, KG/CU M    2.6700 0 2.6697 0 1.6626 0
+ H, KJ/KG         -462.32  -462.32  -503.19
+ U, KJ/KG         -531.98  -531.98  -562.61
+ G, KJ/KG        -2131.15 -2131.14 -1930.71
+ S, KJ/(KG)(K)     6.1274   6.1274   6.1274
 
- M, (1/n)          32.581   32.581   32.627
- MW, MOL WT        32.018   32.018   32.018
- (dLV/dLP)t      -1.00152 -1.00152 -1.00010
- (dLV/dLT)p        1.0284   1.0284   1.0024
- Cp, KJ/(KG)(K)    1.0815   1.0815   0.9342
- GAMMAs            1.3298   1.3298   1.3774
- SON VEL,M/SEC      311.9    311.9    293.9
- MACH NUMBER        0.000    0.006    1.000
+ M, (1/n)          32.507   32.507   32.603
+ MW, MOL WT        32.017   32.017   32.017
+ (dLV/dLP)t      -1.00309 -1.00309 -1.00013
+ (dLV/dLT)p        1.0697   1.0697   1.0034
+ Cp, KJ/(KG)(K)    1.3254   1.3254   0.9393
+ GAMMAs            1.2783   1.2783   1.3759
+ SON VEL,M/SEC      298.4    298.4    285.9
+ MACH NUMBER        0.000    0.009    1.000
 
  PERFORMANCE PARAMETERS
 
- Ae/At                      96.005   1.0000
- CSTAR, M/SEC                402.6    402.6
- CF                         0.0047   0.7300
- Ivac, M/SEC               38654.9    507.3
- Isp, M/SEC                    1.9    293.9
+ Ae/At                      63.879   1.0000
+ CSTAR, M/SEC                391.3    391.3
+ CF                         0.0071   0.7308
+ Ivac, M/SEC               24994.1    493.7
+ Isp, M/SEC                    2.8    285.9
 
 
  MOLE FRACTIONS
 
- *CO2             0.02345  0.02345  0.02345
- H2O              0.00149  0.00149  0.00009
- *O2              0.95780  0.95780  0.95780
- H2O(cr)          0.00000  0.00000  0.01866
- H2O(L)           0.01726  0.01726  0.00000
+ *CO2             0.02261  0.02261  0.02261
+ H2O              0.00303  0.00303  0.00013
+ *O2              0.95930  0.95930  0.95930
+ H2O(cr)          0.01505  0.01505  0.01796
 
   * THERMODYNAMIC PROPERTIES FITTED TO 20000.K
 
@@ -1645,387 +1617,7 @@
  C8H18,isooctane C9H19,n-nonyl   C10H8,naphthale C10H21,n-decyl  C12H9,o-bipheny
  C12H10,biphenyl *H              HCO             HCCO            HO2            
  *H2             HCHO,formaldehy HCOOH           H2O2            (HCOOH)2       
- *O              *OH             O3              C(gr)          
-
- NOTE. WEIGHT FRACTION OF FUEL IN TOTAL FUELS AND OF OXIDANT IN TOTAL OXIDANTS
-
-
-
-
-
-
- WARNING!!  ASSIGNED pip =   0.00000 IS NOT PERMITTED
- TO BE LESS THAN  Pinj/Pc =  1.00005. POINT OMITTED (ROCKET)
-
-
-
-
-
-              THEORETICAL ROCKET PERFORMANCE ASSUMING EQUILIBRIUM
-
-            COMPOSITION DURING EXPANSION FROM FINITE AREA COMBUSTOR
-
- Pin =   148.1 PSIA
- Ac/At = 70.7584      Pinj/Pinf =  1.000024
- CASE =                
-
-             REACTANT                    WT FRACTION      ENERGY      TEMP
-                                          (SEE NOTE)     KJ/KG-MOL      K  
- OXIDANT     O2(L)                        1.0000000    -12979.000     90.170
- FUEL        PMMA                         1.0000000   -442140.000    293.150
-
- O/F=   67.19934  %FUEL=  1.466290  R,EQ.RATIO= 0.033136  PHI,EQ.RATIO= 0.028538
-
-                 INJECTOR  COMB END  THROAT
- Pinj/P            1.0000   1.0000   1.8869
- P, BAR            10.210   10.210   5.4110
- T, K              286.69   286.69   246.11
- RHO, KG/CU M    1.3955 1 1.3955 1 8.6276 0
- H, KJ/KG         -464.42  -464.42  -507.61
- U, KJ/KG         -537.58  -537.58  -570.33
- G, KJ/KG        -2110.47 -2110.47 -1920.67
- S, KJ/(KG)(K)     5.7416   5.7416   5.7416
-
- M, (1/n)          32.581   32.581   32.627
- MW, MOL WT        32.018   32.018   32.018
- (dLV/dLP)t      -1.00152 -1.00152 -1.00010
- (dLV/dLT)p        1.0284   1.0284   1.0024
- Cp, KJ/(KG)(K)    1.0815   1.0815   0.9342
- GAMMAs            1.3298   1.3298   1.3774
- SON VEL,M/SEC      311.9    311.9    293.9
- MACH NUMBER        0.000    0.006    1.000
-
- PERFORMANCE PARAMETERS
-
- Ae/At                      96.005   1.0000
- CSTAR, M/SEC                402.6    402.6
- CF                         0.0047   0.7300
- Ivac, M/SEC               38654.9    507.3
- Isp, M/SEC                    1.9    293.9
-
-
- MOLE FRACTIONS
-
- *CO2             0.02345  0.02345  0.02345
- H2O              0.00149  0.00149  0.00009
- *O2              0.95780  0.95780  0.95780
- H2O(cr)          0.00000  0.00000  0.01866
- H2O(L)           0.01726  0.01726  0.00000
-
-  * THERMODYNAMIC PROPERTIES FITTED TO 20000.K
-
-    PRODUCTS WHICH WERE CONSIDERED BUT WHOSE MOLE FRACTIONS
-    WERE LESS THAN 5.000000E-06 FOR ALL ASSIGNED CONDITIONS
-
- *C              *CH             CH2             CH3             CH2OH          
- CH3O            CH4             CH3OH           CH3OOH          *CO            
- COOH            *C2             C2H             C2H2,acetylene  C2H2,vinylidene
- CH2CO,ketene    O(CH)2O         HO(CO)2OH       C2H3,vinyl      CH3CO,acetyl   
- C2H4            C2H4O,ethylen-o CH3CHO,ethanal  CH3COOH         OHCH2COOH      
- C2H5            C2H6            C2H5OH          CH3OCH3         CH3O2CH3       
- C2O             *C3             C3H3,1-propynl  C3H3,2-propynl  C3H4,allene    
- C3H4,propyne    C3H4,cyclo-     C3H5,allyl      C3H6,propylene  C3H6,cyclo-    
- C3H6O,propylox  C3H6O,acetone   C3H6O,propanal  C3H7,n-propyl   C3H7,i-propyl  
- C3H8            C3H8O,1propanol C3H8O,2propanol C3O2            *C4            
- C4H2,butadiyne  C4H4,1,3-cyclo- C4H6,butadiene  C4H6,1butyne    C4H6,2butyne   
- C4H6,cyclo-     C4H8,1-butene   C4H8,cis2-buten C4H8,tr2-butene C4H8,isobutene 
- C4H8,cyclo-     (CH3COOH)2      C4H9,n-butyl    C4H9,i-butyl    C4H9,s-butyl   
- C4H9,t-butyl    C4H10,n-butane  C4H10,isobutane *C5             C5H6,1,3cyclo- 
- C5H8,cyclo-     C5H10,1-pentene C5H10,cyclo-    C5H11,pentyl    C5H11,t-pentyl 
- C5H12,n-pentane C5H12,i-pentane CH3C(CH3)2CH3   C6H2            C6H5,phenyl    
- C6H5O,phenoxy   C6H6            C6H5OH,phenol   C6H10,cyclo-    C6H12,1-hexene 
- C6H12,cyclo-    C6H13,n-hexyl   C6H14,n-hexane  C7H7,benzyl     C7H8           
- C7H8O,cresol-mx C7H14,1-heptene C7H15,n-heptyl  C7H16,n-heptane C7H16,2-methylh
- C8H8,styrene    C8H10,ethylbenz C8H16,1-octene  C8H17,n-octyl   C8H18,n-octane 
- C8H18,isooctane C9H19,n-nonyl   C10H8,naphthale C10H21,n-decyl  C12H9,o-bipheny
- C12H10,biphenyl *H              HCO             HCCO            HO2            
- *H2             HCHO,formaldehy HCOOH           H2O2            (HCOOH)2       
- *O              *OH             O3              C(gr)          
-
- NOTE. WEIGHT FRACTION OF FUEL IN TOTAL FUELS AND OF OXIDANT IN TOTAL OXIDANTS
-
-
-
-
-
-
- WARNING!!  ASSIGNED pip =   0.00000 IS NOT PERMITTED
- TO BE LESS THAN  Pinj/Pc =  1.00005. POINT OMITTED (ROCKET)
-
-
-
-
-
-              THEORETICAL ROCKET PERFORMANCE ASSUMING EQUILIBRIUM
-
-            COMPOSITION DURING EXPANSION FROM FINITE AREA COMBUSTOR
-
- Pin =   148.1 PSIA
- Ac/At = 70.7584      Pinj/Pinf =  1.000024
- CASE =                
-
-             REACTANT                    WT FRACTION      ENERGY      TEMP
-                                          (SEE NOTE)     KJ/KG-MOL      K  
- OXIDANT     O2(L)                        1.0000000    -12979.000     90.170
- FUEL        PMMA                         1.0000000   -442140.000    293.150
-
- O/F=   67.19934  %FUEL=  1.466290  R,EQ.RATIO= 0.033136  PHI,EQ.RATIO= 0.028538
-
-                 INJECTOR  COMB END  THROAT
- Pinj/P            1.0000   1.0000   1.8869
- P, BAR            10.210   10.210   5.4110
- T, K              286.69   286.69   246.11
- RHO, KG/CU M    1.3955 1 1.3955 1 8.6276 0
- H, KJ/KG         -464.42  -464.42  -507.61
- U, KJ/KG         -537.58  -537.58  -570.33
- G, KJ/KG        -2110.47 -2110.47 -1920.67
- S, KJ/(KG)(K)     5.7416   5.7416   5.7416
-
- M, (1/n)          32.581   32.581   32.627
- MW, MOL WT        32.018   32.018   32.018
- (dLV/dLP)t      -1.00152 -1.00152 -1.00010
- (dLV/dLT)p        1.0284   1.0284   1.0024
- Cp, KJ/(KG)(K)    1.0815   1.0815   0.9342
- GAMMAs            1.3298   1.3298   1.3774
- SON VEL,M/SEC      311.9    311.9    293.9
- MACH NUMBER        0.000    0.006    1.000
-
- PERFORMANCE PARAMETERS
-
- Ae/At                      96.005   1.0000
- CSTAR, M/SEC                402.6    402.6
- CF                         0.0047   0.7300
- Ivac, M/SEC               38654.9    507.3
- Isp, M/SEC                    1.9    293.9
-
-
- MOLE FRACTIONS
-
- *CO2             0.02345  0.02345  0.02345
- H2O              0.00149  0.00149  0.00009
- *O2              0.95780  0.95780  0.95780
- H2O(cr)          0.00000  0.00000  0.01866
- H2O(L)           0.01726  0.01726  0.00000
-
-  * THERMODYNAMIC PROPERTIES FITTED TO 20000.K
-
-    PRODUCTS WHICH WERE CONSIDERED BUT WHOSE MOLE FRACTIONS
-    WERE LESS THAN 5.000000E-06 FOR ALL ASSIGNED CONDITIONS
-
- *C              *CH             CH2             CH3             CH2OH          
- CH3O            CH4             CH3OH           CH3OOH          *CO            
- COOH            *C2             C2H             C2H2,acetylene  C2H2,vinylidene
- CH2CO,ketene    O(CH)2O         HO(CO)2OH       C2H3,vinyl      CH3CO,acetyl   
- C2H4            C2H4O,ethylen-o CH3CHO,ethanal  CH3COOH         OHCH2COOH      
- C2H5            C2H6            C2H5OH          CH3OCH3         CH3O2CH3       
- C2O             *C3             C3H3,1-propynl  C3H3,2-propynl  C3H4,allene    
- C3H4,propyne    C3H4,cyclo-     C3H5,allyl      C3H6,propylene  C3H6,cyclo-    
- C3H6O,propylox  C3H6O,acetone   C3H6O,propanal  C3H7,n-propyl   C3H7,i-propyl  
- C3H8            C3H8O,1propanol C3H8O,2propanol C3O2            *C4            
- C4H2,butadiyne  C4H4,1,3-cyclo- C4H6,butadiene  C4H6,1butyne    C4H6,2butyne   
- C4H6,cyclo-     C4H8,1-butene   C4H8,cis2-buten C4H8,tr2-butene C4H8,isobutene 
- C4H8,cyclo-     (CH3COOH)2      C4H9,n-butyl    C4H9,i-butyl    C4H9,s-butyl   
- C4H9,t-butyl    C4H10,n-butane  C4H10,isobutane *C5             C5H6,1,3cyclo- 
- C5H8,cyclo-     C5H10,1-pentene C5H10,cyclo-    C5H11,pentyl    C5H11,t-pentyl 
- C5H12,n-pentane C5H12,i-pentane CH3C(CH3)2CH3   C6H2            C6H5,phenyl    
- C6H5O,phenoxy   C6H6            C6H5OH,phenol   C6H10,cyclo-    C6H12,1-hexene 
- C6H12,cyclo-    C6H13,n-hexyl   C6H14,n-hexane  C7H7,benzyl     C7H8           
- C7H8O,cresol-mx C7H14,1-heptene C7H15,n-heptyl  C7H16,n-heptane C7H16,2-methylh
- C8H8,styrene    C8H10,ethylbenz C8H16,1-octene  C8H17,n-octyl   C8H18,n-octane 
- C8H18,isooctane C9H19,n-nonyl   C10H8,naphthale C10H21,n-decyl  C12H9,o-bipheny
- C12H10,biphenyl *H              HCO             HCCO            HO2            
- *H2             HCHO,formaldehy HCOOH           H2O2            (HCOOH)2       
- *O              *OH             O3              C(gr)          
-
- NOTE. WEIGHT FRACTION OF FUEL IN TOTAL FUELS AND OF OXIDANT IN TOTAL OXIDANTS
-
-
-
-
-
-
- WARNING!!  ASSIGNED pip =   0.00000 IS NOT PERMITTED
- TO BE LESS THAN  Pinj/Pc =  1.00005. POINT OMITTED (ROCKET)
-
-
-
-
-
-              THEORETICAL ROCKET PERFORMANCE ASSUMING EQUILIBRIUM
-
-            COMPOSITION DURING EXPANSION FROM FINITE AREA COMBUSTOR
-
- Pin =   148.1 PSIA
- Ac/At = 70.7584      Pinj/Pinf =  1.000024
- CASE =                
-
-             REACTANT                    WT FRACTION      ENERGY      TEMP
-                                          (SEE NOTE)     KJ/KG-MOL      K  
- OXIDANT     O2(L)                        1.0000000    -12979.000     90.170
- FUEL        PMMA                         1.0000000   -442140.000    293.150
-
- O/F=   67.19934  %FUEL=  1.466290  R,EQ.RATIO= 0.033136  PHI,EQ.RATIO= 0.028538
-
-                 INJECTOR  COMB END  THROAT
- Pinj/P            1.0000   1.0000   1.8869
- P, BAR            10.210   10.210   5.4110
- T, K              286.69   286.69   246.11
- RHO, KG/CU M    1.3955 1 1.3955 1 8.6276 0
- H, KJ/KG         -464.42  -464.42  -507.61
- U, KJ/KG         -537.58  -537.58  -570.33
- G, KJ/KG        -2110.47 -2110.47 -1920.67
- S, KJ/(KG)(K)     5.7416   5.7416   5.7416
-
- M, (1/n)          32.581   32.581   32.627
- MW, MOL WT        32.018   32.018   32.018
- (dLV/dLP)t      -1.00152 -1.00152 -1.00010
- (dLV/dLT)p        1.0284   1.0284   1.0024
- Cp, KJ/(KG)(K)    1.0815   1.0815   0.9342
- GAMMAs            1.3298   1.3298   1.3774
- SON VEL,M/SEC      311.9    311.9    293.9
- MACH NUMBER        0.000    0.006    1.000
-
- PERFORMANCE PARAMETERS
-
- Ae/At                      96.005   1.0000
- CSTAR, M/SEC                402.6    402.6
- CF                         0.0047   0.7300
- Ivac, M/SEC               38654.9    507.3
- Isp, M/SEC                    1.9    293.9
-
-
- MOLE FRACTIONS
-
- *CO2             0.02345  0.02345  0.02345
- H2O              0.00149  0.00149  0.00009
- *O2              0.95780  0.95780  0.95780
- H2O(cr)          0.00000  0.00000  0.01866
- H2O(L)           0.01726  0.01726  0.00000
-
-  * THERMODYNAMIC PROPERTIES FITTED TO 20000.K
-
-    PRODUCTS WHICH WERE CONSIDERED BUT WHOSE MOLE FRACTIONS
-    WERE LESS THAN 5.000000E-06 FOR ALL ASSIGNED CONDITIONS
-
- *C              *CH             CH2             CH3             CH2OH          
- CH3O            CH4             CH3OH           CH3OOH          *CO            
- COOH            *C2             C2H             C2H2,acetylene  C2H2,vinylidene
- CH2CO,ketene    O(CH)2O         HO(CO)2OH       C2H3,vinyl      CH3CO,acetyl   
- C2H4            C2H4O,ethylen-o CH3CHO,ethanal  CH3COOH         OHCH2COOH      
- C2H5            C2H6            C2H5OH          CH3OCH3         CH3O2CH3       
- C2O             *C3             C3H3,1-propynl  C3H3,2-propynl  C3H4,allene    
- C3H4,propyne    C3H4,cyclo-     C3H5,allyl      C3H6,propylene  C3H6,cyclo-    
- C3H6O,propylox  C3H6O,acetone   C3H6O,propanal  C3H7,n-propyl   C3H7,i-propyl  
- C3H8            C3H8O,1propanol C3H8O,2propanol C3O2            *C4            
- C4H2,butadiyne  C4H4,1,3-cyclo- C4H6,butadiene  C4H6,1butyne    C4H6,2butyne   
- C4H6,cyclo-     C4H8,1-butene   C4H8,cis2-buten C4H8,tr2-butene C4H8,isobutene 
- C4H8,cyclo-     (CH3COOH)2      C4H9,n-butyl    C4H9,i-butyl    C4H9,s-butyl   
- C4H9,t-butyl    C4H10,n-butane  C4H10,isobutane *C5             C5H6,1,3cyclo- 
- C5H8,cyclo-     C5H10,1-pentene C5H10,cyclo-    C5H11,pentyl    C5H11,t-pentyl 
- C5H12,n-pentane C5H12,i-pentane CH3C(CH3)2CH3   C6H2            C6H5,phenyl    
- C6H5O,phenoxy   C6H6            C6H5OH,phenol   C6H10,cyclo-    C6H12,1-hexene 
- C6H12,cyclo-    C6H13,n-hexyl   C6H14,n-hexane  C7H7,benzyl     C7H8           
- C7H8O,cresol-mx C7H14,1-heptene C7H15,n-heptyl  C7H16,n-heptane C7H16,2-methylh
- C8H8,styrene    C8H10,ethylbenz C8H16,1-octene  C8H17,n-octyl   C8H18,n-octane 
- C8H18,isooctane C9H19,n-nonyl   C10H8,naphthale C10H21,n-decyl  C12H9,o-bipheny
- C12H10,biphenyl *H              HCO             HCCO            HO2            
- *H2             HCHO,formaldehy HCOOH           H2O2            (HCOOH)2       
- *O              *OH             O3              C(gr)          
-
- NOTE. WEIGHT FRACTION OF FUEL IN TOTAL FUELS AND OF OXIDANT IN TOTAL OXIDANTS
-
-
-
-
-
-
- WARNING!!  ASSIGNED pip =   0.00000 IS NOT PERMITTED
- TO BE LESS THAN  Pinj/Pc =  1.00005. POINT OMITTED (ROCKET)
-
-
-
-
-
-              THEORETICAL ROCKET PERFORMANCE ASSUMING EQUILIBRIUM
-
-            COMPOSITION DURING EXPANSION FROM FINITE AREA COMBUSTOR
-
- Pin =   148.1 PSIA
- Ac/At = 70.7584      Pinj/Pinf =  1.000024
- CASE =                
-
-             REACTANT                    WT FRACTION      ENERGY      TEMP
-                                          (SEE NOTE)     KJ/KG-MOL      K  
- OXIDANT     O2(L)                        1.0000000    -12979.000     90.170
- FUEL        PMMA                         1.0000000   -442140.000    293.150
-
- O/F=   67.19934  %FUEL=  1.466290  R,EQ.RATIO= 0.033136  PHI,EQ.RATIO= 0.028538
-
-                 INJECTOR  COMB END  THROAT
- Pinj/P            1.0000   1.0000   1.8869
- P, BAR            10.210   10.210   5.4110
- T, K              286.69   286.69   246.11
- RHO, KG/CU M    1.3955 1 1.3955 1 8.6276 0
- H, KJ/KG         -464.42  -464.42  -507.61
- U, KJ/KG         -537.58  -537.58  -570.33
- G, KJ/KG        -2110.47 -2110.47 -1920.67
- S, KJ/(KG)(K)     5.7416   5.7416   5.7416
-
- M, (1/n)          32.581   32.581   32.627
- MW, MOL WT        32.018   32.018   32.018
- (dLV/dLP)t      -1.00152 -1.00152 -1.00010
- (dLV/dLT)p        1.0284   1.0284   1.0024
- Cp, KJ/(KG)(K)    1.0815   1.0815   0.9342
- GAMMAs            1.3298   1.3298   1.3774
- SON VEL,M/SEC      311.9    311.9    293.9
- MACH NUMBER        0.000    0.006    1.000
-
- PERFORMANCE PARAMETERS
-
- Ae/At                      96.005   1.0000
- CSTAR, M/SEC                402.6    402.6
- CF                         0.0047   0.7300
- Ivac, M/SEC               38654.9    507.3
- Isp, M/SEC                    1.9    293.9
-
-
- MOLE FRACTIONS
-
- *CO2             0.02345  0.02345  0.02345
- H2O              0.00149  0.00149  0.00009
- *O2              0.95780  0.95780  0.95780
- H2O(cr)          0.00000  0.00000  0.01866
- H2O(L)           0.01726  0.01726  0.00000
-
-  * THERMODYNAMIC PROPERTIES FITTED TO 20000.K
-
-    PRODUCTS WHICH WERE CONSIDERED BUT WHOSE MOLE FRACTIONS
-    WERE LESS THAN 5.000000E-06 FOR ALL ASSIGNED CONDITIONS
-
- *C              *CH             CH2             CH3             CH2OH          
- CH3O            CH4             CH3OH           CH3OOH          *CO            
- COOH            *C2             C2H             C2H2,acetylene  C2H2,vinylidene
- CH2CO,ketene    O(CH)2O         HO(CO)2OH       C2H3,vinyl      CH3CO,acetyl   
- C2H4            C2H4O,ethylen-o CH3CHO,ethanal  CH3COOH         OHCH2COOH      
- C2H5            C2H6            C2H5OH          CH3OCH3         CH3O2CH3       
- C2O             *C3             C3H3,1-propynl  C3H3,2-propynl  C3H4,allene    
- C3H4,propyne    C3H4,cyclo-     C3H5,allyl      C3H6,propylene  C3H6,cyclo-    
- C3H6O,propylox  C3H6O,acetone   C3H6O,propanal  C3H7,n-propyl   C3H7,i-propyl  
- C3H8            C3H8O,1propanol C3H8O,2propanol C3O2            *C4            
- C4H2,butadiyne  C4H4,1,3-cyclo- C4H6,butadiene  C4H6,1butyne    C4H6,2butyne   
- C4H6,cyclo-     C4H8,1-butene   C4H8,cis2-buten C4H8,tr2-butene C4H8,isobutene 
- C4H8,cyclo-     (CH3COOH)2      C4H9,n-butyl    C4H9,i-butyl    C4H9,s-butyl   
- C4H9,t-butyl    C4H10,n-butane  C4H10,isobutane *C5             C5H6,1,3cyclo- 
- C5H8,cyclo-     C5H10,1-pentene C5H10,cyclo-    C5H11,pentyl    C5H11,t-pentyl 
- C5H12,n-pentane C5H12,i-pentane CH3C(CH3)2CH3   C6H2            C6H5,phenyl    
- C6H5O,phenoxy   C6H6            C6H5OH,phenol   C6H10,cyclo-    C6H12,1-hexene 
- C6H12,cyclo-    C6H13,n-hexyl   C6H14,n-hexane  C7H7,benzyl     C7H8           
- C7H8O,cresol-mx C7H14,1-heptene C7H15,n-heptyl  C7H16,n-heptane C7H16,2-methylh
- C8H8,styrene    C8H10,ethylbenz C8H16,1-octene  C8H17,n-octyl   C8H18,n-octane 
- C8H18,isooctane C9H19,n-nonyl   C10H8,naphthale C10H21,n-decyl  C12H9,o-bipheny
- C12H10,biphenyl *H              HCO             HCCO            HO2            
- *H2             HCHO,formaldehy HCOOH           H2O2            (HCOOH)2       
- *O              *OH             O3              C(gr)          
+ *O              *OH             O3              C(gr)           H2O(L)         
 
  NOTE. WEIGHT FRACTION OF FUEL IN TOTAL FUELS AND OF OXIDANT IN TOTAL OXIDANTS
 
@@ -2047,8 +1639,8 @@
 
             COMPOSITION DURING EXPANSION FROM FINITE AREA COMBUSTOR
 
- Pin =   148.1 PSIA
- Ac/At = 70.7584      Pinj/Pinf =  1.000024
+ Pin =    27.0 PSIA
+ Ac/At = 45.3044      Pinj/Pinf =  1.000056
  CASE =                
 
              REACTANT                    WT FRACTION      ENERGY      TEMP
@@ -2056,43 +1648,42 @@
  OXIDANT     O2(L)                        1.0000000    -12979.000     90.170
  FUEL        PMMA                         1.0000000   -442140.000    293.150
 
- O/F=   67.19934  %FUEL=  1.466290  R,EQ.RATIO= 0.033136  PHI,EQ.RATIO= 0.028538
+ O/F=   69.72344  %FUEL=  1.413958  R,EQ.RATIO= 0.031942  PHI,EQ.RATIO= 0.027504
 
                  INJECTOR  COMB END  THROAT
- Pinj/P            1.0000   1.0000   1.8869
- P, BAR            10.210   10.210   5.4110
- T, K              286.69   286.69   246.11
- RHO, KG/CU M    1.3955 1 1.3955 1 8.6276 0
- H, KJ/KG         -464.42  -464.42  -507.61
- U, KJ/KG         -537.58  -537.58  -570.33
- G, KJ/KG        -2110.47 -2110.47 -1920.67
- S, KJ/(KG)(K)     5.7416   5.7416   5.7416
+ Pinj/P            1.0000   1.0001   1.8829
+ P, BAR            1.8600   1.8598  0.98783
+ T, K              272.36   272.35   232.97
+ RHO, KG/CU M    2.6700 0 2.6697 0 1.6626 0
+ H, KJ/KG         -462.32  -462.32  -503.19
+ U, KJ/KG         -531.98  -531.98  -562.61
+ G, KJ/KG        -2131.15 -2131.14 -1930.71
+ S, KJ/(KG)(K)     6.1274   6.1274   6.1274
 
- M, (1/n)          32.581   32.581   32.627
- MW, MOL WT        32.018   32.018   32.018
- (dLV/dLP)t      -1.00152 -1.00152 -1.00010
- (dLV/dLT)p        1.0284   1.0284   1.0024
- Cp, KJ/(KG)(K)    1.0815   1.0815   0.9342
- GAMMAs            1.3298   1.3298   1.3774
- SON VEL,M/SEC      311.9    311.9    293.9
- MACH NUMBER        0.000    0.006    1.000
+ M, (1/n)          32.507   32.507   32.603
+ MW, MOL WT        32.017   32.017   32.017
+ (dLV/dLP)t      -1.00309 -1.00309 -1.00013
+ (dLV/dLT)p        1.0697   1.0697   1.0034
+ Cp, KJ/(KG)(K)    1.3254   1.3254   0.9393
+ GAMMAs            1.2783   1.2783   1.3759
+ SON VEL,M/SEC      298.4    298.4    285.9
+ MACH NUMBER        0.000    0.009    1.000
 
  PERFORMANCE PARAMETERS
 
- Ae/At                      96.005  5822.44
- CSTAR, M/SEC                402.6    402.6
- CF                         0.0047   0.7300
- Ivac, M/SEC               38654.9    507.3
- Isp, M/SEC                    1.9    293.9
+ Ae/At                      63.879  16254.2
+ CSTAR, M/SEC                391.3    391.3
+ CF                         0.0071   0.7308
+ Ivac, M/SEC               24994.1    493.7
+ Isp, M/SEC                    2.8    285.9
 
 
  MOLE FRACTIONS
 
- *CO2             0.02345  0.02345  0.02345
- H2O              0.00149  0.00149  0.00009
- *O2              0.95780  0.95780  0.95780
- H2O(cr)          0.00000  0.00000  0.01866
- H2O(L)           0.01726  0.01726  0.00000
+ *CO2             0.02261  0.02261  0.02261
+ H2O              0.00303  0.00303  0.00013
+ *O2              0.95930  0.95930  0.95930
+ H2O(cr)          0.01505  0.01505  0.01796
 
   * THERMODYNAMIC PROPERTIES FITTED TO 20000.K
 
@@ -2122,7 +1713,7 @@
  C8H18,isooctane C9H19,n-nonyl   C10H8,naphthale C10H21,n-decyl  C12H9,o-bipheny
  C12H10,biphenyl *H              HCO             HCCO            HO2            
  *H2             HCHO,formaldehy HCOOH           H2O2            (HCOOH)2       
- *O              *OH             O3              C(gr)          
+ *O              *OH             O3              C(gr)           H2O(L)         
 
  NOTE. WEIGHT FRACTION OF FUEL IN TOTAL FUELS AND OF OXIDANT IN TOTAL OXIDANTS
 
