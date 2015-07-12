@@ -133,6 +133,11 @@ end do
 
 open (50,file='ReadFile.d')
 write(50,'(f9.4,a1, F9.4,a1, F9.4,a1, F9.4,a1, F9.4)') Pre(1),',',Temp(1),',',Gmm(1),',',Ml(1),',',Isp(2)
+!#write(50,'(f9.4,a1)') Pre(1)
+!#write(50,'(f9.4,a1)') Temp(1)
+!#write(50,'(f9.4,a1)') Gmm(1)
+!#write(50,'(f9.4,a1)') Ml(1)
+!#write(50,'(f9.4,a1)') Isp(1)
 close(50)
 open (50,file='ReadFrac.d')
 do i=1,9

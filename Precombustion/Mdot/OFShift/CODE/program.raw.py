@@ -5,6 +5,7 @@ import scipy as sp
 import numpy as np
 import matplotlib.pyplot as plt
 import math
+import sys
 from string import *
 #Length:m
 #Mass:kg
@@ -12,8 +13,11 @@ from string import *
 if __name__ == "__main__":
 	import CEAReadPack
 	ReadClass = CEAReadPack.Pack()
-	Preinfile  = 'CEAdata/Pre/'
-	Maininfile = 'CEAdata/Main/'
+	Preinfile  = '../CALC/CEAdata/Pre/'
+	Maininfile = '../CALC/CEAdata/Main/'
+	PreOutfile  = '../OUT/DATA/Pre/'
+	MainOutfile = '../OUT/DATA/Main/'
+	
 	Time = 6.0            #[s]
 	dt = 0.1              #[s]
 	now = 0.0             #[s]
@@ -60,6 +64,19 @@ if __name__ == "__main__":
 	PreAllPres    = np.array([])
 	PreAllTemp    = np.array([])
 	PreAllMdotF   = np.array([])
+
+	PreAllFrac     = np.array([])
+
+	#PreAllCH4     = np.array([])
+	#PreAllCO2     = np.array([])
+	#PreAllCO      = np.array([])
+	#PreAllH       = np.array([])
+	#PreAllH2      = np.array([])
+	#PreAllH2O     = np.array([])
+	#PreAllO       = np.array([])
+	#PreAllO2      = np.array([])
+	#PreAllOH      = np.array([])
+
 	MainAllTime   = np.array([])
 	MainAllOF     = np.array([])
 	MainAllPres   = np.array([])
@@ -90,7 +107,7 @@ if __name__ == "__main__":
 			PreEp = 100000000.0
 			for j in range(1,Pres_count):
 				P = Pres_start+float(j)*Pres_step
-				fl = open('CEAdata/PreData.inp','w')
+				fl = open('../CALC/CEAdata/PreData.inp','w')
 				fl.write('prob rocket fac p,bar=%s,'%P)
 				fl.write('ac/at=%s,\n'%PreDia_ratio)
 				fl.write('o/f=%s, pi/pe=1, eq\n'%PreOF)
@@ -101,11 +118,12 @@ if __name__ == "__main__":
 				fl.write('end')
 				fl.close()
 				subcmd.call('./PreGo.sh')
-				#Pres,Temp,Mole,Gamma,isp = ReadClass.Read3(Preinfile)
-				Pres = ReadClass.Read3(Preinfile)
-				print 'end'
 
-				PreMdot_th = float(Pres)*10**5*float(PreA_nozl)*float(Gamma)*((2.0/(float(Gamma)+1.0))**((float(Gamma)+1.0)/(float(Gamma)-1.0)))**(1.0/2.0)/(float(Gamma)*8314.3/float(Mole)*float(Temp))**(1.0/2.0)
+				Pres,Temp,Gamma,Mole,Isp = ReadClass.Read4(Preinfile)
+				#sys.exit()
+				#print Pres,'end'
+
+				PreMdot_th =  (Pres)*10**5* (PreA_nozl)* (Gamma)*((2.0/( (Gamma)+1.0))**(( (Gamma)+1.0)/( (Gamma)-1.0)))**(1.0/2.0)/( (Gamma)*8314.3/ (Mole)* (Temp))**(1.0/2.0)
 				PreResi = abs(PreMtot/PreMdot_th-1.0)
 				#if PreEp<PreResi:
 				#print abs(PreMtot/PreMdot_th-1.0),0.001
@@ -115,6 +133,8 @@ if __name__ == "__main__":
 					print 'Preburner',now,PreOF,PreMdotF,float(Temp),float(Pres)*0.1,P,PreMtot
 					break;
 				PreEp = PreResi
+
+			Frac = ReadClass.Read5(Preinfile)
 	
 			PreTemp     = float(Temp)
 			PreAllTime  = np.append(PreAllTime,now)
@@ -122,6 +142,18 @@ if __name__ == "__main__":
 			PreAllPres  = np.append(PreAllPres,float(Pres)*0.1)
 			PreAllTemp  = np.append(PreAllTemp,float(Temp))
 			PreAllMdotF = np.append(PreAllMdotF,PreMdotF)
+
+
+			print Frac[:9]
+			#PreAllCH4   = np.append(PreAllCH4,CH4)
+			#PreAllCO2   = np.append(PreAllCO2,CO2)
+			#PreAllCO    = np.append(PreAllCO ,CO )
+			#PreAllH     = np.append(PreAllH  ,H  )
+			#PreAllH2    = np.append(PreAllH2 ,H2 )
+			#PreAllH2O   = np.append(PreAllH2O,H2O)
+			#PreAllO     = np.append(PreAllO  ,O  )
+			#PreAllO2    = np.append(PreAllO2 ,O2 )
+			#PreAllOH    = np.append(PreAllOH ,OH )
 			
 			#MainChamber
 			MainA = MainDia**2.0*math.pi/4.0 #[m2]
@@ -145,7 +177,7 @@ if __name__ == "__main__":
 				MainEp = 100000000.0
 				for j in range(1,Pres_count):
 					P = Pres_start+float(j)*Pres_step
-					fl = open('CEAdata/MainData.inp','w')
+					fl = open('../CALC/CEAdata/MainData.inp','w')
 					fl.write('prob rocket fac p,bar=%s,'%P)
 					fl.write('ac/at=%s,\n'%MainDia_ratio)
 					fl.write('o/f=%s, pi/pe=1, eq\n'%MainOF)
@@ -163,22 +195,24 @@ if __name__ == "__main__":
 					fl.write('end')
 					fl.close()
 					subcmd.call('./MainGo.sh')
-					Pres,of,Temp,rho,Mole,Gamma,CStar_th,Isp = ReadClass.Read2(Maininfile)
+					Pres,Temp,Gamma,Mole,Isp = ReadClass.Read4(Maininfile)
 
 					#print float(Pres),float(of),float(Temp),float(rho),float(Mole),float(Gamma)
 					#print Temp 
 					#print float(Temp)
-					MainMdot_th = float(Pres)*10**5*MainA_nozl*float(Gamma)*((2.0/(float(Gamma)+1.0))**((float(Gamma)+1.0)/(float(Gamma)-1.0)))**(1.0/2.0)/(float(Gamma)*8314.3/float(Mole)*float(Temp))**(1.0/2.0)
+					MainMdot_th =  (Pres)*10**5*MainA_nozl* (Gamma)*((2.0/( (Gamma)+1.0))**(( (Gamma)+1.0)/( (Gamma)-1.0)))**(1.0/2.0)/( (Gamma)*8314.3/ (Mole)* (Temp))**(1.0/2.0)
 					#print (MainMtot/MainMdot_th-1.0),0.01
-					if (MainMtot/MainMdot_th-1.0)<0.0:
+					#if (MainMtot/MainMdot_th-1.0)<0.0:
 					#	break;
-					#MainResi = abs(MainMtot/MainMdot_th-1.0)
+					MainResi = abs(MainMtot/MainMdot_th-1.0)
 					#if MainEp<MainResi:
+					if (MainMtot/MainMdot_th-1.0)<0.0:
 					#if abs(MainResi/MainEp-1.0)<0.003:
 						Thrust = MainMtot*float(Isp)
-						print 'MainChamber',now,MainOF,MainMdotF,float(Temp),P,MainMdot_th,MainMtot,float(Isp),Thrust
+						print 'MainChamber',now,Pres,MainOF,Temp,MainMtot,Isp,Thrust
+						print MainMtot,MainMdot_th
 						break;
-					#MainEp = MainResi
+					MainEp = MainResi
 
 				MainAllTime   = np.append(MainAllTime,now)
 				MainAllOF     = np.append(MainAllOF,MainOF)
