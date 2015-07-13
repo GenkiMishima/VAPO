@@ -140,9 +140,10 @@ write(50,'(f9.4,a1, F9.4,a1, F9.4,a1, F9.4,a1, F9.4)') Pre(1),',',Temp(1),',',Gm
 !#write(50,'(f9.4,a1)') Isp(1)
 close(50)
 open (50,file='ReadFrac.d')
-do i=1,9
+do i=1,8
   write(50,'(f9.4,a1)',advance='no') MF(i),','
 end do
+write(50,'(f9.4)',advance='no') MF(9)
 close(50)
 
 

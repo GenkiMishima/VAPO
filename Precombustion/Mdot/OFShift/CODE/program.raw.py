@@ -6,6 +6,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import math
 import sys
+import csv
 from string import *
 #Length:m
 #Mass:kg
@@ -17,6 +18,24 @@ if __name__ == "__main__":
 	Maininfile = '../CALC/CEAdata/Main/'
 	PreOutfile  = '../OUT/DATA/Pre/'
 	MainOutfile = '../OUT/DATA/Main/'
+
+	PreOutVari = open(PreOutfile+'Variable.d','w')
+	PreOutFrac = open(PreOutfile+'Fraction.d','w')
+	MainOutVari = open(MainOutfile+'Variable.d','w')
+	MainOutFrac = open(MainOutfile+'Fraction.d','w')
+	PreOutVari.write('Time[s]'+','+'Pres[MPa]'+','+'Temp[K]'+','+'OF[-]'+','+'PreMtot[kg/s]\n')
+	PreOutFrac.write('CH4'+','+ 'CO2'+','+ 'CO'+','+ 'H'+','+ 'H2'+','+ 'H2O'+','+ 'O'+','+ 'O2'+','+'OH\n'  )
+	MainOutVari.write( 'Time[s]'+','+'Pres[MPa]'+','+'Temp[K]'+','+'OF[-]'+','+'PreMtot[kg/s]'+','+'Thrust[N]\n' )
+	MainOutFrac.write( 'CH4'+','+ 'CO2'+','+ 'CO'+','+ 'H'+','+ 'H2'+','+ 'H2O'+','+ 'O'+','+ 'O2'+','+'OH\n'  )
+	csvPreVari  = csv.writer(PreOutVari)
+	csvPreFrac  = csv.writer(PreOutFrac)
+	csvMainVari = csv.writer(MainOutVari)
+	csvMainFrac = csv.writer(MainOutFrac)
+	#PreOutVari.close() 
+	#PreOutFrac.close()
+	#MainOutVari.close()
+	#MainOutFrac.close()
+	#sys.exit()
 	
 	Time = 6.0            #[s]
 	dt = 0.1              #[s]
@@ -66,6 +85,7 @@ if __name__ == "__main__":
 	PreAllMdotF   = np.array([])
 
 	PreAllFrac     = np.array([])
+	MainAllFrac    = np.array([])
 
 	#PreAllCH4     = np.array([])
 	#PreAllCO2     = np.array([])
@@ -134,17 +154,23 @@ if __name__ == "__main__":
 					break;
 				PreEp = PreResi
 
-			Frac = ReadClass.Read5(Preinfile)
+			PreFrac = ReadClass.Read5(Preinfile)
 	
-			PreTemp     = float(Temp)
-			PreAllTime  = np.append(PreAllTime,now)
-			PreAllOF    = np.append(PreAllOF,PreOF)
-			PreAllPres  = np.append(PreAllPres,float(Pres)*0.1)
-			PreAllTemp  = np.append(PreAllTemp,float(Temp))
-			PreAllMdotF = np.append(PreAllMdotF,PreMdotF)
+			PreTemp     = Temp
+			#PreAllTime  = np.append(PreAllTime,now)
+			#PreAllOF    = np.append(PreAllOF,PreOF)
+			#PreAllPres  = np.append(PreAllPres,Pres*0.1)
+			#PreAllTemp  = np.append(PreAllTemp,Temp)
+			#PreAllMdotF = np.append(PreAllMdotF,PreMdotF)
 
+			PreVari = np.array([Time ,Pres ,Temp, PreOF  ,PreMdotF])
+			csvPreVari.writerow(PreVari)
+			csvPreFrac.writerow(PreFrac)
 
-			print Frac[:9]
+			#csvPreVari = csv.writer(PreOutVari)
+			#PreOutVari.write (Time ,Pres ,Temp, PreOF  ,PreMdotF)
+
+			#print Frac[:9]
 			#PreAllCH4   = np.append(PreAllCH4,CH4)
 			#PreAllCO2   = np.append(PreAllCO2,CO2)
 			#PreAllCO    = np.append(PreAllCO ,CO )
@@ -222,6 +248,9 @@ if __name__ == "__main__":
 				MainAllMdotF  = np.append(MainAllMdotF,MainMdotF)
 				#MainAllThrust = np.append(MainAllThrust,Thrust)
 
+				MainVari = np.array([Time ,Pres ,Temp, MainOF  ,MainMdotF,Thrust])
+				csvMainVari.writerow(MainVari)
+				csvMainFrac.writerow(MainFrac)
 
 
 		#AllLength = np.append(AllLength,Length)
@@ -230,106 +259,110 @@ if __name__ == "__main__":
 		#print Length,OF
 		#AllMdotO = np.append(AllMdotO,MdotO)
 	#print AvMdotF
+#
+#	#PLOT{{{
+#	plt.plot(PreAllTime,PreAllPres)
+#	plt.grid()
+#	##plt.title('MdotO:%s[kg/s]'%MdotO)
+#	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
+#	plt.xlabel('Time[s]')
+#	plt.ylabel('Pres[MPa]')
+#	#plt.ylim([0,100])
+#	plt.savefig("PrePres_%s.png"%int(PreLength*1000.0))
+#	plt.close()
+#
+#	plt.plot(PreAllTime,PreAllTemp)
+#	plt.grid()
+#	##plt.title('MdotO:%s[kg/s]'%MdotO)
+#	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
+#	plt.xlabel('Time[s]')
+#	plt.ylabel('Temp[K]')
+#	#plt.ylim([0,100])
+#	plt.savefig("PreTemp_%s.png"%int(PreLength*1000.0))
+#	plt.close()
+#
+#	plt.plot(PreAllTime,PreAllOF)
+#	plt.grid()
+#	##plt.title('MdotO:%s[kg/s]'%MdotO)
+#	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
+#	plt.xlabel('Time[s]')
+#	plt.ylabel('OF')
+#	#plt.ylim([0,100])
+#	plt.savefig("PreOF_%s.png"%int(PreLength*1000.0))
+#	plt.close()
+#
+#	plt.plot(PreAllTime,PreAllMdotF)
+#	plt.grid()
+#	##plt.title('MdotO:%s[kg/s]'%MdotO)
+#	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
+#	plt.xlabel('Time[s]')
+#	plt.ylabel('MainMdotF[kg/s]')
+#	#plt.ylim([0,100])
+#	plt.savefig("PreMdotF_%s.png"%int(PreLength*1000.0))
+#	plt.close()
+#
+#	plt.plot(MainAllTime,MainAllMdotF)
+#	plt.grid()
+#	##plt.title('MdotO:%s[kg/s]'%MdotO)
+#	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
+#	plt.xlabel('Time[s]')
+#	plt.ylabel('MainMdotF[kg/s]')
+#	#plt.ylim([0,100])
+#	plt.savefig("MainMdotF_%s.png"%int(PreLength*1000.0))
+#	plt.close()
+#
+#	plt.plot(MainAllTime,MainAllOF)
+#	plt.grid()
+#	##plt.title('MdotO:%s[kg/s]'%MdotO)
+#	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
+#	plt.xlabel('Time[s]')
+#	plt.ylabel('MainOF')
+#	#plt.ylim([0,100])
+#	plt.savefig("MainOF_%s.png"%int(PreLength*1000.0))
+#	plt.close()
+#
+#	plt.plot(MainAllTime,MainAllTemp)
+#	plt.grid()
+#	##plt.title('MdotO:%s[kg/s]'%MdotO)
+#	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
+#	plt.xlabel('Time[s]')
+#	plt.ylabel('MainTemp[K]')
+#	#plt.ylim([0,100])
+#	plt.savefig("MainTemp_%s.png"%int(PreLength*1000.0))
+#	plt.close()
+#
+#	plt.plot(MainAllTime,MainAllPres)
+#	plt.grid()
+#	##plt.title('MdotO:%s[kg/s]'%MdotO)
+#	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
+#	plt.xlabel('Time[s]')
+#	plt.ylabel('Pres[MPa]')
+#	#plt.ylim([0,100])
+#	plt.savefig("MainPres_%s.png"%int(PreLength*1000.0))
+#	plt.close()
+#
+#	plt.plot(MainAllTime,MainAllIsp)
+#	plt.grid()
+#	##plt.title('MdotO:%s[kg/s]'%MdotO)
+#	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
+#	plt.xlabel('Time[s]')
+#	plt.ylabel('Isp[s]')
+#	#plt.ylim([0,100])
+#	plt.savefig("MainIsp_%s.png"%int(PreLength*1000.0))
+#	plt.close()
+#
+#	plt.plot(MainAllTime,MainAllThrust)
+#	plt.grid()
+#	##plt.title('MdotO:%s[kg/s]'%MdotO)
+#	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
+#	plt.xlabel('Time[s]')
+#	plt.ylabel('F[N]')
+#	#plt.ylim([0,100])
+#	plt.savefig("MainThrust_%s.png"%int(PreLength*1000.0))
+#	plt.close()
+#
+#	#plt.show()}}}
+#
 
-	plt.plot(PreAllTime,PreAllPres)
-	plt.grid()
-	##plt.title('MdotO:%s[kg/s]'%MdotO)
-	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
-	plt.xlabel('Time[s]')
-	plt.ylabel('Pres[MPa]')
-	#plt.ylim([0,100])
-	plt.savefig("PrePres_%s.png"%int(PreLength*1000.0))
-	plt.close()
 
-	plt.plot(PreAllTime,PreAllTemp)
-	plt.grid()
-	##plt.title('MdotO:%s[kg/s]'%MdotO)
-	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
-	plt.xlabel('Time[s]')
-	plt.ylabel('Temp[K]')
-	#plt.ylim([0,100])
-	plt.savefig("PreTemp_%s.png"%int(PreLength*1000.0))
-	plt.close()
-
-	plt.plot(PreAllTime,PreAllOF)
-	plt.grid()
-	##plt.title('MdotO:%s[kg/s]'%MdotO)
-	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
-	plt.xlabel('Time[s]')
-	plt.ylabel('OF')
-	#plt.ylim([0,100])
-	plt.savefig("PreOF_%s.png"%int(PreLength*1000.0))
-	plt.close()
-
-	plt.plot(PreAllTime,PreAllMdotF)
-	plt.grid()
-	##plt.title('MdotO:%s[kg/s]'%MdotO)
-	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
-	plt.xlabel('Time[s]')
-	plt.ylabel('MainMdotF[kg/s]')
-	#plt.ylim([0,100])
-	plt.savefig("PreMdotF_%s.png"%int(PreLength*1000.0))
-	plt.close()
-
-	plt.plot(MainAllTime,MainAllMdotF)
-	plt.grid()
-	##plt.title('MdotO:%s[kg/s]'%MdotO)
-	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
-	plt.xlabel('Time[s]')
-	plt.ylabel('MainMdotF[kg/s]')
-	#plt.ylim([0,100])
-	plt.savefig("MainMdotF_%s.png"%int(PreLength*1000.0))
-	plt.close()
-
-	plt.plot(MainAllTime,MainAllOF)
-	plt.grid()
-	##plt.title('MdotO:%s[kg/s]'%MdotO)
-	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
-	plt.xlabel('Time[s]')
-	plt.ylabel('MainOF')
-	#plt.ylim([0,100])
-	plt.savefig("MainOF_%s.png"%int(PreLength*1000.0))
-	plt.close()
-
-	plt.plot(MainAllTime,MainAllTemp)
-	plt.grid()
-	##plt.title('MdotO:%s[kg/s]'%MdotO)
-	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
-	plt.xlabel('Time[s]')
-	plt.ylabel('MainTemp[K]')
-	#plt.ylim([0,100])
-	plt.savefig("MainTemp_%s.png"%int(PreLength*1000.0))
-	plt.close()
-
-	plt.plot(MainAllTime,MainAllPres)
-	plt.grid()
-	##plt.title('MdotO:%s[kg/s]'%MdotO)
-	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
-	plt.xlabel('Time[s]')
-	plt.ylabel('Pres[MPa]')
-	#plt.ylim([0,100])
-	plt.savefig("MainPres_%s.png"%int(PreLength*1000.0))
-	plt.close()
-
-	plt.plot(MainAllTime,MainAllIsp)
-	plt.grid()
-	##plt.title('MdotO:%s[kg/s]'%MdotO)
-	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
-	plt.xlabel('Time[s]')
-	plt.ylabel('Isp[s]')
-	#plt.ylim([0,100])
-	plt.savefig("MainIsp_%s.png"%int(PreLength*1000.0))
-	plt.close()
-
-	plt.plot(MainAllTime,MainAllThrust)
-	plt.grid()
-	##plt.title('MdotO:%s[kg/s]'%MdotO)
-	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
-	plt.xlabel('Time[s]')
-	plt.ylabel('F[N]')
-	#plt.ylim([0,100])
-	plt.savefig("MainThrust_%s.png"%int(PreLength*1000.0))
-	plt.close()
-
-	#plt.show()
 
