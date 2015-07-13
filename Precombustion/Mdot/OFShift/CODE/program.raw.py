@@ -90,7 +90,7 @@ if __name__ == "__main__":
 			PreEp = 100000000.0
 			for j in range(1,Pres_count):
 				P = Pres_start+float(j)*Pres_step
-				fl = open('CEAdata/PreData.inp','w')
+				fl = open('../CALC/CEAdata/PreData.inp','w')
 				fl.write('prob rocket fac p,bar=%s,'%P)
 				fl.write('ac/at=%s,\n'%PreDia_ratio)
 				fl.write('o/f=%s, pi/pe=1, eq\n'%PreOF)
@@ -145,7 +145,7 @@ if __name__ == "__main__":
 				MainEp = 100000000.0
 				for j in range(1,Pres_count):
 					P = Pres_start+float(j)*Pres_step
-					fl = open('CEAdata/MainData.inp','w')
+					fl = open('../CALC/CEAdata/MainData.inp','w')
 					fl.write('prob rocket fac p,bar=%s,'%P)
 					fl.write('ac/at=%s,\n'%MainDia_ratio)
 					fl.write('o/f=%s, pi/pe=1, eq\n'%MainOF)
