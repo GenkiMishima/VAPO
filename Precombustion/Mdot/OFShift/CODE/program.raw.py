@@ -5,6 +5,8 @@ import scipy as sp
 import numpy as np
 import matplotlib.pyplot as plt
 import math
+import sys
+import csv
 from string import *
 #Length:m
 #Mass:kg
@@ -12,18 +14,39 @@ from string import *
 if __name__ == "__main__":
 	import CEAReadPack
 	ReadClass = CEAReadPack.Pack()
-	Preinfile  = 'CEAdata/Pre/'
-	Maininfile = 'CEAdata/Main/'
-	Time = 6.0            #[s]
-	dt = 0.1              #[s]
+	Preinfile  = '../CALC/CEAdata/Pre/'
+	Maininfile = '../CALC/CEAdata/Main/'
+	PreOutfile  = '../OUT/DATA/Pre/'
+	MainOutfile = '../OUT/DATA/Main/'
+
+	PreOutVari = open(PreOutfile+'Variable.d','w')
+	PreOutFrac = open(PreOutfile+'Fraction.d','w')
+	MainOutVari = open(MainOutfile+'Variable.d','w')
+	MainOutFrac = open(MainOutfile+'Fraction.d','w')
+	PreOutVari.write('Time[s]'+','+'Pres[MPa]'+','+'Temp[K]'+','+'OF[-]'+','+'PreMtot[kg/s]\n')
+	PreOutFrac.write('CH4'+','+ 'CO2'+','+ 'CO'+','+ 'H'+','+ 'H2'+','+ 'H2O'+','+ 'O'+','+ 'O2'+','+'OH\n'  )
+	MainOutVari.write( 'Time[s]'+','+'Pres[MPa]'+','+'Temp[K]'+','+'OF[-]'+','+'MainMtot[kg/s]'+','+'Isp[s]'+','+'Thrust[N]\n' )
+	MainOutFrac.write( 'CH4'+','+ 'CO2'+','+ 'CO'+','+ 'H'+','+ 'H2'+','+ 'H2O'+','+ 'O'+','+ 'O2'+','+'OH\n'  )
+	csvPreVari  = csv.writer(PreOutVari)
+	csvPreFrac  = csv.writer(PreOutFrac)
+	csvMainVari = csv.writer(MainOutVari)
+	csvMainFrac = csv.writer(MainOutFrac)
+	#PreOutVari.close() 
+	#PreOutFrac.close()
+	#MainOutVari.close()
+	#MainOutFrac.close()
+	#sys.exit()
+	
+	Time = 10.0            #[s]
+	dt = 0.05              #[s]
 	now = 0.0             #[s]
 	g0 = 9.80665          #[m/s2]
 	#LOXMdot
 	#MdotO = 0.50          #[kg/s]
 	#MdotO = 0.05         #[kg/s]
-	MdotO = 0.0231         #[kg/s]
+	MdotO = 0.03         #[kg/s]
 	#Preburner
-	PreLength = 0.007        #[m]
+	PreLength = 0.011       #[m]
 	#PreLength = 0.011         #[m]
 	PrePhiInit = 30.0*10**(-3.0) #[m]
 	PreRhoF = 1.18*10**3.0      #[kg/m3]
@@ -48,25 +71,43 @@ if __name__ == "__main__":
 	MainDia_ratio = (MainDia_cham)**2/(MainDia_nozl)**2
 	MainA_nozl = MainDia_nozl**2*np.pi/4.0
 
-
 	Pres_start  = 1.0        #[bar]
 	Pres_step   = 0.01     #[bar]
 	Pres_end    = 15.0       #[bar]
 	Pres_count  = int((Pres_end-Pres_start)/Pres_step)
 
 	wt = 100.0
-	PreAllTime    = np.array([])
-	PreAllOF      = np.array([])
-	PreAllPres    = np.array([])
-	PreAllTemp    = np.array([])
-	PreAllMdotF   = np.array([])
-	MainAllTime   = np.array([])
-	MainAllOF     = np.array([])
-	MainAllPres   = np.array([])
-	MainAllTemp   = np.array([])
-	MainAllIsp    = np.array([])
-	MainAllMdotF  = np.array([])
-	MainAllThrust = np.array([])
+	#PreAllTime    = np.array([])
+	#PreAllOF      = np.array([])
+	#PreAllPres    = np.array([])
+	#PreAllTemp    = np.array([])
+	#PreAllMdotF   = np.array([])
+
+	PreAllFrac     = np.array([])
+	MainAllFrac    = np.array([])
+
+	#PreAllCH4     = np.array([])
+	#PreAllCO2     = np.array([])
+	#PreAllCO      = np.array([])
+	#PreAllH       = np.array([])
+	#PreAllH2      = np.array([])
+	#PreAllH2O     = np.array([])
+	#PreAllO       = np.array([])
+	#PreAllO2      = np.array([])
+	#PreAllOH      = np.array([])
+
+	#MainAllTime   = np.array([])
+	#MainAllOF     = np.array([])
+	#MainAllPres   = np.array([])
+	#MainAllTemp   = np.array([])
+	#MainAllIsp    = np.array([])
+	#MainAllMdotF  = np.array([])
+	#MainAllThrust = np.array([])
+
+	OutSpec = open('../OUT/DATA/Spec.d','w')
+	OutSpec.write(str(MdotO)+'\n')
+	OutSpec.close() 
+
 	while now <= Time:
 		now = now+dt
 		#Preburner
@@ -101,27 +142,48 @@ if __name__ == "__main__":
 				fl.write('end')
 				fl.close()
 				subcmd.call('./PreGo.sh')
-				#Pres,Temp,Mole,Gamma,isp = ReadClass.Read3(Preinfile)
-				Pres = ReadClass.Read3(Preinfile)
-				print 'end'
 
-				PreMdot_th = float(Pres)*10**5*float(PreA_nozl)*float(Gamma)*((2.0/(float(Gamma)+1.0))**((float(Gamma)+1.0)/(float(Gamma)-1.0)))**(1.0/2.0)/(float(Gamma)*8314.3/float(Mole)*float(Temp))**(1.0/2.0)
+				Pres,Temp,Gamma,Mole,Isp = ReadClass.Read4(Preinfile)
+				#sys.exit()
+				#print Pres,'end'
+
+				PreMdot_th =  (Pres)*10**5* (PreA_nozl)* (Gamma)*((2.0/( (Gamma)+1.0))**(( (Gamma)+1.0)/( (Gamma)-1.0)))**(1.0/2.0)/( (Gamma)*8314.3/ (Mole)* (Temp))**(1.0/2.0)
 				PreResi = abs(PreMtot/PreMdot_th-1.0)
 				#if PreEp<PreResi:
 				#print abs(PreMtot/PreMdot_th-1.0),0.001
 				#if abs(PreMtot/PreMdot_th-1.0)<0.001:
 				if (PreMtot/PreMdot_th-1.0)<0.0:
 				#if abs(PreResi/PreEp-1.0)<0.001:
-					print 'Preburner',now,PreOF,PreMdotF,float(Temp),float(Pres)*0.1,P,PreMtot
+					print 'PreChamber',now,Pres,PreOF,Temp,PreMtot,Isp/g0
 					break;
 				PreEp = PreResi
+
+			PreFrac = ReadClass.Read5(Preinfile)
 	
-			PreTemp     = float(Temp)
-			PreAllTime  = np.append(PreAllTime,now)
-			PreAllOF    = np.append(PreAllOF,PreOF)
-			PreAllPres  = np.append(PreAllPres,float(Pres)*0.1)
-			PreAllTemp  = np.append(PreAllTemp,float(Temp))
-			PreAllMdotF = np.append(PreAllMdotF,PreMdotF)
+			PreTemp     = Temp
+			#PreAllTime  = np.append(PreAllTime,now)
+			#PreAllOF    = np.append(PreAllOF,PreOF)
+			#PreAllPres  = np.append(PreAllPres,Pres*0.1)
+			#PreAllTemp  = np.append(PreAllTemp,Temp)
+			#PreAllMdotF = np.append(PreAllMdotF,PreMdotF)
+
+			PreVari = np.array([now ,Pres*0.1 ,Temp, PreOF ,PreMdotF])
+			csvPreVari.writerow(PreVari)
+			csvPreFrac.writerow(PreFrac)
+
+			#csvPreVari = csv.writer(PreOutVari)
+			#PreOutVari.write (Time ,Pres ,Temp, PreOF  ,PreMdotF)
+
+			#print Frac[:9]
+			#PreAllCH4   = np.append(PreAllCH4,CH4)
+			#PreAllCO2   = np.append(PreAllCO2,CO2)
+			#PreAllCO    = np.append(PreAllCO ,CO )
+			#PreAllH     = np.append(PreAllH  ,H  )
+			#PreAllH2    = np.append(PreAllH2 ,H2 )
+			#PreAllH2O   = np.append(PreAllH2O,H2O)
+			#PreAllO     = np.append(PreAllO  ,O  )
+			#PreAllO2    = np.append(PreAllO2 ,O2 )
+			#PreAllOH    = np.append(PreAllOH ,OH )
 			
 			#MainChamber
 			MainA = MainDia**2.0*math.pi/4.0 #[m2]
@@ -163,31 +225,37 @@ if __name__ == "__main__":
 					fl.write('end')
 					fl.close()
 					subcmd.call('./MainGo.sh')
-					Pres,of,Temp,rho,Mole,Gamma,CStar_th,Isp = ReadClass.Read2(Maininfile)
+					Pres,Temp,Gamma,Mole,Isp = ReadClass.Read4(Maininfile)
 
 					#print float(Pres),float(of),float(Temp),float(rho),float(Mole),float(Gamma)
 					#print Temp 
 					#print float(Temp)
-					MainMdot_th = float(Pres)*10**5*MainA_nozl*float(Gamma)*((2.0/(float(Gamma)+1.0))**((float(Gamma)+1.0)/(float(Gamma)-1.0)))**(1.0/2.0)/(float(Gamma)*8314.3/float(Mole)*float(Temp))**(1.0/2.0)
+					MainMdot_th =  (Pres)*10**5*MainA_nozl* (Gamma)*((2.0/( (Gamma)+1.0))**(( (Gamma)+1.0)/( (Gamma)-1.0)))**(1.0/2.0)/( (Gamma)*8314.3/ (Mole)* (Temp))**(1.0/2.0)
 					#print (MainMtot/MainMdot_th-1.0),0.01
-					if (MainMtot/MainMdot_th-1.0)<0.0:
+					#if (MainMtot/MainMdot_th-1.0)<0.0:
 					#	break;
-					#MainResi = abs(MainMtot/MainMdot_th-1.0)
+					MainResi = abs(MainMtot/MainMdot_th-1.0)
 					#if MainEp<MainResi:
+					if (MainMtot/MainMdot_th-1.0)<0.0:
 					#if abs(MainResi/MainEp-1.0)<0.003:
 						Thrust = MainMtot*float(Isp)
-						print 'MainChamber',now,MainOF,MainMdotF,float(Temp),P,MainMdot_th,MainMtot,float(Isp),Thrust
+						print 'MainChamber',now,Pres,MainOF,Temp,MainMtot,Isp/g0,Thrust
 						break;
-					#MainEp = MainResi
+					MainEp = MainResi
 
-				MainAllTime   = np.append(MainAllTime,now)
-				MainAllOF     = np.append(MainAllOF,MainOF)
-				MainAllPres   = np.append(MainAllPres,float(Pres)*0.1)
-				MainAllTemp   = np.append(MainAllTemp,float(Temp))
-				MainAllIsp    = np.append(MainAllIsp,float(Isp)/g0)
-				MainAllMdotF  = np.append(MainAllMdotF,MainMdotF)
+				MainFrac = ReadClass.Read5(Maininfile)
+
+				#MainAllTime   = np.append(MainAllTime,now)
+				#MainAllOF     = np.append(MainAllOF,MainOF)
+				#MainAllPres   = np.append(MainAllPres,float(Pres)*0.1)
+				#MainAllTemp   = np.append(MainAllTemp,float(Temp))
+				#MainAllIsp    = np.append(MainAllIsp,float(Isp)/g0)
+				#MainAllMdotF  = np.append(MainAllMdotF,MainMdotF)
 				#MainAllThrust = np.append(MainAllThrust,Thrust)
 
+				MainVari = np.array([now ,Pres*0.1 ,Temp, MainOF  ,MainMdot_th, Isp/g0,Thrust])
+				csvMainVari.writerow(MainVari)
+				csvMainFrac.writerow(MainFrac)
 
 
 		#AllLength = np.append(AllLength,Length)
@@ -196,106 +264,110 @@ if __name__ == "__main__":
 		#print Length,OF
 		#AllMdotO = np.append(AllMdotO,MdotO)
 	#print AvMdotF
+#
+#	#PLOT{{{
+#	plt.plot(PreAllTime,PreAllPres)
+#	plt.grid()
+#	##plt.title('MdotO:%s[kg/s]'%MdotO)
+#	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
+#	plt.xlabel('Time[s]')
+#	plt.ylabel('Pres[MPa]')
+#	#plt.ylim([0,100])
+#	plt.savefig("PrePres_%s.png"%int(PreLength*1000.0))
+#	plt.close()
+#
+#	plt.plot(PreAllTime,PreAllTemp)
+#	plt.grid()
+#	##plt.title('MdotO:%s[kg/s]'%MdotO)
+#	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
+#	plt.xlabel('Time[s]')
+#	plt.ylabel('Temp[K]')
+#	#plt.ylim([0,100])
+#	plt.savefig("PreTemp_%s.png"%int(PreLength*1000.0))
+#	plt.close()
+#
+#	plt.plot(PreAllTime,PreAllOF)
+#	plt.grid()
+#	##plt.title('MdotO:%s[kg/s]'%MdotO)
+#	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
+#	plt.xlabel('Time[s]')
+#	plt.ylabel('OF')
+#	#plt.ylim([0,100])
+#	plt.savefig("PreOF_%s.png"%int(PreLength*1000.0))
+#	plt.close()
+#
+#	plt.plot(PreAllTime,PreAllMdotF)
+#	plt.grid()
+#	##plt.title('MdotO:%s[kg/s]'%MdotO)
+#	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
+#	plt.xlabel('Time[s]')
+#	plt.ylabel('MainMdotF[kg/s]')
+#	#plt.ylim([0,100])
+#	plt.savefig("PreMdotF_%s.png"%int(PreLength*1000.0))
+#	plt.close()
+#
+#	plt.plot(MainAllTime,MainAllMdotF)
+#	plt.grid()
+#	##plt.title('MdotO:%s[kg/s]'%MdotO)
+#	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
+#	plt.xlabel('Time[s]')
+#	plt.ylabel('MainMdotF[kg/s]')
+#	#plt.ylim([0,100])
+#	plt.savefig("MainMdotF_%s.png"%int(PreLength*1000.0))
+#	plt.close()
+#
+#	plt.plot(MainAllTime,MainAllOF)
+#	plt.grid()
+#	##plt.title('MdotO:%s[kg/s]'%MdotO)
+#	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
+#	plt.xlabel('Time[s]')
+#	plt.ylabel('MainOF')
+#	#plt.ylim([0,100])
+#	plt.savefig("MainOF_%s.png"%int(PreLength*1000.0))
+#	plt.close()
+#
+#	plt.plot(MainAllTime,MainAllTemp)
+#	plt.grid()
+#	##plt.title('MdotO:%s[kg/s]'%MdotO)
+#	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
+#	plt.xlabel('Time[s]')
+#	plt.ylabel('MainTemp[K]')
+#	#plt.ylim([0,100])
+#	plt.savefig("MainTemp_%s.png"%int(PreLength*1000.0))
+#	plt.close()
+#
+#	plt.plot(MainAllTime,MainAllPres)
+#	plt.grid()
+#	##plt.title('MdotO:%s[kg/s]'%MdotO)
+#	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
+#	plt.xlabel('Time[s]')
+#	plt.ylabel('Pres[MPa]')
+#	#plt.ylim([0,100])
+#	plt.savefig("MainPres_%s.png"%int(PreLength*1000.0))
+#	plt.close()
+#
+#	plt.plot(MainAllTime,MainAllIsp)
+#	plt.grid()
+#	##plt.title('MdotO:%s[kg/s]'%MdotO)
+#	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
+#	plt.xlabel('Time[s]')
+#	plt.ylabel('Isp[s]')
+#	#plt.ylim([0,100])
+#	plt.savefig("MainIsp_%s.png"%int(PreLength*1000.0))
+#	plt.close()
+#
+#	plt.plot(MainAllTime,MainAllThrust)
+#	plt.grid()
+#	##plt.title('MdotO:%s[kg/s]'%MdotO)
+#	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
+#	plt.xlabel('Time[s]')
+#	plt.ylabel('F[N]')
+#	#plt.ylim([0,100])
+#	plt.savefig("MainThrust_%s.png"%int(PreLength*1000.0))
+#	plt.close()
+#
+#	#plt.show()}}}
+#
 
-	plt.plot(PreAllTime,PreAllPres)
-	plt.grid()
-	##plt.title('MdotO:%s[kg/s]'%MdotO)
-	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
-	plt.xlabel('Time[s]')
-	plt.ylabel('Pres[MPa]')
-	#plt.ylim([0,100])
-	plt.savefig("PrePres_%s.png"%int(PreLength*1000.0))
-	plt.close()
 
-	plt.plot(PreAllTime,PreAllTemp)
-	plt.grid()
-	##plt.title('MdotO:%s[kg/s]'%MdotO)
-	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
-	plt.xlabel('Time[s]')
-	plt.ylabel('Temp[K]')
-	#plt.ylim([0,100])
-	plt.savefig("PreTemp_%s.png"%int(PreLength*1000.0))
-	plt.close()
-
-	plt.plot(PreAllTime,PreAllOF)
-	plt.grid()
-	##plt.title('MdotO:%s[kg/s]'%MdotO)
-	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
-	plt.xlabel('Time[s]')
-	plt.ylabel('OF')
-	#plt.ylim([0,100])
-	plt.savefig("PreOF_%s.png"%int(PreLength*1000.0))
-	plt.close()
-
-	plt.plot(PreAllTime,PreAllMdotF)
-	plt.grid()
-	##plt.title('MdotO:%s[kg/s]'%MdotO)
-	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
-	plt.xlabel('Time[s]')
-	plt.ylabel('MainMdotF[kg/s]')
-	#plt.ylim([0,100])
-	plt.savefig("PreMdotF_%s.png"%int(PreLength*1000.0))
-	plt.close()
-
-	plt.plot(MainAllTime,MainAllMdotF)
-	plt.grid()
-	##plt.title('MdotO:%s[kg/s]'%MdotO)
-	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
-	plt.xlabel('Time[s]')
-	plt.ylabel('MainMdotF[kg/s]')
-	#plt.ylim([0,100])
-	plt.savefig("MainMdotF_%s.png"%int(PreLength*1000.0))
-	plt.close()
-
-	plt.plot(MainAllTime,MainAllOF)
-	plt.grid()
-	##plt.title('MdotO:%s[kg/s]'%MdotO)
-	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
-	plt.xlabel('Time[s]')
-	plt.ylabel('MainOF')
-	#plt.ylim([0,100])
-	plt.savefig("MainOF_%s.png"%int(PreLength*1000.0))
-	plt.close()
-
-	plt.plot(MainAllTime,MainAllTemp)
-	plt.grid()
-	##plt.title('MdotO:%s[kg/s]'%MdotO)
-	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
-	plt.xlabel('Time[s]')
-	plt.ylabel('MainTemp[K]')
-	#plt.ylim([0,100])
-	plt.savefig("MainTemp_%s.png"%int(PreLength*1000.0))
-	plt.close()
-
-	plt.plot(MainAllTime,MainAllPres)
-	plt.grid()
-	##plt.title('MdotO:%s[kg/s]'%MdotO)
-	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
-	plt.xlabel('Time[s]')
-	plt.ylabel('Pres[MPa]')
-	#plt.ylim([0,100])
-	plt.savefig("MainPres_%s.png"%int(PreLength*1000.0))
-	plt.close()
-
-	plt.plot(MainAllTime,MainAllIsp)
-	plt.grid()
-	##plt.title('MdotO:%s[kg/s]'%MdotO)
-	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
-	plt.xlabel('Time[s]')
-	plt.ylabel('Isp[s]')
-	#plt.ylim([0,100])
-	plt.savefig("MainIsp_%s.png"%int(PreLength*1000.0))
-	plt.close()
-
-	plt.plot(MainAllTime,MainAllThrust)
-	plt.grid()
-	##plt.title('MdotO:%s[kg/s]'%MdotO)
-	plt.legend(('MdotO:%s[kg/s]'%float(MdotO),))
-	plt.xlabel('Time[s]')
-	plt.ylabel('F[N]')
-	#plt.ylim([0,100])
-	plt.savefig("MainThrust_%s.png"%int(PreLength*1000.0))
-	plt.close()
-
-	#plt.show()
 
