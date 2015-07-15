@@ -12,10 +12,10 @@ from string import *
 if __name__ == "__main__":
 	import CEAReadPack
 	ReadClass = CEAReadPack.Pack()
-	Preinfile  = 'CEAdata/Pre/'
-	Maininfile = 'CEAdata/Main/'
-	Time = 6.0            #[s]
-	dt = 0.1              #[s]
+	Preinfile  = '../CALC/CEAdata/Pre/'
+	Maininfile = '../CALC/CEAdata/Main/'
+	Time = 5.0            #[s]
+	dt = 0.01              #[s]
 	now = 0.0             #[s]
 	g0 = 9.80665          #[m/s2]
 	#LOXMdot
@@ -90,7 +90,7 @@ if __name__ == "__main__":
 			PreEp = 100000000.0
 			for j in range(1,Pres_count):
 				P = Pres_start+float(j)*Pres_step
-				fl = open('CEAdata/PreData.inp','w')
+				fl = open('../CALC/CEAdata/PreData.inp','w')
 				fl.write('prob rocket fac p,bar=%s,'%P)
 				fl.write('ac/at=%s,\n'%PreDia_ratio)
 				fl.write('o/f=%s, pi/pe=1, eq\n'%PreOF)

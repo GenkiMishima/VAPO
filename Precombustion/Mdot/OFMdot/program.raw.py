@@ -10,7 +10,7 @@ Time = 10.0            #[s]
 dt = 0.01                #[s]
 #MdotO = 0.50          #[kg/s]
 MdotO = 0.01         #[kg/s]
-Length = 0.015         #[m]
+Length = 0.011         #[m]
 now = 0.0               #[s]
 PhiInit = 30.0*10**(-3.0) #[m]
 Dia = PhiInit
@@ -53,6 +53,8 @@ for i in range(0, 100):
 	AllOF = np.append(AllOF,OF)
 	AllMdotO = np.append(AllMdotO,MdotO)
 #print AvMdotF
+plt.figure(figsize=(10, 5))
+plt.rcParams['font.size']=14
 plt.plot(AllMdotO,AllOF)
 plt.grid()
 #plt.title('MdotO:%s[kg/s]'%MdotO)
@@ -62,5 +64,5 @@ plt.xlabel('MdotO[kg/s]')
 plt.ylabel('O/F')
 plt.ylim([0,100])
 #plt.savefig("Length.png")
-plt.savefig("Length_%s.png"%int(Length*1000.0))
+plt.savefig("houkoku_%s.png"%int(Length*1000.0))
 #plt.show()

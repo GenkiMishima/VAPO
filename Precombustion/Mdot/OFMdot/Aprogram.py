@@ -50,6 +50,7 @@ for j in range(0,10):
 		OF =  MdotO/AvMdotF
 		#print Length,OF
 		AllOF = np.append(AllOF,OF)
+	plt.figure(figsize=(10,4))
 	#print AvMdotF
 	#plt.plot(AllLength,AllOF)
 	plt.plot(AllMdotO,AllOF)
