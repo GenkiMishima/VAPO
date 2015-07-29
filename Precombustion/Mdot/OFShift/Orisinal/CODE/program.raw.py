@@ -51,7 +51,7 @@ if __name__ == "__main__":
 	PrePhiInit = 30.0*10**(-3.0) #[m]
 	PreRhoF = 1.18*10**3.0      #[kg/m3]
 	PreDia_cham = 0.03    #[m]
-	PreDia_nozl = 0.0055  #[m]
+	#PreDia_nozl = 0.0055  #[m]
 	#PreDia_nozl = 0.01  #[m]
 	PreDia = PreDia_cham
 	PreAdash = PreDia**2.0*math.pi/4.0  #[m2]Port Area
@@ -77,32 +77,9 @@ if __name__ == "__main__":
 	Pres_count  = int((Pres_end-Pres_start)/Pres_step)
 
 	wt = 100.0
-	#PreAllTime    = np.array([])
-	#PreAllOF      = np.array([])
-	#PreAllPres    = np.array([])
-	#PreAllTemp    = np.array([])
-	#PreAllMdotF   = np.array([])
 
 	PreAllFrac     = np.array([])
 	MainAllFrac    = np.array([])
-
-	#PreAllCH4     = np.array([])
-	#PreAllCO2     = np.array([])
-	#PreAllCO      = np.array([])
-	#PreAllH       = np.array([])
-	#PreAllH2      = np.array([])
-	#PreAllH2O     = np.array([])
-	#PreAllO       = np.array([])
-	#PreAllO2      = np.array([])
-	#PreAllOH      = np.array([])
-
-	#MainAllTime   = np.array([])
-	#MainAllOF     = np.array([])
-	#MainAllPres   = np.array([])
-	#MainAllTemp   = np.array([])
-	#MainAllIsp    = np.array([])
-	#MainAllMdotF  = np.array([])
-	#MainAllThrust = np.array([])
 
 	OutSpec = open('../OUT/DATA/Spec.d','w')
 	OutSpec.write(str(MdotO)+'\n')
@@ -134,7 +111,8 @@ if __name__ == "__main__":
 				fl = open('../CALC/CEAdata/PreData.inp','w')
 				fl.write('prob rocket fac p,bar=%s,'%P)
 				fl.write('ac/at=%s,\n'%PreDia_ratio)
-				fl.write('o/f=%s, pi/pe=1, eq\n'%PreOF)
+				fl.write('o/f=%s, eq\n'%PreOF)
+				fl.write('pip=%s, eq\n'%PreOF)
 				fl.write('react\n')
 				fl.write('	oxid=O2(L) wt=100\n')
 				fl.write('	fuel=PMMA  wt=100 t,k=293.15\n')
@@ -155,7 +133,9 @@ if __name__ == "__main__":
 				if (PreMtot/PreMdot_th-1.0)<0.0:
 				#if abs(PreResi/PreEp-1.0)<0.001:
 					print 'PreChamber',now,Pres,PreOF,Temp,PreMtot,Isp/g0
+					#sys.exit()
 					break;
+					
 				PreEp = PreResi
 
 			PreFrac = ReadClass.Read5(Preinfile)
