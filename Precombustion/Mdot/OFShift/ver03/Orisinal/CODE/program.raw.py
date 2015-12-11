@@ -44,7 +44,8 @@ if __name__ == "__main__":
 	#LOXMdot
 	#MdotO = 0.50          #[kg/s]
 	#MdotO = 0.05         #[kg/s]
-	MdotO = 0.01         #[kg/s]
+	#MdotO = 0.01         #[kg/s]
+	MdotO = 10.0         #[kg/s]
 	#Preburner
 	PreLength = 0.011       #[m]
 	#PreLength = 0.011         #[m]

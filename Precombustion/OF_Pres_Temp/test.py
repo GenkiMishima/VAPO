@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-from mpl_toolkits.mplot3d import Axes3D
+#from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 import numpy as np
 import scipy as sp
@@ -24,8 +24,8 @@ ax = Axes3D(fig)
 ax.set_xlabel("Pressure[MPa]")
 ax.set_ylabel("O/F[-]")
 ax.set_zlabel("Temp[K]")
-ax.scatter3D(np.ravel(aX),np.ravel(aY),np.ravel(aZ),color='r')
-ax.scatter3D(np.ravel(bX),np.ravel(bY),np.ravel(bZ),color='b')
+#ax.scatter3D(np.ravel(aX),np.ravel(aY),np.ravel(aZ),color='r')
+#ax.scatter3D(np.ravel(bX),np.ravel(bY),np.ravel(bZ),color='b')
 ax.scatter3D(np.ravel(cX),np.ravel(cY),np.ravel(cZ),color='y')
 #ax.plot_wireframe(sX,sY,sZ, rstride=1, cstride=1)
 
