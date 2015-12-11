@@ -15,13 +15,14 @@ pidxs = np.where(sample_freq > 0)
 freqs, power = sample_freq[pidxs], np.abs(sig_fft)[pidxs]
 freq = freqs[power.argmax()]
 
-plt.figure()
-plt.plot(freqs, power)
-plt.xlabel('Frequency [Hz]')
-plt.ylabel('plower')
-axes = plt.axes([0.3, 0.3, 0.5, 0.5])
-plt.title('Peak frequency')
-plt.plot(freqs[:8], power[:8])
-plt.setp(axes, yticks=[])
+pxx, freq, bins, t=plt.specgram(sig,Fs=2)
+#plt.figure()
+#plt.plot(freqs, power)
+#plt.xlabel('Frequency [Hz]')
+#plt.ylabel('plower')
+#axes = plt.axes([0.3, 0.3, 0.5, 0.5])
+#plt.title('Peak frequency')
+#plt.plot(freqs[:8], power[:8])
+#plt.setp(axes, yticks=[])
 plt.show()
-
+#
