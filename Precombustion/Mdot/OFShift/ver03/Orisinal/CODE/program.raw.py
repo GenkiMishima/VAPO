@@ -47,12 +47,12 @@ if __name__ == "__main__":
 	#MdotO = 0.01         #[kg/s]
 	MdotO = 10.0         #[kg/s]
 	#Preburner
-	PreLength = 0.011       #[m]
+	PreLength = 0.210       #[m]
 	#PreLength = 0.011         #[m]
-	PrePhiInit = 30.0*10**(-3.0) #[m]
+	PrePhiInit = 100.0*10**(-3.0) #[m]
 	PreRhoF = 1.18*10**3.0      #[kg/m3]
-	PreDia_cham = 0.03    #[m]
-	PreDia_nozl = 0.0085  #[m]
+	PreDia_cham = 0.1    #[m]
+	PreDia_nozl = 0.001  #[m]
 	#PreDia_nozl = 0.0033  #[m]
 	#PreDia_nozl = 0.01  #[m]
 	PreDia = PreDia_cham
@@ -73,9 +73,9 @@ if __name__ == "__main__":
 	MainDia_ratio = (MainDia_cham)**2/(MainDia_nozl)**2
 	MainA_nozl = MainDia_nozl**2*np.pi/4.0
 
-	Pres_start  = 1.0        #[bar]
-	Pres_step   = 0.01     #[bar]
-	Pres_end    = 50.0       #[bar]
+	Pres_start  = 10.0        #[bar]
+	Pres_step   = 0.01       #[bar]
+	Pres_end    = 100.0      #[bar]
 	Pres_count  = int((Pres_end-Pres_start)/Pres_step)
 
 	wt = 100.0
@@ -133,6 +133,7 @@ if __name__ == "__main__":
 			PreEp = 100000000.0
 			for j in range(1,Pres_count):
 				P = Pres_start+float(j)*Pres_step
+				print P
 				fl = open('../CALC/CEAdata/PreData.inp','w')
 				fl.write('prob rocket fac p,bar=%s,'%P)
 				fl.write('ac/at=%s,\n'%PreDia_ratio)
@@ -155,9 +156,10 @@ if __name__ == "__main__":
 				#print abs(PreMtot/PreMdot_th-1.0),0.001
 				#if abs(PreMtot/PreMdot_th-1.0)<0.001:
 				#print PreMdot_th, (PreMtot/PreMdot_th-1.0)
+				print 'PreChamber',now,Pres,PreOF,Temp,PreMdot_th,PreMtot
 				if (PreMtot/PreMdot_th-1.0)<0.0:
 				#if abs(PreResi/PreEp-1.0)<0.001:
-					print 'PreChamber',now,Pres,PreOF,Temp,PreMdot_th,Isp/g0,Prerdot
+					#print 'PreChamber',now,Pres,PreOF,Temp,PreMdot_th,Isp/g0,Prerdot
 					break;
 				PreEp = PreResi
 
