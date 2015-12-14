@@ -37,7 +37,7 @@ if __name__ == "__main__":
 	#MainOutFrac.close()
 	#sys.exit()
 	
-	Time = 10.0            #[s]
+	Time = 36.5            #[s]
 	dt = 0.05              #[s]
 	now = 0.0             #[s]
 	g0 = 9.80665          #[m/s2]
@@ -52,10 +52,11 @@ if __name__ == "__main__":
 	PrePhiInit = 100.0*10**(-3.0) #[m]
 	PreRhoF = 1.18*10**3.0      #[kg/m3]
 	PreDia_cham = 0.1    #[m]
-	PreDia_nozl = 0.001  #[m]
+	PreDia_nozl = 0.035  #[m]
 	#PreDia_nozl = 0.0033  #[m]
 	#PreDia_nozl = 0.01  #[m]
 	PreDia = PreDia_cham
+	border = (PreDia/4)/PreLength
 	PreAdash = PreDia**2.0*math.pi/4.0  #[m2]Port Area
 	PreA_nozl = PreDia_nozl**2*np.pi/4.0
 	PreDia_ratio = PreAdash/PreA_nozl
@@ -74,7 +75,7 @@ if __name__ == "__main__":
 	MainA_nozl = MainDia_nozl**2*np.pi/4.0
 
 	Pres_start  = 10.0        #[bar]
-	Pres_step   = 0.01       #[bar]
+	Pres_step   = 0.1       #[bar]
 	Pres_end    = 100.0      #[bar]
 	Pres_count  = int((Pres_end-Pres_start)/Pres_step)
 
@@ -113,9 +114,13 @@ if __name__ == "__main__":
 	while now <= Time:
 		now = now+dt
 		#Preburner
+		border = (PreDia/4)/PreLength
 		PreA = PreDia**2.0*math.pi/4.0 #[m2]
 		PreGo = MdotO/PreA             #[kg/sm2]
-		Prerdot = 0.1358*PreGo**(0.4161)*10.0**-3  #[m/s] For 15
+		Prerdot_Mid = 0.03699*PreGo**(0.5797)*10**-3
+		Prerdot_Bot =  0.2649*PreGo**(0.3701)*10**-3
+		Prerdot = (1-border)*Prerdot_Mid+border*Prerdot_Bot
+		#Prerdot = 0.1358*PreGo**(0.4161)*10.0**-3  #[m/s] For 15
 		#Prerdot = 0.00765*Go**(0.9487)*10**-3  #[m/s] For 7.5
 		Predr = Prerdot*dt             #[m]
 		PredA = PreA-PreAdash              #[m2]
@@ -133,7 +138,7 @@ if __name__ == "__main__":
 			PreEp = 100000000.0
 			for j in range(1,Pres_count):
 				P = Pres_start+float(j)*Pres_step
-				print P
+				#print P
 				fl = open('../CALC/CEAdata/PreData.inp','w')
 				fl.write('prob rocket fac p,bar=%s,'%P)
 				fl.write('ac/at=%s,\n'%PreDia_ratio)
@@ -156,10 +161,10 @@ if __name__ == "__main__":
 				#print abs(PreMtot/PreMdot_th-1.0),0.001
 				#if abs(PreMtot/PreMdot_th-1.0)<0.001:
 				#print PreMdot_th, (PreMtot/PreMdot_th-1.0)
-				print 'PreChamber',now,Pres,PreOF,Temp,PreMdot_th,PreMtot
+				#print 'PreChamber',now,Pres,PreOF,Temp,PreMdot_th,PreMtot
 				if (PreMtot/PreMdot_th-1.0)<0.0:
 				#if abs(PreResi/PreEp-1.0)<0.001:
-					#print 'PreChamber',now,Pres,PreOF,Temp,PreMdot_th,Isp/g0,Prerdot
+					print 'PreChamber',now,Pres,PreOF,Temp,PreMdot_th,PreDia
 					break;
 				PreEp = PreResi
 

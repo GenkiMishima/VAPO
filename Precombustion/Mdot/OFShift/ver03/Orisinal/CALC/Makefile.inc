@@ -1,10 +1,10 @@
-#COMP         := ifort 
-COMP         := gfortran
+COMP         := ifort 
+#COMP         := gfortran
 
 #OPTIM        := -Wall -pedantic -std=f95 -fbounds-check -O -Wuninitialized -ffpe-trap=invalid,zero,overflow
 #OPTIM        := -Wall -fbounds-check -O -Wuninitialized
-#OPTIM        := -fast -parallel
-OPTIM        := 
+OPTIM        := -fast -parallel
+#OPTIM        := 
 #DEBUG        := -check -traceback
 
 FLAGS        := $(OPTIM)
