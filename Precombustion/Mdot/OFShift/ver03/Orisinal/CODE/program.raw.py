@@ -37,7 +37,7 @@ if __name__ == "__main__":
 	#MainOutFrac.close()
 	#sys.exit()
 	
-	Time = 36.5            #[s]
+	Time = 36.50*2.0            #[s]
 	dt = 0.05              #[s]
 	now = 0.0             #[s]
 	g0 = 9.80665          #[m/s2]
@@ -45,7 +45,9 @@ if __name__ == "__main__":
 	#MdotO = 0.50          #[kg/s]
 	#MdotO = 0.05         #[kg/s]
 	#MdotO = 0.01         #[kg/s]
-	MdotO = 10.0         #[kg/s]
+	#MdotO = 10.0         #[kg/s]
+	#MdotO = 5.0         #[kg/s]
+	MdotO = 2.5         #[kg/s]
 	#Preburner
 	PreLength = 0.210       #[m]
 	#PreLength = 0.011         #[m]
@@ -74,9 +76,9 @@ if __name__ == "__main__":
 	MainDia_ratio = (MainDia_cham)**2/(MainDia_nozl)**2
 	MainA_nozl = MainDia_nozl**2*np.pi/4.0
 
-	Pres_start  = 10.0        #[bar]
+	Pres_start  = 5.0        #[bar]
 	Pres_step   = 0.1       #[bar]
-	Pres_end    = 100.0      #[bar]
+	Pres_end    = 50.0      #[bar]
 	Pres_count  = int((Pres_end-Pres_start)/Pres_step)
 
 	wt = 100.0
