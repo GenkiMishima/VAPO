@@ -2,8 +2,10 @@
 import subprocess as subcmd
 import re
 import scipy as sp
+from scipy import stats
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib import lines
 import math
 import sys
 import csv
@@ -21,11 +23,27 @@ def PreVari(dire,MdotO):
 	OF   = PreVari[:,3]
 	Mdot = PreVari[:,4]
 	
+	print len(Time),Pres
+	
+	#z = np.polyfit(Time,Pres,2)
+	#p = np.poly1d(z)
+	slope , intercept, _, _,_ = stats.linregress(Time,Pres)
+	
+	fig = plt.figure()
+	ax = fig.add_subplot(111)
+	sc = ax.scatter(Time,Pres,s=303, color="b")
+	func = lambda x: x * slope + intercept
+	line = lines.Line2D([0,303],[Time,func(Time)],color="r")
+	ax.add_line(line)
+	plt.show()
+	plt.close()
+	
 	
 	#print Time[:20]
 	#print Pres[:20]
 	
 	plt.plot(Time,Pres)
+	#plt.plot(Time,(a*Time+b))
 	plt.grid()
 	##plt.title('MdotO:%s[kg/s]'%MdotO)
 	plt.legend(('LOx:%s[kg/s]'%float(MdotO),))

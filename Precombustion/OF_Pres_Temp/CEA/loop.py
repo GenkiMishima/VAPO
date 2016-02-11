@@ -16,6 +16,7 @@ Pres_start  = 40.0
 Pres_step   = 1.0
 Pres_end    = 60.0
 Pres_count  = int((Pres_end-Pres_start)/Pres_step)
+Pres_count  = 2
 print ('OF_start    =%s'%OF_start   )
 print ('OF_step     =%s'%OF_step    )
 print ('OF_end      =%s'%OF_end     )
@@ -41,11 +42,13 @@ for i in range(1,OF_count):
 		fl.write('end')
 		fl.close()
 		subcmd.call('./a.out')
+		print '1'
 
 		indat = open(infile, 'r')
 		inline = indat.readline()
 		data_dic = {}
 		while inline:
+			print '2'
 			data_list = []
 			if re.match(' O/F =', inline):
 				of = strip(re.split('=',inline)[1])
@@ -67,6 +70,7 @@ for i in range(1,OF_count):
 		indat.close()
 		outdat = open(outfile, 'a')
 		for d in data_dic.keys():
+			print '3'
 			unpacked = data_dic[d]
 			data_str = ",".join([elem for elem in unpacked])
 			outdat.write(data_str + "\n")

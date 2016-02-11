@@ -1,5 +1,5 @@
 problem   case=LOXPMMA o/f= 59.0
-      hp   p,bar=59.0,      t,k  =3800.0
+      hp   p,bar=41.0,      t,k  =3800.0
 react
 	oxid=O2(L) wt=100
 	fuel=PMMA  wt=100 t,k=293.15

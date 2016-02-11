@@ -54,6 +54,7 @@ if __name__ == "__main__":
 		counter = calc(namearray,counter)
 
 	Go = np.linspace(50,80,100)
+	print Go
 	Origin = 0.0145*Go**(0.749)
 	Syutodai = 0.14*Go**(0.16)
 
