@@ -1,5 +1,5 @@
-prob rocket fac p,bar=6.0,ac/at=7.610
-o/f=1.05432, pi/pe=1, fr
+prob rocket fac p,bar=30.0,ac/at=7.610
+o/f=1.11, pi/pe=1, fr
 react
 	oxid=O2(L) wt=100
 	fuel=PMMA  wt=100 t,k=293.15
