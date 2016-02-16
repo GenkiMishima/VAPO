@@ -156,18 +156,18 @@ if __name__ == '__main__':
 	##Spectrogram
 	for j in range(1,17):
 		plot_specgram(j,x_label='time[s]', y_label='frequency[Hz]',fig_size=(21,29))
-		plt.savefig('SpecGram/'+NameIndex[j-1]+'.png')
+		plt.savefig('SpecGram/'+NameIndex[j-1]+'.eps')
 		plt.close()
 	##History
 	##Pressure
 	plot_Pressure(fig_size=(21,29))
-	plt.savefig('History/Pressure.png')
+	plt.savefig('History/Pressure.eps')
 	##Temperature
 	plot_Temperature(fig_size=(21,29))
-	plt.savefig('History/Temperature.png')
+	plt.savefig('History/Temperature.eps')
 	##MassFlow
 	plot_MassFlow(fig_size=(21,29))
-	plt.savefig('History/MassFlow.png')
+	plt.savefig('History/MassFlow.eps')
 
 	##CHECK##################
 	#plot_specgram_check(3,1,title='Num21', x_label='time(in seconds)', y_label='frequency',fig_size=(21,29))
