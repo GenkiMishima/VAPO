@@ -1,0 +1,9 @@
+react
+	oxid=O2(L) wt=100
+	fuel=PMMA  wt=100 t,k=293.15
+	h,kj/mol=-442.14  C 5 H 8 O 2
+end
+prob   case=11 rocket  equilibrium  o/f=2.0
+        sup,ae/at=5.4
+output  short
+end

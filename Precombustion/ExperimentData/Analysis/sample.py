@@ -3,7 +3,7 @@ import scipy as sp
 import numpy as np
 from scipy import fftpack
 import matplotlib.pyplot as plt
-data = sp.genfromtxt('raw/5.csv', delimiter=",")
+data = sp.genfromtxt('../Result/5.csv', delimiter=",")
 
 time_step = 1.0/200.0
 time = data[:,0]

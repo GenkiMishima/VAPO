@@ -151,6 +151,61 @@ def plot_MassFlow(fig_size=None):
 		plt.xlim(0,10)
 	#}}}
 
+def plot_only(FN,fig_size=None):
+	#{{{
+	#N = 256
+	#hammingWindow = np.hamming(N)
+	#hanningWindow = np.hanning(N)
+	#kaiserWindow = np.kaiser(N,5)
+	fig = plt.figure()
+	if fig_size != None:
+		fig.set_size_inches(fig_size[0], fig_size[1])
+	Time    = Array[FN][:,0 ]
+	PlData1 = Array[FN][:,1 ]
+	PlData2 = Array[FN][:,2 ]
+	PlData3 = Array[FN][:,3 ]
+	PlData4 = Array[FN][:,4 ]
+	PlData5 = Array[FN][:,5 ]
+	PlData6 = Array[FN][:,6 ]
+	PlData7 = Array[FN][:,7 ]
+	PlData8 = Array[FN][:,8 ]
+	PlData9 = Array[FN][:,9 ]
+	PlData10= Array[FN][:,10]
+	PlData11= Array[FN][:,11]
+	PlData12= Array[FN][:,12]
+	PlData13= Array[FN][:,13]
+	PlData14= Array[FN][:,14]
+	PlData15= Array[FN][:,15]
+	PlData16= Array[FN][:,16]
+
+	ax = fig.add_subplot(3,1,1)
+	plt.plot(Time,PlData1,label=' 1-GHePres')
+	plt.plot(Time,PlData2,label=' 2-InjPres')
+	plt.plot(Time,PlData3,label=' 3-ComPres')
+	plt.plot(Time,PlData4,label=' 4-MixPres')
+	plt.legend(fontsize=15,loc = 'upper right')
+	plt.xlabel('Time[s]')
+	plt.ylabel('Pressure[MPaA]')
+	plt.xlim(0,10)
+	ax = fig.add_subplot(3,1,2)
+	plt.plot(Time,PlData8 ,label=' 8-NUCTemp')
+	plt.plot(Time,PlData9 ,label=' 9-NDCTemp')
+	plt.plot(Time,PlData10,label='10-FrnTemp')
+	plt.plot(Time,PlData16,label='16-MixBoil')
+	plt.legend(fontsize=15,loc = 'upper right')
+	plt.xlabel('Time[s]')
+	plt.ylabel('Temperature[K]')
+	plt.xlim(0,10)
+	ax = fig.add_subplot(3,1,3)
+	plt.plot(Time,PlData11,label='11-TbnFlow')
+	plt.plot(Time,PlData13,label='13-OriFlow')
+	plt.plot(Time,PlData15,label='15-InjFlow')
+	plt.legend(fontsize=15,loc = 'upper right')
+	plt.xlabel('Time[s]')
+	plt.ylabel('MassFlowRate[kg/s]')
+	plt.xlim(0,10)
+	#}}}
+
 if __name__ == '__main__':
 	##Main###################
 	##Spectrogram
@@ -168,6 +223,10 @@ if __name__ == '__main__':
 	##MassFlow
 	plot_MassFlow(fig_size=(21,29))
 	plt.savefig('History/MassFlow.eps')
+	##Only
+	for FN in range(0,9):
+		plot_only(FN,fig_size=(21,29))
+		plt.savefig('History/Ex'+str(2)+str(FN)+'.eps')
 
 	##CHECK##################
 	#plot_specgram_check(3,1,title='Num21', x_label='time(in seconds)', y_label='frequency',fig_size=(21,29))

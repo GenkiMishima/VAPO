@@ -13,6 +13,7 @@ from string import *
 #Time:s
 if __name__ == "__main__":
 	import CEAReadPack
+	#IOSetting{{{
 	ReadClass = CEAReadPack.Pack()
 	Preinfile  = '../CALC/CEAdata/Pre/'
 	Maininfile = '../CALC/CEAdata/Main/'
@@ -31,23 +32,15 @@ if __name__ == "__main__":
 	csvPreFrac  = csv.writer(PreOutFrac)
 	csvMainVari = csv.writer(MainOutVari)
 	csvMainFrac = csv.writer(MainOutFrac)
-	#PreOutVari.close() 
-	#PreOutFrac.close()
-	#MainOutVari.close()
-	#MainOutFrac.close()
-	#sys.exit()
+	#}}}
 	
 	Time = 36.50*2.0            #[s]
-	dt = 0.05              #[s]
 	now = 0.0             #[s]
+	dt = 0.05              #[s]
 	g0 = 9.80665          #[m/s2]
 	#LOXMdot
-	#MdotO = 0.50          #[kg/s]
-	#MdotO = 0.05         #[kg/s]
-	#MdotO = 0.01         #[kg/s]
-	#MdotO = 10.0         #[kg/s]
-	#MdotO = 5.0         #[kg/s]
 	MdotO = 2.5         #[kg/s]
+	#PreBurnerICSetting{{{
 	#Preburner
 	PreLength = 0.210       #[m]
 	#PreLength = 0.011         #[m]
@@ -63,6 +56,10 @@ if __name__ == "__main__":
 	PreA_nozl = PreDia_nozl**2*np.pi/4.0
 	PreDia_ratio = PreAdash/PreA_nozl
 
+	PreGeoValue    = [PreDia,PreAdash]
+	#}}}
+
+	#MainBurnerICSetting{{{
 	#MainChamber
 	MainLength = 0.50         #[m]
 	MainRhoF = 1.18*10**3.0      #[kg/m3]
@@ -75,6 +72,7 @@ if __name__ == "__main__":
 	MainAdash = MainDia**2.0*math.pi/4.0  #[m2]Port Area
 	MainDia_ratio = (MainDia_cham)**2/(MainDia_nozl)**2
 	MainA_nozl = MainDia_nozl**2*np.pi/4.0
+	#}}}
 
 	Pres_start  = 5.0        #[bar]
 	Pres_step   = 0.1       #[bar]
@@ -82,32 +80,10 @@ if __name__ == "__main__":
 	Pres_count  = int((Pres_end-Pres_start)/Pres_step)
 
 	wt = 100.0
-	#PreAllTime    = np.array([])
-	#PreAllOF      = np.array([])
-	#PreAllPres    = np.array([])
-	#PreAllTemp    = np.array([])
-	#PreAllMdotF   = np.array([])
+
 
 	PreAllFrac     = np.array([])
 	MainAllFrac    = np.array([])
-
-	#PreAllCH4     = np.array([])
-	#PreAllCO2     = np.array([])
-	#PreAllCO      = np.array([])
-	#PreAllH       = np.array([])
-	#PreAllH2      = np.array([])
-	#PreAllH2O     = np.array([])
-	#PreAllO       = np.array([])
-	#PreAllO2      = np.array([])
-	#PreAllOH      = np.array([])
-
-	#MainAllTime   = np.array([])
-	#MainAllOF     = np.array([])
-	#MainAllPres   = np.array([])
-	#MainAllTemp   = np.array([])
-	#MainAllIsp    = np.array([])
-	#MainAllMdotF  = np.array([])
-	#MainAllThrust = np.array([])
 
 	OutSpec = open('../OUT/DATA/Spec.d','w')
 	OutSpec.write(str(MdotO)+'\n')
@@ -116,6 +92,7 @@ if __name__ == "__main__":
 	while now <= Time:
 		now = now+dt
 		#Preburner
+		
 		border = (PreDia/4)/PreLength
 		PreA = PreDia**2.0*math.pi/4.0 #[m2]
 		PreGo = MdotO/PreA             #[kg/sm2]
@@ -154,8 +131,6 @@ if __name__ == "__main__":
 				subcmd.call('./PreGo.sh')
 
 				Pres,Temp,Gamma,Mole,Isp = ReadClass.Read4(Preinfile)
-				#sys.exit()
-				#print Pres,'end'
 
 				PreMdot_th =  (Pres)*10**5* (PreA_nozl)* (Gamma)*((2.0/( (Gamma)+1.0))**(( (Gamma)+1.0)/( (Gamma)-1.0)))**(1.0/2.0)/( (Gamma)*8314.3/ (Mole)* (Temp))**(1.0/2.0)
 				PreResi = abs(PreMtot/PreMdot_th-1.0)
@@ -179,7 +154,7 @@ if __name__ == "__main__":
 			#PreAllTemp  = np.append(PreAllTemp,Temp)
 			#PreAllMdotF = np.append(PreAllMdotF,PreMdotF)
 
-			PreVari = np.array([now ,Pres*0.1 ,Temp, PreOF ,PreMtot])
+			PreVari = np.array([now ,Pres*0.1 ,Temp, PreOF ,PreMtot,Gamma,Mole])
 			csvPreVari.writerow(PreVari)
 			csvPreFrac.writerow(PreFrac)
 
