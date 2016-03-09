@@ -22,6 +22,8 @@ def PreVari(dire,MdotO):
 	Temp = PreVari[:,2]
 	OF   = PreVari[:,3]
 	Mdot = PreVari[:,4]
+	Gamma= PreVari[:,5]
+	Mole = PreVari[:,6]
 	
 	print len(Time),Pres
 	
@@ -34,8 +36,8 @@ def PreVari(dire,MdotO):
 	sc = ax.scatter(Time,Pres,s=303, color="b")
 	func = lambda x: x * slope + intercept
 	line = lines.Line2D([0,303],[Time,func(Time)],color="r")
-	ax.add_line(line)
-	plt.show()
+	#ax.add_line(line)
+	#plt.show()
 	plt.close()
 	
 	
@@ -83,6 +85,25 @@ def PreVari(dire,MdotO):
 	plt.savefig(dire+"Mdot_Mdot%s.png"%float(MdotO))
 	plt.close()
 	
+	plt.plot(Time,Gamma)
+	plt.grid()
+	##plt.title('MdotO:%s[kg/s]'%MdotO)
+	plt.legend(('LOx:%s[kg/s]'%float(MdotO),))
+	plt.xlabel('Time[s]')
+	plt.ylabel('Mdot[kg/s]')
+	#plt.ylim([0,100])
+	plt.savefig(dire+"Gamma_Mdot%s.png"%float(MdotO))
+	plt.close()
+	
+	plt.plot(Time,Mole)
+	plt.grid()
+	##plt.title('MdotO:%s[kg/s]'%MdotO)
+	plt.legend(('LOx:%s[kg/s]'%float(MdotO),))
+	plt.xlabel('Time[s]')
+	plt.ylabel('Mdot[kg/s]')
+	#plt.ylim([0,100])
+	plt.savefig(dire+"Mole_Mdot%s.png"%float(MdotO))
+	plt.close()
 	#}}}
 	
 	print 'ok'
@@ -234,6 +255,7 @@ def MainFrac(dire,MdotO,Time):
 
 
 
+
 if __name__ == "__main__":
 
 	Spec = open('Spec.d','r')
@@ -244,10 +266,10 @@ if __name__ == "__main__":
 	PreTime = PreVari(dire,MdotO)
 	PreFrac(dire,MdotO,PreTime)
 
-	dire = 'Main/'
-	MainTime = MainVari(dire,MdotO)
-	MainFrac(dire,MdotO,MainTime)
-	#print data
+	#dire = 'Main/'
+	#MainTime = MainVari(dire,MdotO)
+	#MainFrac(dire,MdotO,MainTime)
+	##print data
 
 #
 #	#Pre{{{
