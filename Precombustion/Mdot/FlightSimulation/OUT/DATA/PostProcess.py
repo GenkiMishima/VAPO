@@ -244,10 +244,10 @@ if __name__ == "__main__":
 	PreTime = PreVari(dire,MdotO)
 	PreFrac(dire,MdotO,PreTime)
 
-#	dire = 'Main/'
-#	MainTime = MainVari(dire,MdotO)
-#	MainFrac(dire,MdotO,MainTime)
-#	#print data
+	dire = 'Main/'
+	MainTime = MainVari(dire,MdotO)
+	MainFrac(dire,MdotO,MainTime)
+	#print data
 
 #
 #	#Pre{{{

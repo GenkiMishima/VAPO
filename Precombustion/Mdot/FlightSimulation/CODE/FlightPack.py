@@ -3,7 +3,7 @@ import subprocess as subcmd
 import re
 import scipy as sp
 import numpy as np
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import math
 import sys
 import csv

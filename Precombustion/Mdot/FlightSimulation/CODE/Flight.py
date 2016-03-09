@@ -3,7 +3,7 @@ import subprocess as subcmd
 import re
 import scipy as sp
 import numpy as np
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import math
 import sys
 import csv
@@ -13,6 +13,8 @@ from string import *
 #Time:s
 if __name__ == "__main__":
 	import CEAReadPack
+	import HREGeometry
+	HREG = HREGeometry.Pack()
 	#IOSetting{{{
 	ReadClass = CEAReadPack.Pack()
 	Preinfile  = '../CALC/CEAdata/Pre/'
@@ -92,55 +94,17 @@ if __name__ == "__main__":
 	while now <= Time:
 		now = now+dt
 		#Preburner
-		
-		border = (PreDia/4)/PreLength
-		PreA = PreDia**2.0*math.pi/4.0 #[m2]
-		PreGo = MdotO/PreA             #[kg/sm2]
-		Prerdot_Mid = 0.03699*PreGo**(0.5797)*10**-3
-		Prerdot_Bot =  0.2649*PreGo**(0.3701)*10**-3
-		Prerdot = (1-border)*Prerdot_Mid+border*Prerdot_Bot
-		#Prerdot = 0.1358*PreGo**(0.4161)*10.0**-3  #[m/s] For 15
-		#Prerdot = 0.00765*Go**(0.9487)*10**-3  #[m/s] For 7.5
-		Predr = Prerdot*dt             #[m]
-		PredA = PreA-PreAdash              #[m2]
-		PredV = PredA*PreLength           #[m3]
-		PreMdotF = PredV*PreRhoF/dt +10**(-30)      #[kg/s]
-		PreDia = PreDia+Predr*2.0
-		PreAdash = PreA
-		PreOF =  MdotO/PreMdotF
-		PreMtot = MdotO+PreMdotF
-		PreOxid = MdotO/PreMtot
-		PreFuel = 1.0-PreOxid
-		#print PreOF
+		PreDia,PreAdash,PreOF,PreMtot,PreOxid,PreFuel = HREG.GrainGeometry(PreDia,PreAdash,MdotO,PreRhoF,PreLength,dt,"Pre")
 
 		if PreOF<100.0:
 			PreEp = 100000000.0
 			for j in range(1,Pres_count):
 				P = Pres_start+float(j)*Pres_step
-				#print P
-				fl = open('../CALC/CEAdata/PreData.inp','w')
-				fl.write('prob rocket fac p,bar=%s,'%P)
-				fl.write('ac/at=%s,\n'%PreDia_ratio)
-				fl.write('o/f=%s, pi/pe=1, eq\n'%PreOF)
-				fl.write('react\n')
-				fl.write('	oxid=O2(L) wt=100\n')
-				fl.write('	fuel=PMMA  wt=100 t,k=293.15\n')
-				fl.write('	h,kj/mol=-442.14  C 5 H 8 O 2\n')
-				fl.write('end')
-				fl.close()
-				subcmd.call('./PreGo.sh')
-
+				HREG.PreCEACalc(P,PreDia_ratio,PreOF)
 				Pres,Temp,Gamma,Mole,Isp = ReadClass.Read4(Preinfile)
-
 				PreMdot_th =  (Pres)*10**5* (PreA_nozl)* (Gamma)*((2.0/( (Gamma)+1.0))**(( (Gamma)+1.0)/( (Gamma)-1.0)))**(1.0/2.0)/( (Gamma)*8314.3/ (Mole)* (Temp))**(1.0/2.0)
 				PreResi = abs(PreMtot/PreMdot_th-1.0)
-				#if PreEp<PreResi:
-				#print abs(PreMtot/PreMdot_th-1.0),0.001
-				#if abs(PreMtot/PreMdot_th-1.0)<0.001:
-				#print PreMdot_th, (PreMtot/PreMdot_th-1.0)
-				#print 'PreChamber',now,Pres,PreOF,Temp,PreMdot_th,PreMtot
 				if (PreMtot/PreMdot_th-1.0)<0.0:
-				#if abs(PreResi/PreEp-1.0)<0.001:
 					print 'PreChamber',now,Pres,PreOF,Temp,PreMdot_th,PreDia
 					break;
 				PreEp = PreResi
@@ -148,31 +112,13 @@ if __name__ == "__main__":
 			PreFrac = ReadClass.Read5(Preinfile)
 	
 			PreTemp     = Temp
-			#PreAllTime  = np.append(PreAllTime,now)
-			#PreAllOF    = np.append(PreAllOF,PreOF)
-			#PreAllPres  = np.append(PreAllPres,Pres*0.1)
-			#PreAllTemp  = np.append(PreAllTemp,Temp)
-			#PreAllMdotF = np.append(PreAllMdotF,PreMdotF)
 
 			PreVari = np.array([now ,Pres*0.1 ,Temp, PreOF ,PreMtot,Gamma,Mole])
 			csvPreVari.writerow(PreVari)
 			csvPreFrac.writerow(PreFrac)
-
-			#csvPreVari = csv.writer(PreOutVari)
-			#PreOutVari.write (Time ,Pres ,Temp, PreOF  ,PreMdotF)
-
-			#print Frac[:9]
-			#PreAllCH4   = np.append(PreAllCH4,CH4)
-			#PreAllCO2   = np.append(PreAllCO2,CO2)
-			#PreAllCO    = np.append(PreAllCO ,CO )
-			#PreAllH     = np.append(PreAllH  ,H  )
-			#PreAllH2    = np.append(PreAllH2 ,H2 )
-			#PreAllH2O   = np.append(PreAllH2O,H2O)
-			#PreAllO     = np.append(PreAllO  ,O  )
-			#PreAllO2    = np.append(PreAllO2 ,O2 )
-			#PreAllOH    = np.append(PreAllOH ,OH )
 			
 #			#MainChamber
+			MainDia,MainAdash,MainOF,MainMtot,MainOxid,MainFuel = HREG.GrainGeometry(MainDia,MainAdash,MdotO,MainRhoF,MainLength,dt,"Main")
 #			MainA = MainDia**2.0*math.pi/4.0 #[m2]
 #			MainGo = PreMtot/MainA             #[kg/sm2]
 #			#Mainrdot = 0.0345*MainGo**(0.778)*10.0**-3  #[m/s] For Main
@@ -190,10 +136,27 @@ if __name__ == "__main__":
 #			#MainOF =  MdotO/(PreMdotF+MainMdotF)
 #			MainOF   = PreMtot/MainMdotF
 #			MainMtot = PreMtot+MainMdotF
-#			if MainOF<5.0:
-#				MainEp = 100000000.0
-#				for j in range(1,Pres_count):
-#					P = Pres_start+float(j)*Pres_step
+			print MainOF
+			if MainOF<10.0:
+				MainEp = 100000000.0
+				for j in range(1,Pres_count):
+					P = Pres_start+float(j)*Pres_step
+					HREG.MainCEACalc(P,MainDia_ratio,MainOF,PreOxid,PreFuel,Temp)
+					Pres,Temp,Gamma,Mole,Isp = ReadClass.Read4(Maininfile)
+					MainMdot_th =  (Pres)*10**5* (MainA_nozl)* (Gamma)*((2.0/( (Gamma)+1.0))**(( (Gamma)+1.0)/( (Gamma)-1.0)))**(1.0/2.0)/( (Gamma)*8314.3/ (Mole)* (Temp))**(1.0/2.0)
+					PreResi = abs(MainMtot/MainMdot_th-1.0)
+					if (MainMtot/MainMdot_th-1.0)<0.0:
+						print 'MainChamber',now,Pres,MainOF,Temp,MainMdot_th,MainDia
+						break;
+					PreEp = PreResi
+	
+				MainFrac = ReadClass.Read5(Maininfile)
+		
+				MainTemp     = Temp
+	
+				MainVari = np.array([now ,Pres*0.1 ,Temp, MainOF ,MainMtot,Gamma,Mole])
+				csvMainVari.writerow(MainVari)
+				csvMainFrac.writerow(MainFrac)
 #					fl = open('../CALC/CEAdata/MainData.inp','w')
 #					fl.write('prob rocket fac p,bar=%s,'%P)
 #					fl.write('ac/at=%s,\n'%MainDia_ratio)

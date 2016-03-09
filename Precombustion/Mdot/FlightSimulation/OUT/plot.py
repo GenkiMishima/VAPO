@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 #Pre
 InputDirectry  = 'DATA/'
 OutputDirectry = 'PLOT/'
+
 Prefix   = 'Pre'
 Element  = 'Pres'
 #set{{{
@@ -97,6 +98,7 @@ plt.ylabel(Element)
 plt.savefig(OutputDirectry+Prefix+Element+".png")
 plt.close()
 #}}}
+
 Prefix   = 'Main'
 Element  = 'Pres'
 #set{{{
