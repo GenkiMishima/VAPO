@@ -41,7 +41,7 @@ class Pack:
 		MdotTotal = MdotO+MdotF
 		Oxid = MdotO/MdotTotal
 		Fuel = 1.0-Oxid
-		return Diameter,PreCrossSectionArea,OF,MdotTotal,Oxid,Fuel
+		return Diameter,PreCrossSectionArea,OF,MdotTotal,MdotF,Oxid,Fuel
 
 	def PreCEACalc(self,Pressure,Diameter_ratio,OF):
 		fl = open('../CALC/CEAdata/PreData.inp','w')

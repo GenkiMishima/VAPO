@@ -20,9 +20,9 @@ class Pack:
 		#print Sigma_ast,CF1,CF2
 		return CF1+CF2
 
-	def Thrust(self,PreviousThust,ThrustCoefficient,TotalPressure,NozzleThroat):
+	def Thrust(self,ThrustCoefficient,TotalPressure,NozzleThroat):
 		Ft = ThrustCoefficient*TotalPressure*NozzleThroat
-		return PreviousThust+Ft
+		return Ft
 
 	def TotalMass(self,PreviousTotalMass,OxidMassFlowRate,FuelMassFlowRate,dt):
 		Mt = (OxidMassFlowRate+FuelMassFlowRate)*dt
@@ -60,7 +60,7 @@ class Pack:
 		Drag = 1.0/2.0*DragCoefficient*Density*Velocity**2*CrossSectionArea
 		return Drag
 
-	def AtmospherePressure(self,Height):#[km],->,[MPaA]
+	def AtmosphereCondition(self,Height):#[km],->,[MPaA]
 		Hft = Height*10**(-3)*3.28084
 		#English Unit
 		if Hft<36152:

@@ -14,6 +14,8 @@ from string import *
 if __name__ == "__main__":
 	import CEAReadPack
 	import HREGeometry
+	import FlightPack
+	FP = FlightPack.Pack()
 	HREG = HREGeometry.Pack()
 	#IOSetting{{{
 	ReadClass = CEAReadPack.Pack()
@@ -76,13 +78,31 @@ if __name__ == "__main__":
 	MainA_nozl = MainDia_nozl**2*np.pi/4.0
 	#}}}
 
+	#RocketSetting{{{
+	dH = 0.0              #[m]
+	Height = 0.0          #[m]
+	Distance = 0.0        #[m]
+	Angle = 90.0              
+	Angle = Angle * math.pi/180.0 #[rad]
+	TotalMass = 70.5     #[kg]
+	OxidMass = 18.9      #[kg]
+	FuelMass = 12.8      #[kg]
+	Mach = 0.0          #[-]
+	Velo = 0.0          #[m/s]
+	VeloX = 0.0          #[m/s]
+	VeloY = 0.0          #[m/s]
+	HRECrossSectionArea = 0.135#[m]
+	tmp0,ExitPressure,tmp1 = FP.AtmosphereCondition(Height)
+	
+	
+	#}}}
+
 	Pres_start  = 5.0        #[bar]
 	Pres_step   = 0.1       #[bar]
 	Pres_end    = 50.0      #[bar]
 	Pres_count  = int((Pres_end-Pres_start)/Pres_step)
 
 	wt = 100.0
-
 
 	PreAllFrac     = np.array([])
 	MainAllFrac    = np.array([])
@@ -93,9 +113,8 @@ if __name__ == "__main__":
 
 	while now <= Time:
 		now = now+dt
-		#Preburner
-		PreDia,PreAdash,PreOF,PreMtot,PreOxid,PreFuel = HREG.GrainGeometry(PreDia,PreAdash,MdotO,PreRhoF,PreLength,dt,"Pre")
-
+		#Preburner{{{
+		PreDia,PreAdash,PreOF,PreMtot,PreMdotF,PreOxid,PreFuel = HREG.GrainGeometry(PreDia,PreAdash,MdotO,PreRhoF,PreLength,dt,"Pre")
 		if PreOF<100.0:
 			PreEp = 100000000.0
 			for j in range(1,Pres_count):
@@ -116,29 +135,44 @@ if __name__ == "__main__":
 			PreVari = np.array([now ,Pres*0.1 ,Temp, PreOF ,PreMtot,Gamma,Mole])
 			csvPreVari.writerow(PreVari)
 			csvPreFrac.writerow(PreFrac)
+		#}}}
 			
-#			#MainChamber
-			MainDia,MainAdash,MainOF,MainMtot,MainOxid,MainFuel = HREG.GrainGeometry(MainDia,MainAdash,MdotO,MainRhoF,MainLength,dt,"Main")
-			print MainOF
-			if MainOF<10.0:
-				MainEp = 100000000.0
-				for j in range(1,Pres_count):
-					P = Pres_start+float(j)*Pres_step
-					HREG.MainCEACalc(P,MainDia_ratio,MainOF,PreOxid,PreFuel,Temp)
-					Pres,Temp,Gamma,Mole,Isp = ReadClass.Read4(Maininfile)
-					MainMdot_th =  (Pres)*10**5* (MainA_nozl)* (Gamma)*((2.0/( (Gamma)+1.0))**(( (Gamma)+1.0)/( (Gamma)-1.0)))**(1.0/2.0)/( (Gamma)*8314.3/ (Mole)* (Temp))**(1.0/2.0)
-					PreResi = abs(MainMtot/MainMdot_th-1.0)
-					if (MainMtot/MainMdot_th-1.0)<0.0:
-						print 'MainChamber',now,Pres,MainOF,Temp,MainMdot_th,MainDia
-						break;
-					PreEp = PreResi
+		#MainChamber{{{
+		MainDia,MainAdash,MainOF,MainMtot,MainMdotF,MainOxid,MainFuel = HREG.GrainGeometry(MainDia,MainAdash,MdotO,MainRhoF,MainLength,dt,"Main")
+		print MainOF
+		if MainOF<10.0:
+			MainEp = 100000000.0
+			for j in range(1,Pres_count):
+				P = Pres_start+float(j)*Pres_step
+				HREG.MainCEACalc(P,MainDia_ratio,MainOF,PreOxid,PreFuel,Temp)
+				Pres,Temp,Gamma,Mole,Isp = ReadClass.Read4(Maininfile)
+				MainMdot_th =  (Pres)*10**5* (MainA_nozl)* (Gamma)*((2.0/( (Gamma)+1.0))**(( (Gamma)+1.0)/( (Gamma)-1.0)))**(1.0/2.0)/( (Gamma)*8314.3/ (Mole)* (Temp))**(1.0/2.0)
+				PreResi = abs(MainMtot/MainMdot_th-1.0)
+				if (MainMtot/MainMdot_th-1.0)<0.0:
+					print 'MainChamber',now,Pres,MainOF,Temp,MainMdot_th,MainDia
+					break;
+				PreEp = PreResi
 	
-				MainFrac = ReadClass.Read5(Maininfile)
+			MainFrac = ReadClass.Read5(Maininfile)
 		
-				MainTemp     = Temp
+			MainTemp     = Temp
 	
-				MainVari = np.array([now ,Pres*0.1 ,Temp, MainOF ,MainMtot,Gamma,Mole])
-				csvMainVari.writerow(MainVari)
-				csvMainFrac.writerow(MainFrac)
+			MainVari = np.array([now ,Pres*0.1 ,Temp, MainOF ,MainMtot,Gamma,Mole])
+			csvMainVari.writerow(MainVari)
+			csvMainFrac.writerow(MainFrac)
+		#}}}
 
-
+			#FlightSimulation{{{
+			AtmosTemp,AtmosPres,AtmosDens = FP.AtmosphereCondition(Height)
+			CF = FP.ThrustCoefficient(Gamma,ExitPressure,Pres*0.1,AtmosPres)
+			F = FP.Thrust(CF,Pres*0.1,MainA_nozl)
+			TotalMass = FP.TotalMass(TotalMass,MdotO,PreMdotF+MainMdotF,dt)
+			CD = FP.DragCoefficient(Mach)
+			Drag = FP.Drag(CD,AtmosDens,Velo,HRECrossSectionArea)
+			AccelX, AccelY = FP.Accelaration(F,Angle,TotalMass,Drag)
+			VeloX,VeloY,Velo = FP.Velocity(VeloX,VeloY,AccelX,AccelY,dt)
+			Distance = FP.HorizontalDistance(Distance,VeloX,AccelX,dt)
+			Height = FP.Height(Height,VeloY,AccelY,dt)
+			Angle = FP.Angle(VeloX,VeloY)
+			print CF,F,TotalMass,CD,Drag,AccelX,AccelY,VeloX,VeloY,Velo,Distance,Height,Angle
+			#}}}
