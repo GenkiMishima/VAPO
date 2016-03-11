@@ -86,15 +86,16 @@ if __name__ == "__main__":
 	Angle = Angle * math.pi/180.0 #[rad]
 	TotalMass = 70.5     #[kg]
 	OxidMass = 18.9      #[kg]
-	FuelMass = 12.8      #[kg]
+	PreFuelMass = 12.4      #[kg]
+	MainFuelMass = 0.378      #[kg]
+	PreMdotF = 0.0
+	MainMdotF = 0.0
 	Mach = 0.0          #[-]
 	Velo = 0.0          #[m/s]
 	VeloX = 0.0          #[m/s]
 	VeloY = 0.0          #[m/s]
 	HRECrossSectionArea = 0.135#[m]
 	tmp0,ExitPressure,tmp1 = FP.AtmosphereCondition(Height)
-	
-	
 	#}}}
 
 	Pres_start  = 5.0        #[bar]
@@ -113,6 +114,19 @@ if __name__ == "__main__":
 
 	while now <= Time:
 		now = now+dt
+		OxidMass = OxidMass - MdotO*dt
+		PreFuelMass = PreFuelMass - PreMdotF*dt
+		MainFuelMass = MainFuelMass - MainMdotF*dt
+		if OxidMass < 0.0 :
+			print 'Oxid is empty'
+			break;
+		elif PreFuelMass < 0.0 :
+			print 'PreFuel is empty'
+			break;
+		elif MainFuelMass < 0.0 :
+			print 'MainFuel is empty'
+			break;
+
 		#Preburner{{{
 		PreDia,PreAdash,PreOF,PreMtot,PreMdotF,PreOxid,PreFuel = HREG.GrainGeometry(PreDia,PreAdash,MdotO,PreRhoF,PreLength,dt,"Pre")
 		if PreOF<100.0:
@@ -165,6 +179,8 @@ if __name__ == "__main__":
 			#FlightSimulation{{{
 			AtmosTemp,AtmosPres,AtmosDens = FP.AtmosphereCondition(Height)
 			CF = FP.ThrustCoefficient(Gamma,ExitPressure,Pres*0.1,AtmosPres)
+			print Gamma,ExitPressure,Pres*0.1,AtmosPres
+			print CF
 			F = FP.Thrust(CF,Pres*0.1,MainA_nozl)
 			TotalMass = FP.TotalMass(TotalMass,MdotO,PreMdotF+MainMdotF,dt)
 			CD = FP.DragCoefficient(Mach)

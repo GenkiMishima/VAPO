@@ -150,8 +150,8 @@ def MainVari(dire,MdotO):
 	Temp   = MainVari[:,2]
 	OF     = MainVari[:,3]
 	Mdot   = MainVari[:,4]
-	Isp    = MainVari[:,5]
-	Thrust = MainVari[:,6]
+	Gamma  = MainVari[:,5]
+	Mole   = MainVari[:,6]
 	
 	
 	#print Time[:20]
@@ -197,25 +197,45 @@ def MainVari(dire,MdotO):
 	plt.savefig(dire+"Mdot_Mdot%s.png"%float(MdotO))
 	plt.close()
 	
-	plt.plot(Time,Isp)
+	plt.plot(Time,Gamma)
 	plt.grid()
-	##plt.title('IspO:%s[kg/s]'%IspO)
+	##plt.title('MdotO:%s[kg/s]'%MdotO)
 	plt.legend(('LOx:%s[kg/s]'%float(MdotO),))
 	plt.xlabel('Time[s]')
-	plt.ylabel('Isp[kg/s]')
+	plt.ylabel('Mdot[kg/s]')
 	#plt.ylim([0,100])
-	plt.savefig(dire+"Isp_Isp%s.png"%float(MdotO))
+	plt.savefig(dire+"Gamma_Mdot%s.png"%float(MdotO))
 	plt.close()
 	
-	plt.plot(Time,Thrust)
+	plt.plot(Time,Mole)
 	plt.grid()
-	##plt.title('ThrustO:%s[kg/s]'%ThrustO)
+	##plt.title('MdotO:%s[kg/s]'%MdotO)
 	plt.legend(('LOx:%s[kg/s]'%float(MdotO),))
 	plt.xlabel('Time[s]')
-	plt.ylabel('Thrust[kg/s]')
+	plt.ylabel('Mdot[kg/s]')
 	#plt.ylim([0,100])
-	plt.savefig(dire+"Thrust_Thrust%s.png"%float(MdotO))
+	plt.savefig(dire+"Mole_Mdot%s.png"%float(MdotO))
 	plt.close()
+	
+	#plt.plot(Time,Isp)
+	#plt.grid()
+	###plt.title('IspO:%s[kg/s]'%IspO)
+	#plt.legend(('LOx:%s[kg/s]'%float(MdotO),))
+	#plt.xlabel('Time[s]')
+	#plt.ylabel('Isp[kg/s]')
+	##plt.ylim([0,100])
+	#plt.savefig(dire+"Isp_Isp%s.png"%float(MdotO))
+	#plt.close()
+	#
+	#plt.plot(Time,Thrust)
+	#plt.grid()
+	###plt.title('ThrustO:%s[kg/s]'%ThrustO)
+	#plt.legend(('LOx:%s[kg/s]'%float(MdotO),))
+	#plt.xlabel('Time[s]')
+	#plt.ylabel('Thrust[kg/s]')
+	##plt.ylim([0,100])
+	#plt.savefig(dire+"Thrust_Thrust%s.png"%float(MdotO))
+	#plt.close()
 	
 	#}}}
 	

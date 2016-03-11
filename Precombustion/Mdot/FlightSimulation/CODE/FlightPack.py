@@ -3,7 +3,7 @@ import subprocess as subcmd
 import re
 import scipy as sp
 import numpy as np
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 import math
 import sys
 import csv
@@ -29,7 +29,7 @@ class Pack:
 		return PreviousTotalMass - Mt
 
 	def Accelaration(self,Thrust,Angle,TotalMass,Drag):
-		ax = (Thrust*np.cos(Angle)-Drag*np.cox(Angle))/TotalMass
+		ax = (Thrust*np.cos(Angle)-Drag*np.cos(Angle))/TotalMass
 		ay = (Thrust*np.sin(Angle)-Drag*np.sin(Angle)-TotalMass*Gravity)/TotalMass
 		return ax,ay
 
@@ -72,35 +72,37 @@ class Pack:
 		elif 82345<=Hft:
 			T = -205.05+0.0164*Hft
 			P = 51.97*((T+459.7)/389.98)**(-11.388)
+		P = P*144.0
 		rho = P/(1718.0*(T+459.7))
 		#SI Unit[K,MPa,kg/m3]
 		T = 5.0/9.0*(T-32)+273.15
-		P = P/(4.7880258889*10.0**(-5))
+		#P = P/(4.7880258889*10.0**(-5))
+		P = P/6894.75729
 		rho = 0.0019403203319541*rho
 		return T,P,rho
 
 ##############Tutorial############################################
-#if __name__ == "__main__":
-#	import FlightPack
-#	FP = FlightPack.Pack()
-#	Mach = 1.5
-#	CD = FP.DragCoefficient(Mach)
-#	print CD
-#	Ta,Pa,rhoa = FP.AtmospherePressure(0.0)#[km]->[K,MPa,kg/m3]
-#	Pe = Pa
-#	P0 = 500.0
-#	ArrayCF = np.array([])
-#	ArrayAr = np.array([])
-#	for i in range(1,100):
-#		f = float(i)*0.1
-#		#Ta,Pa,rhoa = FP.AtmospherePressure(f)#[km]->[K,MPa,kg/m3]
-#		CF = FP.ThrustCoefficient(1.3,f*Pa,P0*Pa,Pa)
-#		#print f,Pa,CF
-#		ArrayCF = np.append(ArrayCF,CF)
-#		ArrayAr = np.append(ArrayAr,f)
-#	plt.plot(ArrayAr,ArrayCF)
-#	plt.xlabel('Pa/Pe')
-#	plt.ylabel('CF')
-#	plt.grid()
-#	plt.show()
+if __name__ == "__main__":
+	import FlightPack
+	FP = FlightPack.Pack()
+	Mach = 1.5
+	CD = FP.DragCoefficient(Mach)
+	Ta,Pa,rhoa = FP.AtmosphereCondition(0.0)#[km]->[K,MPa,kg/m3]
+	Pe = Pa
+	print Pe,Ta,rhoa
+	P0 = 500.0
+	ArrayCF = np.array([])
+	ArrayAr = np.array([])
+	#for i in range(1,100):
+	#	f = float(i)*0.1
+	#	#Ta,Pa,rhoa = FP.AtmospherePressure(f)#[km]->[K,MPa,kg/m3]
+	#	CF = FP.ThrustCoefficient(1.3,f*Pa,P0*Pa,Pa)
+	#	print 1.3,f*Pa,P0*Pa,Pa
+	#	ArrayCF = np.append(ArrayCF,CF)
+	#	ArrayAr = np.append(ArrayAr,f)
+	#plt.plot(ArrayAr,ArrayCF)
+	#plt.xlabel('Pa/Pe')
+	#plt.ylabel('CF')
+	#plt.grid()
+	#plt.show()
 #
