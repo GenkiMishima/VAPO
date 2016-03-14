@@ -23,19 +23,24 @@ if __name__ == "__main__":
 	Maininfile = '../CALC/CEAdata/Main/'
 	PreOutfile  = '../OUT/DATA/Pre/'
 	MainOutfile = '../OUT/DATA/Main/'
+	FlightOutfile = '../OUT/DATA/Flight/'
 
 	PreOutVari = open(PreOutfile+'Variable.d','w')
 	PreOutFrac = open(PreOutfile+'Fraction.d','w')
 	MainOutVari = open(MainOutfile+'Variable.d','w')
 	MainOutFrac = open(MainOutfile+'Fraction.d','w')
+	FlightOutVari = open(FlightOutfile+'Flight.d','w')
 	PreOutVari.write('Time[s]'+','+'Pres[MPa]'+','+'Temp[K]'+','+'OF[-]'+','+'PreMtot[kg/s]'+','+'Gamma[-]'+','+'Mole[-]\n')
 	PreOutFrac.write('CH4'+','+ 'CO2'+','+ 'CO'+','+ 'H'+','+ 'H2'+','+ 'H2O'+','+ 'O'+','+ 'O2'+','+'OH\n'  )
 	MainOutVari.write( 'Time[s]'+','+'Pres[MPa]'+','+'Temp[K]'+','+'OF[-]'+','+'MainMtot[kg/s]'+','+'Gamma[-]'+','+'Mole[-]\n')
 	MainOutFrac.write( 'CH4'+','+ 'CO2'+','+ 'CO'+','+ 'H'+','+ 'H2'+','+ 'H2O'+','+ 'O'+','+ 'O2'+','+'OH\n'  )
+	FlightOutVari.write( 'CF'+'Thrust[N]'+'TotalMass[kg]'+'CD'+'Drag[N]'+'AccelX[m/s2]'+'AccelY[m/s2]'+'VeloX[m/s]'+'VeloY[m/s]'+'Velo[m/s]'+'Distance[m]'+'Height[m]'+'Angle[rad]\n')
+	#print CF,F,TotalMass,CD,Drag,AccelX,AccelY,VeloX,VeloY,Velo,Distance,Height,Angle
 	csvPreVari  = csv.writer(PreOutVari)
 	csvPreFrac  = csv.writer(PreOutFrac)
 	csvMainVari = csv.writer(MainOutVari)
 	csvMainFrac = csv.writer(MainOutFrac)
+	csvFlightVari = csv.writer(FlightOutVari)
 	#}}}
 	
 	Time = 36.50*2.0            #[s]
@@ -84,7 +89,7 @@ if __name__ == "__main__":
 	Distance = 0.0        #[m]
 	Angle = 90.0              
 	Angle = Angle * math.pi/180.0 #[rad]
-	TotalMass = 70.5     #[kg]
+	TotalMass = 40.5     #[kg]
 	OxidMass = 18.9      #[kg]
 	PreFuelMass = 12.4      #[kg]
 	MainFuelMass = 0.378      #[kg]
@@ -138,7 +143,7 @@ if __name__ == "__main__":
 				PreMdot_th =  (Pres)*10**5* (PreA_nozl)* (Gamma)*((2.0/( (Gamma)+1.0))**(( (Gamma)+1.0)/( (Gamma)-1.0)))**(1.0/2.0)/( (Gamma)*8314.3/ (Mole)* (Temp))**(1.0/2.0)
 				PreResi = abs(PreMtot/PreMdot_th-1.0)
 				if (PreMtot/PreMdot_th-1.0)<0.0:
-					print 'PreChamber',now,Pres,PreOF,Temp,PreMdot_th,PreDia
+					print 'PreChamber',now,Pres,PreOF,Temp,PreMdot_th,PreDia,PreMdotF
 					break;
 				PreEp = PreResi
 
@@ -163,7 +168,7 @@ if __name__ == "__main__":
 				MainMdot_th =  (Pres)*10**5* (MainA_nozl)* (Gamma)*((2.0/( (Gamma)+1.0))**(( (Gamma)+1.0)/( (Gamma)-1.0)))**(1.0/2.0)/( (Gamma)*8314.3/ (Mole)* (Temp))**(1.0/2.0)
 				PreResi = abs(MainMtot/MainMdot_th-1.0)
 				if (MainMtot/MainMdot_th-1.0)<0.0:
-					print 'MainChamber',now,Pres,MainOF,Temp,MainMdot_th,MainDia
+					print 'MainChamber',now,Pres,MainOF,Temp,MainMdot_th,MainDia,MainMdotF
 					break;
 				PreEp = PreResi
 	
@@ -179,8 +184,6 @@ if __name__ == "__main__":
 			#FlightSimulation{{{
 			AtmosTemp,AtmosPres,AtmosDens = FP.AtmosphereCondition(Height)
 			CF = FP.ThrustCoefficient(Gamma,ExitPressure,Pres*0.1,AtmosPres)
-			print Gamma,ExitPressure,Pres*0.1,AtmosPres
-			print CF
 			F = FP.Thrust(CF,Pres*0.1,MainA_nozl)
 			TotalMass = FP.TotalMass(TotalMass,MdotO,PreMdotF+MainMdotF,dt)
 			CD = FP.DragCoefficient(Mach)
@@ -190,5 +193,7 @@ if __name__ == "__main__":
 			Distance = FP.HorizontalDistance(Distance,VeloX,AccelX,dt)
 			Height = FP.Height(Height,VeloY,AccelY,dt)
 			Angle = FP.Angle(VeloX,VeloY)
-			print CF,F,TotalMass,CD,Drag,AccelX,AccelY,VeloX,VeloY,Velo,Distance,Height,Angle
+			#print CF,F,TotalMass,CD,Drag,AccelX,AccelY,VeloX,VeloY,Velo,Distance,Height,Angle
+			FlightVari = np.array([CF,F,TotalMass,CD,Drag,AccelX,AccelY,VeloX,VeloY,Velo,Distance,Height,Angle])
+			csvFlightVari.writerow(FlightVari)
 			#}}}
