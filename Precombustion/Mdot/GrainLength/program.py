@@ -10,12 +10,12 @@ import math
 #Time:s
 
 Time = 36.0            #[s]
-dt = 0.1                #[s]
+dt = 0.01                #[s]
 now = 0.0               #[s]
-PhiInit = 100.0*10**(-3.0) #[m]
+PhiInit =0.040 #[m]
 Dia = PhiInit
-MdotO = 10.0           #[kg/s]
-Length = 50.0*10**(-3.0)  #[m] Initial
+MdotO = 0.686           #[kg/s]
+Length = 10.0*10**(-3.0)  #[m] Initial
 border = (Dia/4)/Length
 RhoF = 1.18*10**3.0
 PreA = Dia**2.0*math.pi/4.0
