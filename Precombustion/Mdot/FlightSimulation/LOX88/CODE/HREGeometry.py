@@ -19,7 +19,7 @@ class Pack:
 		func = (1-border)*Prerdot_Mid+border*Prerdot_Bot
 		return (func)
 	def MainPMMARR(self,G):
-		func = 0.0345*G**(0.778)*10.0**-3
+		func = 0.14*G**(0.16)*10.0**-3
 		return (func)
 	def GrainGeometry(self,Diameter,PreCrossSectionArea,MdotO,PreRhoF,Length,dt,RRName):
 		import HREGeometry
@@ -55,18 +55,13 @@ class Pack:
 		fl.write('end')
 		fl.close()
 		subcmd.call('./PreGo.sh')
-	def MainCEACalc(self,Pressure,Diameter_ratio,OF,Oxid,Fuel,Temp):
+	def MainCEACalc(self,Pressure,Diameter_ratio,OF):
 		fl = open('../CALC/CEAdata/MainData.inp','w')
 		fl.write('prob rocket fac p,bar=%s,'%Pressure)
 		fl.write('ac/at=%s,\n'%Diameter_ratio)
 		fl.write('o/f=%s, pi/pe=1, eq\n'%OF)
 		fl.write('react\n')
-		fl.write('	oxid=O2  wt=%s'%Oxid)
-		fl.write('	t,k=%s\n'%Temp)
-		fl.write('	oxid=H2O wt=%s'%(Fuel*3.0/5.0))
-		fl.write('	t,k=%s\n'%Temp)
-		fl.write('	oxid=CO2 wt=%s'%(Fuel*2.0/5.0))
-		fl.write('	t,k=%s\n'%Temp)
+		fl.write('	oxid=O2(L) wt=100\n')
 		fl.write('	fuel=PMMA  wt=100 t,k=293.15\n')
 		fl.write('	h,kj/mol=-442.14  C 5 H 8 O 2\n')
 		#fl.write('	fuel=PP  wt=100 t,k=293.15\n')

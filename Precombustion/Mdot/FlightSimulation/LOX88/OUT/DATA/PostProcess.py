@@ -345,10 +345,10 @@ if __name__ == "__main__":
 	MdotO = Spec.read()
 	Spec.close()
 	
-	dire = 'Pre/'
-	PreTime = PreVari(dire,MdotO)
-	PreFrac(dire,MdotO,PreTime)
-	print 'Pre'
+	#dire = 'Pre/'
+	#PreTime = PreVari(dire,MdotO)
+	#PreFrac(dire,MdotO,PreTime)
+	#print 'Pre'
 
 	dire = 'Main/'
 	MainTime = MainVari(dire,MdotO)

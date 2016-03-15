@@ -107,7 +107,7 @@ if __name__ == "__main__":
 	tmp0,ExitPressure,tmp1 = FP.AtmosphereCondition(Height)
 	#}}}
 
-	Pres_start  = 20.0        #[bar]
+	Pres_start  = 1.0        #[bar]
 	Pres_step   = 0.5       #[bar]
 	Pres_end    = 80.0      #[bar]
 	Pres_count  = int((Pres_end-Pres_start)/Pres_step)
@@ -163,7 +163,7 @@ if __name__ == "__main__":
 		MainFuelMass = MainFuelMass - MainMdotF*dt
 		MainDia,MainAdash,MainOF,MainMtot,MainMdotF,MainOxid,MainFuel = HREG.GrainGeometry(MainDia,MainAdash,MdotO,MainRhoF,MainLength,dt,"Main")
 		print MainOF
-		if MainOF<10.0:
+		if MainOF<100.0:
 			MainEp = 100000000.0
 			for j in range(1,Pres_count):
 				if OxidMass < 0.0 :
@@ -175,7 +175,7 @@ if __name__ == "__main__":
 					MainMdotF = 0.0
 					break;
 				P = Pres_start+float(j)*Pres_step
-				HREG.MainCEACalc(P,MainDia_ratio,MainOF,PreOxid,PreFuel,Temp)
+				HREG.MainCEACalc(P,MainDia_ratio,MainOF)
 				Pres,Temp,Gamma,Mole,Isp = ReadClass.Read4(Maininfile)
 				MainMdot_th =  (Pres)*10**5* (MainA_nozl)* (Gamma)*((2.0/( (Gamma)+1.0))**(( (Gamma)+1.0)/( (Gamma)-1.0)))**(1.0/2.0)/( (Gamma)*8314.3/ (Mole)* (Temp))**(1.0/2.0)
 				PreResi = abs(MainMtot/MainMdot_th-1.0)
