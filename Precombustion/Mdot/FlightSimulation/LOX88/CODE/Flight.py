@@ -123,6 +123,7 @@ if __name__ == "__main__":
 
 	#while now <= Time:
 	while Height >= 0.0:
+		print Height
 		now = now+dt
 		OxidMass = OxidMass - MdotO*dt
 
@@ -162,7 +163,7 @@ if __name__ == "__main__":
 		#MainChamber{{{
 		MainFuelMass = MainFuelMass - MainMdotF*dt
 		MainDia,MainAdash,MainOF,MainMtot,MainMdotF,MainOxid,MainFuel = HREG.GrainGeometry(MainDia,MainAdash,MdotO,MainRhoF,MainLength,dt,"Main")
-		print MainOF
+		#print MainOF
 		if MainOF<100.0:
 			MainEp = 100000000.0
 			for j in range(1,Pres_count):
