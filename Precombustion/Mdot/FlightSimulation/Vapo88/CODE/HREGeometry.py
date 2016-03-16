@@ -19,7 +19,8 @@ class Pack:
 		func = (1-border)*Prerdot_Mid+border*Prerdot_Bot
 		return (func)
 	def MainPMMARR(self,G):
-		func = 0.0345*G**(0.778)*10.0**-3
+		#func = 0.0345*G**(0.778)*10.0**-3
+		func = 0.14*G**(0.32)*10.0**-3
 		return (func)
 	def GrainGeometry(self,Diameter,PreCrossSectionArea,MdotO,PreRhoF,Length,dt,RRName):
 		import HREGeometry
